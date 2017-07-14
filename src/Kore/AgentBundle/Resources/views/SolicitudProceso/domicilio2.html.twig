@@ -1,0 +1,162 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'solicitud.index.title'|trans }}{% endblock %}
+
+{% block body %}
+
+    <div id="page-wrapper">
+
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'solicitud.index.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-wizard">
+            <div class="col-md-12">
+                <div class="row bs-wizard">
+                    <div class="col-xs-3 bs-wizard-step complete">
+                        <div class="text-center bs-wizard-stepnum">Paso 1</div>
+                        <div class="progress"><div class="progress-bar"></div></div>
+                        <a href="{{ path('agent_solicitudproceso_personabuscar') }}" class="bs-wizard-dot"></a>
+                        <div class="bs-wizard-info text-center">Buscar persona</div>
+                    </div>
+
+                    <div class="col-xs-3 bs-wizard-step complete">
+                        <div class="text-center bs-wizard-stepnum">Paso 2</div>
+                        <div class="progress"><div class="progress-bar"></div></div>
+                        <a href="{{ path('agent_solicitudproceso_personaexistente', { 'persona': persona.id }) }}" class="bs-wizard-dot"></a>
+                        <div class="bs-wizard-info text-center">Ingresar información personal</div>
+                    </div>
+
+                    <div class="col-xs-3 bs-wizard-step active">
+                        <div class="text-center bs-wizard-stepnum">Paso 3</div>
+                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="bs-wizard-dot"></div>
+                        <div class="bs-wizard-info text-center">Ingresar domicilio</div>
+                    </div>
+
+                    <div class="col-xs-3 bs-wizard-step disabled">
+                        <div class="text-center bs-wizard-stepnum">Paso 4</div>
+                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="bs-wizard-dot"></div>
+                        <div class="bs-wizard-info text-center">Confirmación de solicitud</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-wizard -->
+
+        <div class="row" id="page-list">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.proceso.domicilio.list'|trans }}</h2>
+                    </div>
+                    <table class="table table-responsive table-roles">
+                        <thead>
+                            <tr>
+                                <th>{{ 'domicilio.form.calle'|trans }}</th>
+                                <th>{{ 'domicilio.form.numero'|trans }}</th>
+                                <th>{{ 'domicilio.form.fecha'|trans }}</th>
+                                <th>{{ 'domicilio.form.tiempo'|trans }}</th>
+                                <th>{{ 'domicilio.form.rol'|trans }}</th>
+                                <th>{{ 'domicilio.form.seleccionar'|trans }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for domicilio in domicilios %}
+                            <tr>
+                                <td>{{ domicilio.calle }}</td>
+                                <td>{{ domicilio.numero }}</td>
+                                <td>{{ domicilio.createdAt|date("m/d/Y") }}</td>
+                                <td>{{ domicilio.createdAt|ago }}</td>
+                                <td>{{ domicilio.rol }}</td>
+                                <td><button type="button" class="btn btn-success btn-block btn-md">Seleccionar</button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="page-form">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.proceso.domicilio.form'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_start(domicilioForm, { 'style': 'horizontal' }) }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ form_row(domicilioForm.calle) }}
+                                    {{ form_row(domicilioForm.numero) }}
+                                    {{ form_row(domicilioForm.poblacion) }}
+                                    {{ form_row(domicilioForm.edificio) }}
+                                    {{ form_row(domicilioForm.departamento) }}
+                                    {{ form_row(domicilioForm.casa) }}
+{#}
+                                </div>
+                                <div class="col-md-6">
+{#}
+                                    {{ form_row(domicilioForm.chacra) }}
+                                    {{ form_row(domicilioForm.parcela) }}
+                                    {{ form_row(domicilioForm.paradero) }}
+                                    {{ form_row(domicilioForm.sector) }}
+                                    {{ form_row(domicilioForm.unidad) }}
+                                    {{ form_row(domicilioForm.rol) }}
+                                    {{ form_row(domicilioForm.rolid) }}
+                                </div>
+{#}
+                            </div>
+                            <hr>
+                            <div class="row">
+{#}
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" id="kore_agentbundle_domicilio_buscar">{{ icon('search fa-fw') }}&nbsp;{{ 'solicitud.proceso.domicilio.search'|trans }}</button>
+                                    <table class="table table-responsive table-roles table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>{{ 'domicilio.form.rolid'|trans }}</th>
+                                                <th>{{ 'domicilio.form.rol'|trans }}</th>
+                                                <th>{{ 'domicilio.form.seleccionar'|trans }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="kore_agentbundle_domicilio_tablaroles"></tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+{#}
+                                    <button type="submit" class="btn btn-primary">{{ icon('save') }}&nbsp;{{ 'solicitud.proceso.domicilio.submit'|trans }}</button>
+{#}
+                        {{ form_end(domicilioForm, {'render_rest': false}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-form -->
+
+    </div>
+
+{% endblock %}
+
+{% block stylesheet %}
+    <link href="{{ asset('bundles/koreagent/css/bs-wizard.css') }}" type="text/css" rel="stylesheet" />
+    <style type="text/css"></style>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset('bundles/koreagent/js/domicilio.js') }}"></script>
+{% endblock %}

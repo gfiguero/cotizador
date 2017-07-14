@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One:100,300,400,600|Cinzel|Satisfy');
+#home {
+  min-height: 100vh;
+  font-weight: bolder;
+  background-image: url(../../../images/index/bg-home.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+#home .header-content {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+@media (min-width: 481px) {
+  #home .header-content {
+    padding-top: 300px;
+    padding-bottom: 300px;
+  }
+}
+@media (min-width: 769px) {
+  #home .header-content {
+    padding-top: 350px;
+    padding-bottom: 350px;
+  }
+}
+#home .header-content p {
+  font-size: 2em;
+  text-shadow: 0 2px 4px #000;
+}
+#home .header-content p a.btn.btn-default {
+  color: white;
+  background-color: #980198;
+  padding: 10px 30px;
+  font-size: 1em;
+  border-radius: 0px;
+  border-color: #980198;
+  margin-top: 1em;
+  text-shadow: none;
+}
+#home .header-content p a.btn.btn-default:hover,
+#home .header-content p a.btn.btn-default:focus,
+#home .header-content p a.btn.btn-default:active {
+  background-color: purple;
+  border-color: purple;
+}
+#home .header-content h1 {
+  font-size: 4em;
+  text-shadow: 0 2px 4px #000;
+}
+#feature {
+  font-weight: bolder;
+  font-size: 1.2em;
+  color: #585f69;
+  text-align: center;
+  background-image: url(../../../images/service/bg-service.jpg);
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#feature span.outstanding {
+  color: #b23068;
+}
+#feature h2 {
+  font-weight: bolder;
+  margin-top: 0em;
+}
+#feature .overlay {
+  padding: 4em 0;
+  background: rgba(255, 255, 255, 0.85);
+}
+#contact {
+  color: white;
+  text-align: center;
+  background-image: url(../../../images/contact/bg-contact.jpg);
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#contact .overlay {
+  padding: 4em 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+#contact h1 {
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 3em;
+  margin-bottom: .5em;
+}
+#contact h2 {
+  font-family: 'Poiret One', sans-serif;
+  font-weight: 600;
+  font-size: 2em;
+}
+#contact p {
+  font-size: 22px;
+  text-shadow: 2px 2px 4px #000000;
+  margin-bottom: 2em;
+  font-weight: 600;
+}
+#contact a.info {
+  color: white;
+  text-decoration: none;
+}
+#contact .caption {
+  padding: 4em;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  margin-bottom: 2em;
+}
+@media (min-width: 769px) {
+  #contact .caption {
+    margin-bottom: 0;
+  }
+}
+#contact .caption p {
+  font-size: 1.5em;
+  color: #999999;
+}
+#contact .caption .fa {
+  color: #efe661;
+}
+#google-map .google-map #map {
+  height: 20em;
+}
+#brands {
+  background: linear-gradient(141deg, #a52f5b 0%, #b64e6e 51%, #a22d59 75%);
+  padding: 2em 0;
+}
+#about {
+  background: linear-gradient(141deg, #6c4677 0%, #827795 51%, #5e4f74 75%);
+  border-bottom: 5px solid #6ad06c;
+  padding: 4em 0;
+}
+#about h1 {
+  color: #fff;
+}
+#about p {
+  font-size: 1.2em;
+  color: white;
+}
+#about small {
+  font-size: 1em;
+  color: white;
+}
+#about blockquote {
+  border: none;
+}
+#about blockquote .small:before,
+#about blockquote footer:before,
+#about blockquote small:before {
+  content: none;
+}
+#about #cita {
+  margin-top: 2em;
+}
+@media (min-width: 769px) {
+  #about #cita {
+    margin-top: 6em;
+  }
+}
+#about #cita img {
+  box-shadow: -8px -4px 13px 0px rgba(50, 50, 50, 0.75);
+  margin: auto;
+  display: block;
+}
+@media (min-width: 769px) {
+  #about #cita img {
+    margin: inherit;
+  }
+}
+#footer {
+  font-weight: 600;
+  background-color: white;
+  padding: 80px 0 50px;
+  font-size: .9em;
+  border-top: 1px solid #ccc;
+  color: #1e1e1e;
+}
+#footer h4 {
+  font-weight: 600;
+}
+#footer .container .row ul {
+  text-align: center;
+  line-height: 2.3em;
+  padding: 0;
+  list-style-type: none;
+  font-size: 16px;
+}
+#footer .container .row ul li {
+  list-style: none;
+}
+#footer .container .row ul li a {
+  color: #1e1e1e;
+}
+#footer .container .row ul li a:hover,
+#footer .container .row ul li a:focus,
+#footer .container .row ul li a:active {
+  text-decoration: none;
+  color: #b23068;
+}
+#footer .container .row .copy-right {
+  margin-top: 2em;
+}
+@media (min-width: 769px) {
+  #footer .container .row .copy-right {
+    margin-top: 0;
+  }
+}
+#footer .container .row .copy-right img.desarrollador {
+  height: 40px;
+}
+.navbar-default {
+  background: #222;
+  border-color: transparent;
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    background: transparent;
+    border-color: transparent;
+    padding: 25px 0;
+    transition: padding .3s;
+  }
+}
+.navbar-default .navbar-collapse {
+  border-color: rgba(255, 255, 255, 0.02);
+}
+.navbar-default .navbar-nav > .active > a {
+  color: white;
+  background-color: #b23068;
+  border-radius: 3px;
+}
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:active {
+  color: white;
+  background-color: #b23068;
+  border-radius: 3px;
+}
+.navbar-default .navbar-nav > li > a {
+  font-size: 18px;
+  font-weight: bolder;
+  color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active {
+  color: gold;
+  background-color: transparent;
+}
+.navbar-default .navbar-brand {
+  font-family: 'Satisfy', sans-serif;
+  color: white;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active {
+  color: white;
+}
+@media (min-width: 768px) {
+  .navbar-default .navbar-brand {
+    font-family: 'Satisfy', sans-serif;
+    font-size: 2em;
+    color: white;
+    transition: all .3s;
+  }
+}
+.navbar-default .navbar-toggle {
+  background-color: #b23068;
+  border-color: #b23068;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:active {
+  background-color: #b23068;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+.affix {
+  background: #222;
+  border-color: transparent;
+  transition: .3s;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .affix {
+    padding: 10px 0;
+  }
+}
+@media (min-width: 768px) {
+  .affix .navbar-brand {
+    font-size: 1.5em;
+  }
+}

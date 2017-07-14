@@ -1,0 +1,24 @@
+agent_encuestador_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Encuestador:index" }
+    methods:  GET
+
+agent_encuestador_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:Encuestador:show" }
+    methods:  GET
+
+agent_encuestador_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:Encuestador:new" }
+    methods:  [GET, POST]
+
+agent_encuestador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:Encuestador:edit" }
+    methods:  [GET, POST]
+
+agent_encuestador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:Encuestador:delete" }
+    methods:  DELETE

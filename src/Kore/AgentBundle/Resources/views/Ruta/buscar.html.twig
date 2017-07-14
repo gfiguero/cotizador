@@ -1,0 +1,43 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'ruta.buscar.title'|trans }}{% endblock %}
+
+{% block body %}
+
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'ruta.buscar.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-buscar">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'ruta.buscar.form'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_start(buscarForm, { 'style': 'horizontal' }) }}
+                            {{ form_widget(buscarForm) }}
+                                <div class="form-group"><div class="col-lg-offset-4 col-lg-8">
+                                    <button type="submit" class="btn btn-primary">{{ icon('search fa-fw') }}&nbsp;{{ 'ruta.buscar.submit'|trans }}</button>
+                                </div></div>
+                        {{ form_end(buscarForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-buscar -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}

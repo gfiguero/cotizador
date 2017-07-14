@@ -1,0 +1,24 @@
+agent_domicilio_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Domicilio:index" }
+    methods:  GET
+
+agent_domicilio_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:Domicilio:show" }
+    methods:  GET
+
+agent_domicilio_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:Domicilio:new" }
+    methods:  [GET, POST]
+
+agent_domicilio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:Domicilio:edit" }
+    methods:  [GET, POST]
+
+agent_domicilio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:Domicilio:delete" }
+    methods:  DELETE

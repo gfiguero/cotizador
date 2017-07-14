@@ -1,0 +1,18 @@
+{% block navbar %}
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle sidebar-toggle" data-toggle="collapse" data-target="#topbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="{{ path('front_index') }}">Belleza Estilo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="topbar">
+                {{ knp_menu_render('KoreFrontBundle:Builder:topMenu') }}
+            </div>
+        </div>   
+    </nav>
+{% endblock %}

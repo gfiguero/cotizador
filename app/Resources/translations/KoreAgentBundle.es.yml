@@ -1,0 +1,273 @@
+topmenu:
+    solicitud: Nueva Solicitud
+    ruta: Nueva Ruta
+    logout: Salir
+
+sidemenu:
+    solicitud: 
+        root: Solicitudes
+        indexnull: Sin ruta
+        indexR00: En ruta nueva
+        indexR05: En ruta enviada
+        proceso: Ingresar nueva
+        show: Ver solicitudes
+    ruta:
+        root: Rutas
+        indexR00: Nuevas
+        indexR05: Enviadas
+        indexR10: Terminadas
+        new: Crear nueva
+        buscar: Ver ruta
+    encuestador:
+        root: Encuestadores
+    persona:
+        root: Personas
+        buscar: Buscar
+
+solicitud:
+    index:
+        nul: Sin ruta
+        R00: En ruta nueva
+        R05: En ruta enviada
+        title: Solicitudes
+        list: Lista de solicitudes
+    proceso:
+        personabuscar:
+            form: Formulario de búsqueda de personas
+            submit: Buscar persona
+        persona:
+            form: Formulario de edición de datos personales
+            data: Datos personales registrados
+            submit: Confirmar datos. Siguiente paso
+        domicilio:
+            list: Lista de domicilios registrados
+            buscarform: Buscador de roles
+            buscar: Buscar Rol
+            form: Formulario de registro de domicilio
+            submit: Agregar domicilio
+            data: Datos de domicilio registrados
+            vacio: Esta persona no presenta domicilios registrados
+        solicitudespersona:
+            list: Otras solicitudes registradas por esta persona
+            vacio: Esta persona no presenta otras solicitudes registradas
+        solicitudesdomicilio:
+            list: Otras solicitudes registradas para este domicilio
+            vacio: Este domicilio no presenta otras solicitudes registradas
+        solicitud:
+            form: Formulario de registro de solicitud
+            submit: Confirmar solicitud
+    show:
+        title: Solicitud N° %id%
+        data: Datos de solicitud registrados
+        link: Volver
+    form:
+        id: ID
+        estado: Estado
+        ruta: Ruta
+        nota: Nota
+        folio: Folio
+        persona: Persona
+        rut: Rut
+        telefono: Teléfono
+        tipo: Tipo
+        domicilio: Domicilio
+        direccion: Dirección
+        rol: Rol
+        unidadvecinal: Unidad Vecinal
+        tiempo: Tiempo
+        created_at: Registro
+        updated_at: Actualización
+        placeholder:
+            tipo: Seleccione tipo de solicitud
+            estado: Seleccione estado de solicitud
+    new:
+        title: Proceso de ingreso de solicitudes
+        link: Ingresar nueva solicitud
+    edit:
+        title: Edición de solicitud
+        link: Editar Solicitud
+        submit: Guardar cambios
+        flash: Los cambios en solicitud fueron almacenados exitosamente.
+    delete:
+        link: Borrar Solicitud
+        title: Borrado de solicitud
+        message: La solicitud será borrada. La información no podrá ser recuperada.
+        submit: Confirmar borrado
+        flash: La solicitud ha sido borrada.
+    buscar:
+        title: Solicitudes
+        form: Buscar solicitud
+        submit: Buscar
+        list: Últimas solicitudes ingresadas
+        flash: El ID de solicitud ingresado no existe.
+
+resumen:
+    index:
+        title: Resumen General
+    counters:
+        solicitudes:
+            title: Solicitudes
+            totales: Totales
+            370: Últimos 12 meses
+            190: Últimos 6 meses
+            rutanull: Sin ruta
+            rutanueva: En ruta nueva
+            rutaenviada: En ruta enviada
+            rutaterminada: En ruta terminada
+        rutas:
+            title: Rutas
+            totales: Totales
+            nueva: Nuevas
+            enviada: Enviadas
+            terminada: Terminadas
+        domicilios:
+            title: Domicilios
+            sinrol: Sin Rol
+            enrolados: Con Rol
+            roles: Roles únicos
+        personas:
+            title: Personas
+            totales: Totales
+
+domicilio:
+    edit:
+        link: Editar datos
+    show:
+        title: Información de domicilio
+        data: Datos del domicilio
+        solicitud:
+            list: Lista de solicitudes registradas para este domicilio
+            vacio: El domicilio no presenta solicitudes registradas
+        domicilio:
+            list: Lista de otros domicilios registrados con el mismo rol
+            vacio: No se encontraron otros domicilios registrados con el mismo rol
+    form:
+        id: ID
+        direccion: Dirección
+        unidadvecinal: Unidad Vecinal
+        rol: Rol
+        persona: Persona
+        buscar: Buscar
+        seleccionar: Seleccionar
+        created_at: Registro
+        updated_at: Actualización
+
+ruta:
+    index:
+        title: Rutas
+        list: Lista de rutas
+        R00: Nuevas
+        R05: Asignadas
+        R10: Terminadas
+        r00:
+            link: Lista de rutas nuevas
+        r05:
+            link: Lista de rutas asignadas
+    new:
+        title: Creación de Nueva Ruta
+        form: Formulario de creación de ruta
+        submit: Registrar ruta
+        link: Crear Nueva Ruta
+        flash: La ruta fué registrada satisfactoriamente
+    edit:
+        title: Rutas
+        link: Editar Ruta
+        submit: Guardar cambios
+        form: Formulario de edición de ruta
+        flash: Los cambios en ruta fueron registrados satisfactoriamente
+    show:
+        title: Ruta N° %id%
+        data: Datos de ruta
+    form:
+        id: ID
+        created_at: Registro
+        updated_at: Actualización
+        encuestador: Encuestador
+        estado: Estado
+        solicitudes: Solicitudes
+        placeholder:
+            encuestador: Seleccione un encuestador
+    delete:
+        link: Borrar ruta
+        title: Borrado de ruta
+        message: La ruta será borrada completamente pero sus solicitudes permanecerán, sin embargo dichas solicitudes quedarán sin una ruta asignada.
+        submit: Confirmar
+        flash: La ruta ha sido borrada.
+    receipt:
+        title: Rutas
+        link: Recepcionar Ruta
+        form: Formulario de recepción de ruta
+        submit: Confirmar recepción
+    buscar:
+        title: Rutas
+        form: Buscar una ruta
+        submit: Buscar
+
+encuestador:
+    form:
+        id: ID
+        rut: Rut
+        nombre: Nombre
+        apellido: Apellido
+        email: Email
+        celular: Celular
+        created_at: Registro
+        updated_at: Actualización
+    index:
+        title: Encuestadores
+        list: Lista de encuestadores
+        link: Volver a la lista
+    new:
+        title: Encuestadores
+        link: Nuevo encuestador
+        form: Formulario de registro de encuestador
+        submit: Registrar encuestador
+        flash: Nuevo encuestador registrado.
+    show:
+        title: Encuestadores
+        link: Mostrar datos
+        data: Datos de encuestador
+    edit:
+        title: Encuestadores
+        link: Editar datos
+        form: Formulario de edición de encuestador
+        submit: Guardar cambios
+        flash: Los cambios en el encuestador fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar encuestador
+        title: Borrado de encuestador
+        message: Los datos no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El encuestador fué borrado.
+
+persona:
+    form:
+        id: ID
+        rut: RUT
+        primernombre: Primer nombre
+        segundonombre: Segundo nombre
+        primerapellido: Primer apellido
+        segundoapellido: Segundo apellido
+        nombrecompleto: Nombre completo
+        email: Email
+        celular: Celular
+        telefono: Teléfono
+        created_at: Registro
+        updated_at: Actualización
+    show:
+        title: Personas
+        data: Datos de persona registrados
+        domicilio:
+            list: Lista de domicilios registrados
+        solicitud:
+            list: Lista de solicitudes registradas
+    edit:
+        link: Editar datos
+        title: Personas
+        form: Formulario de edición de datos personales
+        submit: Guardar cambios
+        flash: Los cambios en la información personal se realizaron exitosamente
+    buscar:
+        title: Personas
+        form: Formulario de búsqueda de personas
+        submit: Buscar

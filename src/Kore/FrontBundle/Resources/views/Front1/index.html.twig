@@ -1,0 +1,78 @@
+{% extends 'KoreFrontBundle:Front:base.html.twig' %}
+{% use 'KoreFrontBundle:Front:navbar.html.twig' %}
+{% use 'KoreFrontBundle:Front:header.html.twig' %}
+{% use 'KoreFrontBundle:Front:about.html.twig' %}
+{% use 'KoreFrontBundle:Front:service.html.twig' %}
+{% use 'KoreFrontBundle:Front:brands.html.twig' %}
+{% use 'KoreFrontBundle:Front:contact.html.twig' %}
+{% use 'KoreFrontBundle:Front:footer.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% block navbar %}{{ parent() }}{% endblock %}
+    {% block header %}{{ parent() }}{% endblock %}
+    {% block about %}{{ parent() }}{% endblock %}
+    {% block service %}{{ parent() }}{% endblock %}
+    {% block contact %}{{ parent() }}{% endblock %}
+    {% block footer %}{{ parent() }}{% endblock %}
+    {% block brands %}{{ parent() }}{% endblock %}
+{#}
+{#}
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        //Slick
+        $('.brands').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            arrows: false,
+            autoplaySpeed: 2000,
+            responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            ]
+        });
+
+        function initMap() {
+            var myLatLng = {lat: -32.4501874, lng: -71.2418708};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                scrollwheel: false,
+                draggable: false,
+                center: myLatLng
+            });
+
+            var contentString = 
+                '<div id="content">'+
+                    '<div id="siteNotice">'+
+                    '</div>'+
+                    '<h1 id="firstHeading" class="firstHeading">Tienda Belleza Estilo</h1>'+
+                    '<div id="bodyContent">'+
+                        '<p><b>Belleza Estilo</b>, fusce suscipit enim non sapien convallis, ac scelerisque magna porttitor. Suspendisse potenti. Aliquam ex magna, bibendum id facilisis id, laoreet a ligula. Nullam ornare dictum tortor, ac convallis velit rhoncus congue. Pellentesque purus nisl, commodo sed aliquet quis, eleifend id quam. Nunc ultricies risus massa, in porttitor massa pretium a.'+
+                        '<p>Página web: <a href="https://www.bellezaestilo.cl">'+
+                        'www.bellezaestilo.cl</a> '+
+                    '</div>'+
+                '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Tienda Belleza Estilo'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+{% endblock %}

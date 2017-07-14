@@ -1,0 +1,71 @@
+Kore\AdminBundle\Entity\Persona:
+    type: entity
+    table: Persona
+    repositoryClass: Kore\AdminBundle\Entity\PersonaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        acciones:
+            targetEntity: Kore\AdminBundle\Entity\PersonaAccion
+            mappedBy: persona
+        domicilios:
+            targetEntity: Kore\AdminBundle\Entity\Domicilio
+            mappedBy: persona
+        solicitudes:
+            targetEntity: Kore\AdminBundle\Entity\Solicitud
+            mappedBy: persona
+    fields:
+        rut:
+            type: string
+            length: 20
+            unique: true
+        primernombre:
+            type: string
+            length: 100
+            nullable: true
+        segundonombre:
+            type: string
+            length: 100
+            nullable: true
+        primerapellido:
+            type: string
+            length: 100
+            nullable: true
+        segundoapellido:
+            type: string
+            length: 100
+            nullable: true
+        email:
+            type: string
+            length: 100
+            nullable: true
+        celular:
+            type: string
+            length: 20
+            nullable: true
+        telefono:
+            type: string
+            length: 20
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

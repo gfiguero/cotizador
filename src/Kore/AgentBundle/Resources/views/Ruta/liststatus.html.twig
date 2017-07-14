@@ -1,0 +1,33 @@
+{% block list %}
+    {% trans_default_domain 'KoreAgentBundle' %}
+    <div class="form-group">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="records_list table table-hover table-bordered table-middle">
+                    <thead>
+                        <tr>
+                            <th>{{ 'solicitud.form.estado'|trans }}</th>
+                            <th>{{ 'solicitud.form.domicilio'|trans }}</th>
+                            <th>{{ 'solicitud.form.persona'|trans }}</th>
+                            <th>{{ 'solicitud.form.tipo'|trans }}</th>
+                            <th>{{ 'solicitud.form.nota'|trans }}</th>
+                            <th>{{ 'solicitud.form.folio'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for solicitud in form.solicitudes %}
+                        <tr>
+                            <td>{{ form_widget(solicitud.estado) }}</td>
+                            <td>{{ solicitud.vars.value.domicilio }}</td>
+                            <td>{{ solicitud.vars.value.persona }}</td>
+                            <td>{{ form_widget(solicitud.tipo) }}</td>
+                            <td>{{ form_widget(solicitud.nota) }}</td>
+                            <td>{{ form_widget(solicitud.folio) }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

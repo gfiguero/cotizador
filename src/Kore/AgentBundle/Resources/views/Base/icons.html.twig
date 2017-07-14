@@ -1,0 +1,9 @@
+{% block icons %}
+    {% if app.request.attributes.get( '_route' ) starts with 'main' %}{{ icon('home fa-fw') }}
+    {% elseif '_solicitud_' in app.request.attributes.get( '_route' ) %}{{ icon('file-text fa-fw') }}
+    {% elseif '_solicitudproceso_' in app.request.attributes.get( '_route' ) %}{{ icon('gears fa-fw') }}
+    {% elseif '_ruta_' in app.request.attributes.get( '_route' ) %}{{ icon('road fa-fw') }}
+    {% elseif '_persona_' in app.request.attributes.get( '_route' ) %}{{ icon('user fa-fw') }}
+    {% elseif '_encuestador_' in app.request.attributes.get( '_route' ) %}{{ icon('id-card fa-fw') }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+front_index:
+    path: /
+    defaults: { _controller: KoreFrontBundle:Front:index }
+
+front_product:
+    path: /product
+    defaults: { _controller: KoreFrontBundle:Front:product }
+

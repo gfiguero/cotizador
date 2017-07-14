@@ -1,0 +1,43 @@
+HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
+setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
+
+HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX web/uploads web/media
+setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX web/uploads web/media
+
+php app/console generate:bundle --namespace Kore/AdminGeneratorBundle --dir src --bundle-name KoreAdminGeneratorBundle --format yml --shared --no-interaction
+php app/console generate:bundle --namespace Kore/AdminBundle --dir src --bundle-name KoreAdminBundle --format yml --shared --no-interaction
+php app/console generate:bundle --namespace Kore/AgentBundle --dir src --bundle-name KoreAgentBundle --format yml --shared --no-interaction
+php app/console generate:bundle --namespace Kore/UserBundle --dir src --bundle-name KoreUserBundle --format yml --shared --no-interaction
+
+
+php app/console doctrine:generate:entities KlanPageBundle:Testing --path=src
+php app/console generate:doctrine:crud --entity=KlanPageBundle:Testing --format=yml --with-write --overwrite --no-interaction --route-prefix=testing
+
+php app/console assetic:dump --env=dev
+
+php app/console doctrine:database:drop --force
+php app/console doctrine:database:create
+php app/console doctrine:schema:update --force
+
+
+setfacl -R -m u:admin:rwX -m u:`whoami`:rwX app/cache app/logs
+setfacl -dR -m u:admin:rwX -m u:`whoami`:rwX app/cache app/logs
+setfacl -R -m u:admin:rwX -m u:`whoami`:rwX web/uploads web/media
+setfacl -dR -m u:admin:rwX -m u:`whoami`:rwX web/uploads web/media
+
+
+find src/Kore/AgentBundle/* -type f -print0 | xargs -0 sed -i 's/rutum/ruta/g'
+
+
+find src/Kore/AgentBundle/Resources/config/routing/* -type f -print0 | xargs -0 sed -i 's/admin/agent/g'
+find src/Kore/AgentBundle/Resources/* -type f -print0 | xargs -0 sed -i 's/admin/agent/g'
+find src/Kore/AgentBundle/Resources/config/routing/* -type f -print0 | xargs -0 sed -i 's/Admin/Agent/g'
+find src/Kore/AgentBundle/Resources/* -type f -print0 | xargs -0 sed -i 's/Admin/Agent/g'
+
+find src/Kore/AgentBundle/Form/* -type f -print0 | xargs -0 sed -i 's/admin/agent/g'
+find src/Kore/AgentBundle/Form/* -type f -print0 | xargs -0 sed -i 's/Admin/Agent/g'
+
+find src/Kore/AgentBundle/Controller/* -type f -print0 | xargs -0 sed -i 's/KoreAdminBundle/KoreAgentBundle/g'
+find src/Kore/AgentBundle/Controller/* -type f -print0 | xargs -0 sed -i "s/render('KoreAdminBundle:/render('KoreAgentBundle:/g"

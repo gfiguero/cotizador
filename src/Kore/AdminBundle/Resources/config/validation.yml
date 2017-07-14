@@ -1,0 +1,13 @@
+Kore\AdminBundle\Entity\Persona:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [ rut ]
+            message: 'El RUT ya se encuentra registrado en el sistema.'
+    properties:
+        rut:
+            - NotBlank: ~
+            - Kore\AdminBundle\Validator\Constraints\Rut: ~
+        primernombre:
+            - NotBlank: ~
+        primerapellido:
+            - NotBlank: ~

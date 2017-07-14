@@ -1,0 +1,16 @@
+{% extends 'KoreFrontBundle:Front:base.html.twig' %}
+{% use 'KoreFrontBundle:Front:navbar.html.twig' %}
+{% use 'KoreFrontBundle:Front:header.html.twig' %}
+{% use 'KoreFrontBundle:Front:catalog.html.twig' %}
+{% use 'KoreFrontBundle:Front:recommended.html.twig' %}
+{% use 'KoreFrontBundle:Front:footer.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% block navbar %}{{ parent() }}{% endblock %}
+    {% block header %}{{ parent() }}{% endblock %}
+    {% block catalog %}{{ parent() }}{% endblock %}  
+    {% block recommended %}{{ parent() }}{% endblock %}    
+    {% block footer %}{{ parent() }}{% endblock %}
+{% endblock %}

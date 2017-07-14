@@ -1,0 +1,45 @@
+#home {
+    min-height: 100vh;
+    font-weight: bolder;
+    background-image: url(../../../../../images/index/bg-home.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white; 
+    .header-content {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        text-align: center; 
+        @media (min-width: 481px) {
+            padding-top: 300px;
+            padding-bottom: 300px;
+        }
+        @media (min-width: 769px) {
+            padding-top: 350px;
+            padding-bottom: 350px;
+        }
+        p {
+            font-size: 2em;
+            text-shadow: 0 2px 4px #000;   
+            a.btn.btn-default {
+                color: white;
+                background-color: #980198;
+                padding: 10px 30px;
+                font-size: 1em;
+                border-radius: 0px;
+                border-color: #980198;
+                margin-top: 1em;
+                text-shadow: none; 
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: purple;
+                    border-color: purple;
+                }
+            }
+        }
+        h1 {
+            font-size: 4em;
+            text-shadow: 0 2px 4px #000;
+        }
+    }
+}

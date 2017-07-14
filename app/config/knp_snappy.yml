@@ -1,0 +1,12 @@
+knp_snappy:
+    temporary_folder: %kernel.cache_dir%/snappy
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf
+        options:
+            orientation: Landscape
+            page-size: Legal
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage
+        options:    []

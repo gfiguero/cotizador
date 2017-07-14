@@ -1,0 +1,74 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'solicitud.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'solicitud.index.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-success" href="{{ path('agent_solicitudproceso_personabuscar') }}">{{ icon('plus') }}&nbsp;{{ 'solicitud.new.link'|trans }}</a>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-list">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.index.list'|trans }}</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="records_list table table-middle table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('edit fa-fw') }}</a></div>
+                                    </th>
+                                    <th>{{ knp_pagination_sortable(solicitudes, 'solicitud.form.id'|trans, 'id') }}{% if sort == 'id' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(solicitudes, 'solicitud.form.domicilio'|trans, 'domicilio') }}{% if sort == 'domicilio' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(solicitudes, 'solicitud.form.created_at'|trans, 'created_at') }}{% if sort == 'created_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for key, solicitud in solicitudes %}
+                                <tr>
+                                    <td>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default" href="{{ path('agent_solicitud_show', { 'id': solicitud.id }) }}">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('agent_solicitud_edit', { 'id': solicitud.id }) }}">{{ icon('edit fa-fw') }}</a></div>
+                                    </td>
+                                    <td>{% if solicitud.id %}{{ solicitud.id }}{% endif %}</td>
+                                    <td>{% if solicitud.domicilio %}{{ solicitud.domicilio }}{% endif %}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ solicitud.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', 'dd-LLL-Y - HH:mm') }}"></span>&nbsp;{{ solicitud.createdAt|ago }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-list -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}
+
+{% block javascript %}<script type="text/javascript">$(function () { $('[data-toggle="tooltip"]').tooltip() })</script>{% endblock %}

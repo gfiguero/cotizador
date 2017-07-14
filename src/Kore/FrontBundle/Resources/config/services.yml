@@ -1,0 +1,9 @@
+services:
+#    kore_admin.example:
+#        class: Kore\AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    kore_front.menu_builder:
+            class: Kore\FrontBundle\Menu\Builder
+            arguments: 
+                - "@knp_menu.factory"
+                - "@router"

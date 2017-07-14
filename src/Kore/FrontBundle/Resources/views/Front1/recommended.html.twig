@@ -1,0 +1,45 @@
+{% block recommended %}
+    <section id="recommended">
+        <div class="container">
+            <div class="row">
+                <div class="rebrand-heading text-center">RECOMENDADOS</div>
+                <div class="col-md-12">
+                    <div id="carousel" class="carousel slide" data-ride="carousel">  
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel" data-slide-to="1"></li>
+                            <li data-target="#carousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active"> 
+                                <img src="{{ asset('images/products/carousel-recommended/slide-1.jpg') }}">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                           
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item"> 
+                                <img src="{{ asset('images/products/carousel-recommended/slide-2.jpg') }}">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">  
+                                <img src="{{ asset('images/products/carousel-recommended/slide-3.jpg') }}">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

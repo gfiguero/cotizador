@@ -1,0 +1,26 @@
+{% extends 'KoreFrontBundle:Front:base.html.twig' %}
+{% use 'KoreFrontBundle:Front:navbar-product.html.twig' %}
+{% use 'KoreFrontBundle:Front:header-product.html.twig' %}
+{% use 'KoreFrontBundle:Front:low-text-product.html.twig' %}
+{% use 'KoreFrontBundle:Front:catalog.html.twig' %}
+{% use 'KoreFrontBundle:Front:recommended.html.twig' %}
+{% use 'KoreFrontBundle:Front:footer-product.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    {% block navbarproduct %}{{ parent() }}{% endblock %}
+    {% block headerproduct %}{{ parent() }}{% endblock %}
+    {% block lowtextproduct %}{{ parent() }}{% endblock %} 
+    {% block catalog %}{{ parent() }}{% endblock %}  
+    {% block recommended %}{{ parent() }}{% endblock %}    
+    {% block footerproduct %}{{ parent() }}{% endblock %}
+      
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        
+    </script>
+{% endblock %}

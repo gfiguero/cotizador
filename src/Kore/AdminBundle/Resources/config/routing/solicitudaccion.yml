@@ -1,0 +1,24 @@
+admin_solicitudaccion_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:SolicitudAccion:index" }
+    methods:  GET
+
+admin_solicitudaccion_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:SolicitudAccion:show" }
+    methods:  GET
+
+admin_solicitudaccion_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:SolicitudAccion:new" }
+    methods:  [GET, POST]
+
+admin_solicitudaccion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:SolicitudAccion:edit" }
+    methods:  [GET, POST]
+
+admin_solicitudaccion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:SolicitudAccion:delete" }
+    methods:  DELETE

@@ -1,0 +1,123 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'solicitud.edit.title'|trans({'%id%':solicitud.id}) }}{% endblock %}
+
+{% block body %}
+
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'solicitud.edit.title'|trans({'%id%':solicitud.id}) }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-default" href="{{ path('agent_solicitud_show', { id : solicitud.id }) }}">{{ icon('arrow-left') }}&nbsp;{{ 'solicitud.show.link'|trans }}</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">{{ icon('trash-o') }}&nbsp;{{ 'solicitud.delete.link'|trans }}</button>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-edit">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.edit.form'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_start(editForm, { 'style': 'horizontal' }) }}
+                            {{ form_widget(editForm) }}
+                                <div class="form-group"><div class="col-lg-offset-4 col-lg-8">
+                                    <button type="submit" class="btn btn-primary">{{ icon('save') }}&nbsp;{{ 'solicitud.edit.submit'|trans }}</button>
+                                </div></div>
+                        {{ form_end(editForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-edit -->
+
+        <div class="row" id="page-show">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.show.data'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'solicitud.form.id'|trans }}</dt>
+                                <dd>{% if solicitud.id %}{{ solicitud.id }}{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.tiempo'|trans }}</dt>
+                                <dd>{% if solicitud.createdAt %}{{ solicitud.createdAt|ago }}{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.createdAt'|trans }}</dt>
+                                <dd>{% if solicitud.createdAt %}{{ solicitud.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.updatedAt'|trans }}</dt>
+                                <dd>{% if solicitud.updatedAt %}{{ solicitud.updatedAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}{% endif %}</dd>
+                        </dl>
+                        <hr>
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'solicitud.form.estado'|trans }}</dt>
+                                <dd>{% if solicitud.estado %}{{ solicitud.estado }}{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.tipo'|trans }}</dt>
+                                <dd>{% if solicitud.tipo %}{{ solicitud.tipo }}{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.nota'|trans }}</dt>
+                                <dd>{% if solicitud.nota %}{{ solicitud.nota }}{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.folio'|trans }}</dt>
+                                <dd>{% if solicitud.folio %}{{ solicitud.folio }}{% endif %}</dd>
+                        </dl>
+                        <hr>
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'solicitud.form.persona'|trans }}</dt>
+                                <dd>{% if solicitud.persona %}<a href="{{ path('agent_persona_show', { id : solicitud.persona.id }) }}">{{ solicitud.persona }}</a>{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.domicilio'|trans }}</dt>
+                                <dd>{% if solicitud.domicilio %}<a href="{{ path('agent_domicilio_show', { id : solicitud.domicilio.id }) }}">{{ solicitud.domicilio }}</a>{% endif %}</dd>
+                            <dt>{{ 'solicitud.form.ruta'|trans }}</dt>
+                                <dd>{% if solicitud.ruta %}<a href="{{ path('agent_ruta_show', { id : solicitud.ruta.id }) }}">{{ solicitud.ruta }}</a>{% endif %}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-show -->
+
+        <div id="page-modal">
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">{{ icon('times') }}</button>
+                            <h4 class="modal-title" id="myModalLabel">{{ 'solicitud.delete.title'|trans }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-2 text-center">{{ icon('exclamation-triangle fa-5x') }}</div>
+                                <div class="col-xs-10"><p>{{ 'solicitud.delete.message'|trans }}</p></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            {{ form_start(deleteForm) }}
+                                <button type="submit" class="btn btn-danger pull-right">{{ icon('trash') }}&nbsp;{{ 'solicitud.delete.submit'|trans }}</button>
+                            {{ form_end(deleteForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-modal -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% block footer %}
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                     <img class="img-responsive center-block" src="{{ asset('images/footer/logo.png') }}">
+                </div>
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="#home" class="page-scroll">Inicio</a></li>
+                        <li><a href="#about" class="page-scroll">Quiénes Somos</a></li>
+                        <li><a href="#service" class="page-scroll">Servicios</a></li>
+                        <li><a href="#contact" class="page-scroll">Contacto</a></li>
+                        <li><a href="{{ path('front_product') }}">Productos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <p><strong>Belleza Estilo 2017</strong></p>
+                        <p>La Ligua, Chile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

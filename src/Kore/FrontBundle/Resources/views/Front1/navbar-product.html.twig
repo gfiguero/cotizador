@@ -1,0 +1,23 @@
+{% block navbarproduct %}
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top" data-spy="affix" data-offset-top="100">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-main">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Belleza Estilo</a>
+            </div>
+          
+            <div class="collapse navbar-collapse" id="nav-main">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="{{ path('kore_front_index') }}">Inicio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#catalog">Productos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>   
+    </nav>
+{% endblock %}

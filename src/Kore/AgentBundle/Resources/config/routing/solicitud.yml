@@ -1,0 +1,44 @@
+agent_solicitud_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Solicitud:index" }
+    methods:  GET
+
+agent_solicitud_rutaestado_5:
+    path:     /rutaestado5
+    defaults: { _controller: "KoreAgentBundle:Solicitud:rutaestado", codigo: 'R05' }
+    methods:  GET
+
+agent_solicitud_rutaestado_0:
+    path:     /rutaestado0
+    defaults: { _controller: "KoreAgentBundle:Solicitud:rutaestado", codigo: 'R00' }
+    methods:  GET
+
+agent_solicitud_rutaestado_null:
+    path:     /rutaestadonull
+    defaults: { _controller: "KoreAgentBundle:Solicitud:rutaestado", codigo: NULL }
+    methods:  GET
+
+agent_solicitud_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:Solicitud:show" }
+    methods:  GET
+
+agent_solicitud_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:Solicitud:new" }
+    methods:  [GET, POST]
+
+agent_solicitud_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:Solicitud:edit" }
+    methods:  [GET, POST]
+
+agent_solicitud_buscar:
+    path:     /buscar
+    defaults: { _controller: "KoreAgentBundle:Solicitud:buscar" }
+    methods:  [GET, POST]
+
+agent_solicitud_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:Solicitud:delete" }
+    methods:  DELETE

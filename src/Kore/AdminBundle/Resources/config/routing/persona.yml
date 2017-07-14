@@ -1,0 +1,24 @@
+admin_persona_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Persona:index" }
+    methods:  GET
+
+admin_persona_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Persona:show" }
+    methods:  GET
+
+admin_persona_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Persona:new" }
+    methods:  [GET, POST]
+
+admin_persona_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Persona:edit" }
+    methods:  [GET, POST]
+
+admin_persona_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Persona:delete" }
+    methods:  DELETE

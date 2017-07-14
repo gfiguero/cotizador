@@ -1,0 +1,11 @@
+kore_user:
+    resource: "@KoreUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kore_agent:
+    resource: "@KoreAgentBundle/Resources/config/routing.yml"
+    prefix:   /agent
+
+kore_admin:
+    resource: "@KoreAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin

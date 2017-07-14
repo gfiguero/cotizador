@@ -1,0 +1,55 @@
+
+    /**
+{% block phpdoc_method_header %}
+     * Creates a new {{ entity }} entity.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/new", name="{{ route_name_prefix }}_new")
+     * @Method({"GET", "POST"})
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+     */
+{% block method_definition %}
+    public function newAction(Request $request)
+{% endblock method_definition %}
+    {
+{% block method_body %}
+        ${{ entity_singularized }} = new {{ entity_class }}();
+        $newForm = $this->createNewForm(${{ entity_singularized }});
+        $newForm->handleRequest($request);
+
+        if ($newForm->isSubmitted()) {
+            if($newForm->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist(${{ entity_singularized }});
+                $em->flush();
+                $request->getSession()->getFlashBag()->add( 'success', '{{ entity_singularized ~ '.new.flash' }}' );
+                return $this->redirect($this->generateUrl('{{ route_name_prefix }}_index'));
+            }
+        }
+{% endblock method_body %}
+
+{% block method_return %}
+        return $this->render('KoreAdminBundle:{{ entity }}:new.html.twig', array(
+            'newForm' => $newForm->createView(),
+        ));
+{% endblock method_return %}
+    }
+
+{% block form %}
+    /**
+     * Creates a form to create a new {{ entity }} entity.
+     *
+     * @param {{ entity_class }} ${{ entity_singularized }} The {{ entity }} entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createNewForm({{ entity_class }} ${{ entity_singularized }})
+    {
+        return $this->createForm(new {{ entity_class }}Type(), ${{ entity_singularized }}, array(
+            'action' => $this->generateUrl('{{ route_name_prefix }}_new'),
+        ));
+    }
+{% endblock form %}

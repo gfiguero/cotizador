@@ -1,0 +1,48 @@
+Kore\AdminBundle\Entity\Domicilio:
+    type: entity
+    table: Domicilio
+    repositoryClass: Kore\AdminBundle\Entity\DomicilioRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        persona:
+            targetEntity: Kore\AdminBundle\Entity\Persona
+            inversedBy: domicilios
+    oneToMany:
+        solicitudes:
+            targetEntity: Kore\AdminBundle\Entity\Solicitud
+            mappedBy: domicilio
+    fields:
+        direccion:
+            type: string
+            length: 300
+            nullable: true
+        rol:
+            type: string
+            length: 20
+            nullable: true
+        unidadvecinal:
+            type: integer
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

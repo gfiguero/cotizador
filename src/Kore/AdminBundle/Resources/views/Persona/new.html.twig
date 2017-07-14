@@ -1,0 +1,54 @@
+{% extends 'KoreAdminBundle:Base:base.html.twig' %}
+{% use 'KoreAdminBundle:Base:navbar.html.twig' %}
+{% use 'KoreAdminBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAdminBundle:Base:icons.html.twig' %}
+{% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAdminBundle' %}
+
+{% block title %}{{ 'persona.new.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'persona.new.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-default" href="{{ path('admin_persona_index') }}">{{ icon('list') }}&nbsp;{{ 'persona.index.link'|trans }}</a>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-new">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'persona.new.form'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_start(newForm, { 'style': 'horizontal' }) }}
+                            {{ form_widget(newForm) }}
+                                <div class="form-group"><div class="col-lg-offset-4 col-lg-8">
+                                    <button type="submit" class="btn btn-primary">{{ icon('save') }}&nbsp;{{ 'persona.new.submit'|trans }}</button>
+                                </div></div>
+                        {{ form_end(newForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-new -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}
+
+

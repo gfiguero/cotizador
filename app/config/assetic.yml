@@ -1,0 +1,20 @@
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    filters:
+        cssrewrite: ~
+        less:
+            node: %node_bin_path%
+            node_paths: [%node_lib_path%]
+    read_from: %kernel.root_dir%/..
+    write_to: %kernel.root_dir%/..
+    assets:
+        frontend_css:
+            inputs:
+                - src/Kore/AgentBundle/Resources/less/build.less
+            filters:
+                - less
+                - cssrewrite
+            output: src/Kore/AgentBundle/Resources/public/css/agent.css

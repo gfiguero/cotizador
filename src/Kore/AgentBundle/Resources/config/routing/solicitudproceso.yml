@@ -1,0 +1,24 @@
+agent_solicitudproceso_personabuscar:
+    path:     /personabuscar
+    defaults: { _controller: "KoreAgentBundle:SolicitudProceso:personaBuscar" }
+    methods:  [GET, POST]
+
+agent_solicitudproceso_personanueva:
+    path:     /{rut}/personanueva
+    defaults: { _controller: "KoreAgentBundle:SolicitudProceso:personaNueva" }
+    methods:  [GET, POST]
+
+agent_solicitudproceso_personaexistente:
+    path:     /{persona}/personaexistente
+    defaults: { _controller: "KoreAgentBundle:SolicitudProceso:personaExistente" }
+    methods:  [GET, POST]
+
+agent_solicitudproceso_domicilio:
+    path:     /{persona}/domicilio
+    defaults: { _controller: "KoreAgentBundle:SolicitudProceso:domicilio" }
+    methods:  [GET, POST]
+
+agent_solicitudproceso_solicitud:
+    path:     /{domicilio}/solicitud
+    defaults: { _controller: "KoreAgentBundle:SolicitudProceso:solicitud" }
+    methods:  [GET, POST]

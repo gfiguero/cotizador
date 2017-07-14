@@ -1,0 +1,108 @@
+{% extends 'KoreAdminBundle:Base:base.html.twig' %}
+{% use 'KoreAdminBundle:Base:navbar.html.twig' %}
+{% use 'KoreAdminBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAdminBundle:Base:icons.html.twig' %}
+{% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAdminBundle' %}
+
+{% block title %}{{ 'solicitud.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'solicitud.index.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-success" href="{{ path('admin_solicitud_new') }}">{{ icon('plus') }}&nbsp;{{ 'solicitud.new.link'|trans }}</a>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-list">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.index.list'|trans }}</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="records_list table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('edit fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('trash fa-fw') }}</a></div>
+                                    </th>
+                                    <th>{{ knp_pagination_sortable(solicituds, 'solicitud.form.id'|trans, 'id') }}{% if sort == 'id' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(solicituds, 'solicitud.form.createdAt'|trans, 'createdAt') }}{% if sort == 'createdAt' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(solicituds, 'solicitud.form.updatedAt'|trans, 'updatedAt') }}{% if sort == 'updatedAt' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for key, solicitud in solicituds %}
+                                <tr>
+                                    <td>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('admin_solicitud_show', { 'id': solicitud.id }) }}">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('admin_solicitud_edit', { 'id': solicitud.id }) }}">{{ icon('edit fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modalDelete{{ solicitud.id }}">{{ icon('trash fa-fw') }}</button></div>
+                                    </td>
+                                    <td>{% if solicitud.id %}{{ solicitud.id }}{% endif %}</td>
+                                    <td>{% if solicitud.createdAt %}{{ solicitud.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd-LLL-Y - HH:mm") }}{% endif %}</td>
+                                    <td>{% if solicitud.updatedAt %}{{ solicitud.updatedAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd-LLL-Y - HH:mm") }}{% endif %}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="text-center">
+                            {{ knp_pagination_render(solicituds) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-list -->
+
+        <div id="page-modal">
+            {% for key, solicitud in solicituds %}
+            <div class="modal fade" id="modalDelete{{ solicitud.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">{{ icon('times') }}</button>
+                            <h4 class="modal-title" id="myModalLabel">{{ 'solicitud.delete.title'|trans }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-2 text-center">{{ icon('exclamation-triangle fa-5x') }}</div>
+                                <div class="col-xs-10"><p>{{ 'solicitud.delete.message'|trans }}</p></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            {% set deleteForm = attribute(deleteForms, key) %}
+                            {{ form_start(deleteForm) }}
+                                {{ form_widget(deleteForm) }}
+                                <button type="submit" class="btn btn-danger pull-right">{{ icon('trash') }}&nbsp;{{ 'solicitud.delete.submit'|trans }}</button>
+                            {{ form_end(deleteForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- /#page-modal -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}

@@ -1,0 +1,95 @@
+php app/console doctrine:generate:entities KoreAdminBundle:Domicilio --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:Encuestador --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:Persona --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:PersonaAccion --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:Ruta --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:RutaEstado --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:Solicitud --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:SolicitudEstado --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:SolicitudAccion --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:SolicitudTipo --path=src
+
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Domicilio --route-prefix=admin_domicilio
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Encuestador --route-prefix=admin_encuestador
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Persona --route-prefix=admin_persona
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:PersonaAccion --route-prefix=admin_personaaccion
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Ruta --route-prefix=admin_ruta
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:RutaEstado --route-prefix=admin_rutaestado
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Solicitud --route-prefix=admin_solicitud
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:SolicitudEstado --route-prefix=admin_solicitudestado
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:SolicitudAccion --route-prefix=admin_solicitudaccion
+
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Domicilio --route-prefix=admin_domicilio
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Encuestador --route-prefix=admin_encuestador
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Persona --route-prefix=admin_persona
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:PersonaAccion --route-prefix=admin_personaaccion
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Ruta --route-prefix=admin_ruta
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:RutaEstado --route-prefix=admin_rutaestado
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Solicitud --route-prefix=admin_solicitud
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:SolicitudEstado --route-prefix=admin_solicitudestado
+php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:SolicitudAccion --route-prefix=admin_solicitudaccion
+
+find src/Kore/AdminBundle/* -type f -print0 | xargs -0 sed -i 's/rutum/ruta/g'
+find src/Kore/AdminBundle/Resources/config/doctrine/* -type f -print0 | xargs -0 sed -i 's/createdAt/created_at/g'
+
+find src/Kore/AdminBundle/Entity/* -type f -print0 | xargs -0 sed -i 's/createdAt/created_at/g'
+find src/Kore/AdminBundle/Entity/* -type f -print0 | xargs -0 sed -i 's/updatedAt/updated_at/g'
+find src/Kore/AdminBundle/Entity/* -type f -print0 | xargs -0 sed -i 's/deletedAt/deleted_at/g'
+
+SELECT id, MAX(id) FROM `Solicitud` GROUP BY `domicilio_id`
+
+SELECT * FROM `Solicitud`, `Solicitud` S1 WHERE `Solicitud`.id < S1.id AND `Solicitud`.`domicilio_id` = S1.`domicilio_id`
+
+SELECT id FROM `Solicitud` WHERE id IN (SELECT `Solicitud`.id FROM `Solicitud`, `Solicitud` S1 WHERE `Solicitud`.id < S1.id AND `Solicitud`.`domicilio_id` = S1.`domicilio_id`)
+
+SELECT CONCAT(`calle`, ' ', `numero`, ' ', `poblacion`, ' ', `edificio`, ' ', `departamento`, ' ', `casa`, ' ', `chacra`, ' ', `parcela`, ' ', `paradero`, ' ', `sector`, ' ', `unidad`) FROM `Solicitud` WHERE 1
+
+
+SELECT CONCAT(
+COALESCE(calle, ''), ' ',
+COALESCE(numero, ''), ' ',
+COALESCE(poblacion, ''), ' ',
+COALESCE(edificio, ''), ' ',
+COALESCE(departamento, ''), ' ',
+COALESCE(casa, ''), ' ',
+COALESCE(chacra, ''), ' ',
+COALESCE(parcela, ''), ' ',
+COALESCE(paradero, ''), ' ',
+COALESCE(sector, '')
+FROM Domicilio2
+WHERE 1
+
+
+SELECT CONCAT(
+COALESCE(Domicilio2.calle, ''), ' ',
+COALESCE(Domicilio2.numero, ''), ' ',
+COALESCE(Domicilio2.poblacion, ''), ' ',
+COALESCE(Domicilio2.edificio, ''), ' ',
+COALESCE(Domicilio2.departamento, ''), ' ',
+COALESCE(Domicilio2.casa, ''), ' ',
+COALESCE(Domicilio2.chacra, ''), ' ',
+COALESCE(Domicilio2.parcela, ''), ' ',
+COALESCE(Domicilio2.paradero, ''), ' ',
+COALESCE(Domicilio2.sector, ''))
+FROM Domicilio2
+WHERE 1
+
+
+UPDATE `Domicilio` SET `Domici`=[value-1],`calle`=[value-2],`numero`=[value-3],`poblacion`=[value-4],`edificio`=[value-5],`departamento`=[value-6],`casa`=[value-7],`chacra`=[value-8],`parcela`=[value-9],`paradero`=[value-10],`sector`=[value-11],`unidad`=[value-12],`rol`=[value-13],`rolid`=[value-14],`created_at`=[value-15],`updated_at`=[value-16],`deleted_at`=[value-17],`persona_id`=[value-18] WHERE 1
+
+UPDATE Domicilio D, Domicilio2 D2
+SET D.direccion = CONCAT(
+COALESCE(D2.calle, ''), ' ',
+COALESCE(D2.numero, ''), ' ',
+COALESCE(D2.poblacion, ''), ' ',
+COALESCE(D2.edificio, ''), ' ',
+COALESCE(D2.departamento, ''), ' ',
+COALESCE(D2.casa, ''), ' ',
+COALESCE(D2.chacra, ''), ' ',
+COALESCE(D2.parcela, ''), ' ',
+COALESCE(D2.paradero, ''), ' ',
+COALESCE(D2.sector, ''))
+WHERE
+D.id = D2.id
+
+

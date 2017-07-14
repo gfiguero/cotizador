@@ -1,0 +1,43 @@
+
+                    <div class="panel-heading">
+                        <div class="btn-toolbar">
+                            <a type="button" class="btn btn-default" href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}">{{ "{{ icon('list') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".list.link'|trans }}" }}</a>
+
+                            {%- if ('edit' in actions) and (not hide_edit) %}
+
+                            <a type="button" class="btn btn-warning" href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">{{ "{{ icon('pencil') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".edit.link'|trans }}" }}</a>
+
+                            {%- endif %}
+
+                            {%- if ('delete' in actions) and (not hide_delete) %}
+
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">{{ "{{ icon('trash-o') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".delete.link'|trans }}" }}</button>
+                            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">{{ "{{ '" ~ entity_singularized|lower ~ ".delete.title'|trans }}" }}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-xs-2 text-center">{{ "{{ icon('exclamation-triangle fa-5x') }}" }}</div>
+                                            <div class="col-xs-10"><p>{{ "{{ '" ~ entity_singularized|lower ~ ".delete.message'|trans }}" }}</p></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="pull-right" style="height:34px;">
+                                                {{ '{{ form_start(deleteForm) }}' }}
+                                                    <button type="submit" class="btn btn-danger">{{ "{{ icon('trash-o') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".delete.submit'|trans }}" }}</button>
+                                                {{ '{{ form_end(deleteForm) }}' -}}
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {%- endif %}
+
+                        </div>
+                    </div>

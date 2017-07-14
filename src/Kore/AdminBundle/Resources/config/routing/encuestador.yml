@@ -1,0 +1,24 @@
+admin_encuestador_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Encuestador:index" }
+    methods:  GET
+
+admin_encuestador_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Encuestador:show" }
+    methods:  GET
+
+admin_encuestador_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Encuestador:new" }
+    methods:  [GET, POST]
+
+admin_encuestador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Encuestador:edit" }
+    methods:  [GET, POST]
+
+admin_encuestador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Encuestador:delete" }
+    methods:  DELETE

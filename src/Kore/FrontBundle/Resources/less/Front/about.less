@@ -1,0 +1,43 @@
+#about {
+    background: linear-gradient(141deg, #6c4677 0%, #827795 51%, #5e4f74 75%);
+    border-bottom: 5px solid #6ad06c;
+    padding: 4em 0;
+
+    h1 {
+        //font-family: 'Satisfy', sans-serif;
+        color: #fff;  
+    }
+    p {
+        font-size: 1.2em;
+        color: white;
+    }
+    small {
+        font-size: 1em;
+        color: white;
+    }
+    blockquote {
+        border: none;
+        p.cita {
+            //font-family: 'Satisfy', sans-serif; 
+        }
+        .small:before,
+        footer:before,
+        small:before {
+            content: none;
+        }
+    }
+    #cita {
+        margin-top: 2em;
+        @media (min-width: 769px) {
+            margin-top: 6em;
+        }
+        img {
+            box-shadow: -8px -4px 13px 0px rgba(50, 50, 50, 0.75);
+            margin: auto;
+            display: block;
+            @media (min-width: 769px) {
+                margin: inherit;
+            }
+        }
+    }
+}

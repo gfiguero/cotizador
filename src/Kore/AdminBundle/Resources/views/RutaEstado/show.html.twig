@@ -1,0 +1,88 @@
+{% extends 'KoreAdminBundle:Base:base.html.twig' %}
+{% use 'KoreAdminBundle:Base:navbar.html.twig' %}
+{% use 'KoreAdminBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAdminBundle:Base:icons.html.twig' %}
+{% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAdminBundle' %}
+
+{% block title %}{{ 'rutaestado.show.title'|trans({'%id%':rutaEstado.id}) }}{% endblock %}
+
+{% block body %}
+
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'rutaestado.show.title'|trans({'%id%':rutaEstado.id}) }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-default" href="{{ path('admin_rutaestado_index') }}">{{ icon('list') }}&nbsp;{{ 'rutaestado.index.link'|trans }}</a>
+                    <a type="button" class="btn btn-primary" href="{{ path('admin_rutaestado_edit', { 'id': rutaEstado.id }) }}">{{ icon('edit') }}&nbsp;{{ 'rutaestado.edit.link'|trans }}</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">{{ icon('trash-o') }}&nbsp;{{ 'rutaestado.delete.link'|trans }}</button>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-show">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'rutaestado.show.data'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <dl>
+                            <dt>{{ 'rutaestado.form.id'|trans }}</dt>
+                                <dd>{% if rutaEstado.id %}{{ rutaEstado.id }}{% endif %}</dd>
+                            <dt>{{ 'rutaestado.form.nombre'|trans }}</dt>
+                                <dd>{% if rutaEstado.nombre %}{{ rutaEstado.nombre }}{% endif %}</dd>
+                            <dt>{{ 'rutaestado.form.codigo'|trans }}</dt>
+                                <dd>{% if rutaEstado.codigo %}{{ rutaEstado.codigo }}{% endif %}</dd>
+                            <dt>{{ 'rutaestado.form.descripcion'|trans }}</dt>
+                                <dd>{% if rutaEstado.descripcion %}{{ rutaEstado.descripcion }}{% endif %}</dd>
+                            <dt>{{ 'rutaestado.form.createdAt'|trans }}</dt>
+                                <dd>{% if rutaEstado.createdAt %}{{ rutaEstado.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}{% endif %}</dd>
+                            <dt>{{ 'rutaestado.form.updatedAt'|trans }}</dt>
+                                <dd>{% if rutaEstado.updatedAt %}{{ rutaEstado.updatedAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}{% endif %}</dd>                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-show -->
+
+        <div id="page-modal">
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">{{ icon('times') }}</button>
+                            <h4 class="modal-title" id="myModalLabel">{{ 'rutaestado.delete.title'|trans }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-2 text-center">{{ icon('exclamation-triangle fa-5x') }}</div>
+                                <div class="col-xs-10"><p>{{ 'rutaestado.delete.message'|trans }}</p></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            {{ form_start(deleteForm) }}
+                                <button type="submit" class="btn btn-danger pull-right">{{ icon('trash-o') }}&nbsp;{{ 'rutaestado.delete.submit'|trans }}</button>
+                            {{ form_end(deleteForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-modal -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+

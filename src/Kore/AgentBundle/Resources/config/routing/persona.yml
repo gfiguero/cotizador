@@ -1,0 +1,29 @@
+agent_persona_buscar:
+    path:     /buscar
+    defaults: { _controller: "KoreAgentBundle:Persona:buscar" }
+    methods:  [GET, POST]
+
+agent_persona_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Persona:index" }
+    methods:  GET
+
+agent_persona_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:Persona:show" }
+    methods:  GET
+
+agent_persona_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:Persona:new" }
+    methods:  [GET, POST]
+
+agent_persona_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:Persona:edit" }
+    methods:  [GET, POST]
+
+agent_persona_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:Persona:delete" }
+    methods:  DELETE

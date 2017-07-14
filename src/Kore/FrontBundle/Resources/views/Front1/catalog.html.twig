@@ -1,0 +1,120 @@
+{% block catalog %}
+    <section id="catalog">
+        <div class="container">
+            <div class="row catalog">
+                <div class="rebrand-heading text-center">Nuestro Catálogo</div>
+{% for i in 0..4 %}
+                <a href="" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 foto" data-toggle="modal" data-target="#modal">
+                    <img class="img-responsive" src="{{ asset('images/products/cabello/producto-1.jpg') }}">
+                    <div class="caption">
+                        <p>
+                            <span> 
+                                REVLON
+                            </span>
+                            <br> 
+                            Kit Oro Fluído.
+                            <br>
+                            <b>$18.990</b>
+                        </p>
+                    </div>
+                </a>
+                <a href="images/products/cabello/producto-2.jpg" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 foto">
+                    <img class="img-responsive" src="{{ asset('images/products/cabello/producto-2.jpg') }}">
+                    <div class="caption">
+                        <p>
+                            <span> 
+                                PH
+                            </span>
+                            <br> 
+                            Sun Kit Shampoo & Nectar.
+                            <br>
+                            <b>$11.990</b>
+                        </p>
+                    </div>
+                </a> 
+                <a href="images/products/cabello/producto-3.jpg" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 foto">
+                    <img class="img-responsive" src="{{ asset('images/products/cabello/producto-3.jpg') }}">
+                    <div class="caption">
+                        <p>
+                            <span> 
+                                PH
+                            </span>
+                            <br> 
+                            kit Argan & Keratin.
+                            <br>
+                            <b>$22.990</b>
+                        </p>
+                    </div>
+                </a>
+
+                <a href="images/products/cabello/producto-4.jpg" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 foto">
+                    <img class="img-responsive" src="{{ asset('images/products/cabello/producto-4.jpg') }}">
+                    <div class="caption">
+                        <p>
+                            <span> 
+                                PH
+                            </span>
+                            <br> 
+                            kit Argon & Keratin + Sun Kit.
+                            <br>
+                            <b>$18.990</b>
+                        </p>
+                    </div>
+                </a>
+{% endfor %}
+                <div class="modal fade in" id="modal" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-times"></span></button>
+                                    <h2>Detalle del Producto</h2>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nopadding">
+                                    <div id="modalCarousel" class="carousel" data-ride="carousel">
+                                        <div class="carousel-inner" role="listbox">                                                                                                   
+                                            <div class="item active">                                                    
+                                                <img class="img-responsive" src="{{ asset('images/products/cabello/producto-1.jpg') }}" alt="1">
+                        
+                                            </div>                                                 
+                                    
+                                            <a class="left carousel-control" href="#modalCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                                            <a class="right carousel-control" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div id="product-name">
+                                        <h3><span class="fa fa-cart-plus" aria-hidden="true"></span> <span class="brand">REVLON </span>- Kit oro fluído</h3>                       
+                                    </div>
+                                    <div id="price">
+                                        <h3><span class="fa fa-credit-card-alt" aria-hidden="true"></span> Precio</h3>
+                                        <dl class="dl-horizontal-caption">
+                                            <dd>$18.990 pesos.</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div id="modal-caption">
+                                        <div id="description">
+                                            <h3><span class="fa fa-plus-circle" aria-hidden="true"></span> Descripción</h3>
+                                            <p>
+                                                Sed vehicula, orci id rhoncus ultricies, turpis ex vestibulum velit, in ultrices lacus arcu nec nulla. Nullam sit amet massa a massa vulputate vestibulum. Aenean faucibus nisl vitae tempus blandit. Proin et dui sit amet dui tincidunt commodo sed et leo. Nunc eu varius quam. Suspendisse potenti. 
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <p>
+                                            ¿Deseas éste producto?. Contáctate con nuestra vendedora<br> ahora mismo.
+                                        </p>
+                                        <p>
+                                            <a href="#" class="btn btn-default btn-modal-contact">Contactarse</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>         
+    </section>
+{% endblock %}

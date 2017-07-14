@@ -1,0 +1,37 @@
+Kore\AdminBundle\Entity\SolicitudAccion:
+    type: entity
+    table: SolicitudAccion
+    repositoryClass: Kore\AdminBundle\Entity\SolicitudAccionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        solicitud:
+            targetEntity: Kore\AdminBundle\Entity\Solicitud
+            inversedBy: acciones
+    fields:
+        descripcion:
+            type: string
+            length: 300
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

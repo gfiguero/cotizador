@@ -1,0 +1,44 @@
+kore_agent_resumen:
+    resource: "@KoreAgentBundle/Resources/config/routing/resumen.yml"
+    prefix:   /
+
+kore_agent_solicitud:
+    resource: "@KoreAgentBundle/Resources/config/routing/solicitud.yml"
+    prefix:   /solicitud
+
+kore_agent_solicitudestado:
+    resource: "@KoreAgentBundle/Resources/config/routing/solicitudestado.yml"
+    prefix:   /solicitudestado
+
+kore_agent_solicitudaccion:
+    resource: "@KoreAgentBundle/Resources/config/routing/solicitudaccion.yml"
+    prefix:   /solicitudaccion
+
+kore_agent_solicitudproceso:
+    resource: "@KoreAgentBundle/Resources/config/routing/solicitudproceso.yml"
+    prefix:   /solicitudproceso
+
+kore_agent_persona:
+    resource: "@KoreAgentBundle/Resources/config/routing/persona.yml"
+    prefix:   /persona
+
+kore_agent_personaaccion:
+    resource: "@KoreAgentBundle/Resources/config/routing/personaaccion.yml"
+    prefix:   /personaaccion
+
+kore_agent_ruta:
+    resource: "@KoreAgentBundle/Resources/config/routing/ruta.yml"
+    prefix:   /ruta
+
+kore_agent_rutaestado:
+    resource: "@KoreAgentBundle/Resources/config/routing/rutaestado.yml"
+    prefix:   /rutaestado
+
+kore_agent_domicilio:
+    resource: "@KoreAgentBundle/Resources/config/routing/domicilio.yml"
+    prefix:   /domicilio
+
+kore_agent_encuestador:
+    resource: "@KoreAgentBundle/Resources/config/routing/encuestador.yml"
+    prefix:   /encuestador
+

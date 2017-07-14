@@ -1,0 +1,7 @@
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    form:
+        resources:
+            - :Form:bootstrap.html.twig
+            - :Form:fileinput.html.twig

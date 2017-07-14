@@ -1,0 +1,134 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'domicilio.show.title'|trans({'%id%':domicilio.id}) }}{% endblock %}
+
+{% block body %}
+
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'domicilio.show.title'|trans({'%id%':domicilio.id}) }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-show">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'domicilio.show.data'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'domicilio.form.id'|trans }}</dt>
+                                <dd>{% if domicilio.id %}{{ domicilio.id }}{% endif %}</dd>
+                            <dt>{{ 'domicilio.form.direccion'|trans }}</dt>
+                                <dd>{% if domicilio.direccion %}{{ domicilio.direccion }}{% endif %}</dd>
+                            <dt>{{ 'domicilio.form.rol'|trans }}</dt>
+                                <dd>{% if domicilio.rol %}{{ domicilio.rol }}{% endif %}</dd>
+                            <dt>{{ 'domicilio.form.createdAt'|trans }}</dt>
+                                <dd>{% if domicilio.createdAt %}{{ domicilio.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ domicilio.updatedAt|ago }}){% endif %}</dd>
+                            <dt>{{ 'domicilio.form.updatedAt'|trans }}</dt>
+                                <dd>{% if domicilio.updatedAt %}{{ domicilio.updatedAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ domicilio.updatedAt|ago }}){% endif %}</dd>
+                        </dl>
+                        <hr>
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'domicilio.form.persona'|trans }}</dt>
+                                <dd>{% if domicilio.persona %}<a href="{{ path('agent_persona_show', { id : domicilio.persona.id }) }}">{{ domicilio.persona }}</a>{% endif %}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-show -->
+
+        <div class="row" id="page-solicitudes">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'domicilio.show.solicitud.list'|trans }}</h2>
+                    </div>
+                    {% if solicitudes is not empty %}
+                    <div class="table-responsive">
+                        <table class="table table-middle">
+                            <thead>
+                                <tr>
+                                    <th><button type="button" class="btn btn-default btn-xs disabled">{{ icon('search') }}</button></th>
+                                    <th>{{ 'solicitud.form.persona'|trans }}</th>
+                                    <th>{{ 'solicitud.form.estado'|trans }}</th>
+                                    <th>{{ 'solicitud.form.createdAt'|trans }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for solicitud in solicitudes %}
+                                <tr>
+                                    <td><a href="{{ path('agent_solicitud_show', { id : solicitud.id }) }}" type="button" class="btn btn-warning btn-xs">{{ icon('search') }}</a></td>
+                                    <td>{{ solicitud.persona }}</td>
+                                    <td>{{ solicitud.estado }}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ solicitud.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', 'dd-LLL-Y - HH:mm') }}"></span>&nbsp;{{ solicitud.createdAt|ago }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="panel-body text-center">
+                        {{ 'domicilio.show.solicitud.vacio'|trans }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- /#page-solicitudes -->
+
+        <div class="row" id="page-domicilios">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'domicilio.show.domicilio.list'|trans }}</h2>
+                    </div>
+                    {% if domicilios is not empty %}
+                    <div class="table-responsive">
+                        <table class="table table-middle">
+                            <thead>
+                                <tr>
+                                    <th><button type="button" class="btn btn-default btn-xs disabled">{{ icon('search') }}</button></th>
+                                    <th>{{ 'domicilio.form.direccion'|trans }}</th>
+                                    <th>{{ 'domicilio.form.rol'|trans }}</th>
+                                    <th>{{ 'domicilio.form.createdAt'|trans }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for domicilio in domicilios %}
+                                <tr>
+                                    <td><a href="{{ path('agent_domicilio_show', { id : domicilio.id }) }}" type="button" class="btn btn-warning btn-xs">{{ icon('search') }}</a></td>
+                                    <td>{{ domicilio.direccion }}</td>
+                                    <td>{{ domicilio.rol }}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ domicilio.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', 'dd-LLL-Y - HH:mm') }}"></span>&nbsp;{{ domicilio.createdAt|ago }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="panel-body text-center">
+                        {{ 'domicilio.show.domicilio.vacio'|trans }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- /#page-domicilios -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascript %}<script type="text/javascript">$(function () { $('[data-toggle="tooltip"]').tooltip() })</script>{% endblock %}

@@ -1,0 +1,6 @@
+login:
+    form:
+        title: Formulario de ingreso
+        username: Nombre de Usuario
+        password: Password
+        submit: Ingresar

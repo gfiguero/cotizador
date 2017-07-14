@@ -1,0 +1,37 @@
+Kore\AdminBundle\Entity\PersonaAccion:
+    type: entity
+    table: PersonaAccion
+    repositoryClass: Kore\AdminBundle\Entity\PersonaAccionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        persona:
+            targetEntity: Kore\AdminBundle\Entity\Persona
+            inversedBy: acciones
+    fields:
+        descripcion:
+            type: string
+            length: 300
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

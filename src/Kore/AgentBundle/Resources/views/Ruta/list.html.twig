@@ -1,0 +1,31 @@
+{% block list %}
+    {% trans_default_domain 'KoreAgentBundle' %}
+    <div class="form-group">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                 <table class="records_list table table-hover table-bordered table-middle">
+                    <thead>
+                        <tr>
+                            <th>{{ icon('check-square-o') }}</th>
+                            <th>{{ 'solicitud.form.unidadvecinal'|trans }}</th>
+                            <th>{{ 'solicitud.form.domicilio'|trans }}</th>
+                            <th>{{ 'solicitud.form.persona'|trans }}</th>
+                            <th>{{ 'solicitud.form.tiempo'|trans }}</th>
+                        </tr>
+                    </thead>
+                    {% for child in form.solicitudes %}
+                        {% set index = child.vars.value %}
+                        <tbody>
+                        <tr>
+                            <td>{{ form_widget(child) }}</td>
+                            <td>{% if choices[index].domicilio %}{{ choices[index].domicilio.unidadvecinal }}{% endif %}</td>
+                            <td>{% if choices[index].domicilio %}{{ choices[index].domicilio }}{% endif %}</td>
+                            <td>{% if choices[index].persona %}{{ choices[index].persona }}{% endif %}</td>
+                            <td>{% if choices[index].createdAt %}{{ choices[index].createdAt|ago }}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

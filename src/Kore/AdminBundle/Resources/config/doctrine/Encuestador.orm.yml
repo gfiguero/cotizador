@@ -1,0 +1,49 @@
+Kore\AdminBundle\Entity\Encuestador:
+    type: entity
+    table: Encuestador
+    repositoryClass: Kore\AdminBundle\Entity\EncuestadorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        rutas:
+            targetEntity: Kore\AdminBundle\Entity\Ruta
+            mappedBy: encuestador
+    fields:
+        rut:
+            type: string
+            length: 15
+            unique: true
+        nombre:
+            type: string
+            length: 300
+        apellido:
+            type: string
+            length: 300
+        email:
+            type: string
+            length: 300
+        celular:
+            type: string
+            length: 20
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

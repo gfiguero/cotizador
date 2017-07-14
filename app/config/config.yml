@@ -1,0 +1,20 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: framework.yml }
+    - { resource: twig.yml }
+    - { resource: doctrine.yml }
+    - { resource: swiftmailer.yml }
+    - { resource: stof_doctrine_extensions.yml }
+    - { resource: assetic.yml }
+    - { resource: knp_menu.yml }
+    - { resource: knp_paginator.yml }
+    - { resource: knp_snappy.yml }
+    - { resource: braincrafted.yml }
+    - { resource: vich_uploader.yml }
+    - { resource: liip_imagine.yml }
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: es

@@ -1,0 +1,33 @@
+{% block navbar %}
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-main">
+                    <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#home">Belleza Estilo</a>
+            </div>
+          
+            <div class="collapse navbar-collapse" id="nav-main">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#home" class="page-scroll">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="page-scroll">Quiénes Somos</a>
+                    </li>
+                    <li>
+                        <a href="#service" class="page-scroll">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="page-scroll">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('kore_front_product') }}">Productos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>   
+    </nav>
+
+{% endblock %}

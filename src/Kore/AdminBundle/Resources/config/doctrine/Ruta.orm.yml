@@ -1,0 +1,34 @@
+Kore\AdminBundle\Entity\Ruta:
+    type: entity
+    table: Ruta
+    repositoryClass: Kore\AdminBundle\Entity\RutaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        estado:
+            targetEntity: Kore\AdminBundle\Entity\RutaEstado
+            inversedBy: rutas
+        encuestador:
+            targetEntity: Kore\AdminBundle\Entity\Encuestador
+            inversedBy: rutas
+    oneToMany:
+        solicitudes:
+            targetEntity: Kore\AdminBundle\Entity\Solicitud
+            mappedBy: ruta
+            cascade: ['persist']
+    fields:
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    lifecycleCallbacks: {  }

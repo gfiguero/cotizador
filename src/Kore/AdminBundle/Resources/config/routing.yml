@@ -1,0 +1,36 @@
+kore_admin_solicitud:
+    resource: "@KoreAdminBundle/Resources/config/routing/solicitud.yml"
+    prefix:   /solicitud
+
+kore_admin_solicitudestado:
+    resource: "@KoreAdminBundle/Resources/config/routing/solicitudestado.yml"
+    prefix:   /solicitudestado
+
+kore_admin_solicitudaccion:
+    resource: "@KoreAdminBundle/Resources/config/routing/solicitudaccion.yml"
+    prefix:   /solicitudaccion
+
+kore_admin_persona:
+    resource: "@KoreAdminBundle/Resources/config/routing/persona.yml"
+    prefix:   /persona
+
+kore_admin_personaaccion:
+    resource: "@KoreAdminBundle/Resources/config/routing/personaaccion.yml"
+    prefix:   /personaaccion
+
+kore_admin_ruta:
+    resource: "@KoreAdminBundle/Resources/config/routing/ruta.yml"
+    prefix:   /ruta
+
+kore_admin_rutaestado:
+    resource: "@KoreAdminBundle/Resources/config/routing/rutaestado.yml"
+    prefix:   /rutaestado
+
+kore_admin_domicilio:
+    resource: "@KoreAdminBundle/Resources/config/routing/domicilio.yml"
+    prefix:   /domicilio
+
+kore_admin_encuestador:
+    resource: "@KoreAdminBundle/Resources/config/routing/encuestador.yml"
+    prefix:   /encuestador
+

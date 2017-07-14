@@ -1,0 +1,5 @@
+{% block sidebar %}
+    <nav class="sidebar-nav">
+        {{ knp_menu_render('KoreAdminBundle:Builder:sideMenu', {'currentClass': 'active', 'ancestorClass': 'active', 'leaf_class': 'leaf'}) }}
+    </nav>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% block sidebar %}
+    <div class="row">
+        <nav class="sidebar-nav navbar-collapse collapse" id="sidebar">
+            {{ knp_menu_render('KoreAgentBundle:Builder:sideMenu', {'currentClass': 'active', 'ancestorClass': 'active', 'leaf_class': 'leaf'}) }}
+        </nav>
+    </div>
+{% endblock %}

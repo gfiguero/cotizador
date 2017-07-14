@@ -1,0 +1,41 @@
+
+    /**
+{% block phpdoc_method_header %}
+     * Lists all {{ entity }} entities.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/", name="{{ route_name_prefix }}_index")
+     * @Method("GET")
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+     */
+{% block method_definition %}
+    public function indexAction(Request $request)
+{% endblock method_definition %}
+    {
+{% block method_body %}
+        $sort = $request->query->get('sort');
+        $direction = $request->query->get('direction');
+        $em = $this->getDoctrine()->getManager();
+        if($sort) ${{ entity_pluralized }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findBy(array(), array($sort => $direction));
+        else ${{ entity_pluralized }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
+        $paginator = $this->get('knp_paginator');
+        ${{ entity_pluralized }} = $paginator->paginate(${{ entity_pluralized }}, $request->query->getInt('page', 1), 100);
+
+        $deleteForms = array();
+        foreach(${{ entity_pluralized }} as $key => ${{ entity_singularized }}) {
+            $deleteForms[] = $this->createDeleteForm(${{ entity_singularized }})->createView();
+        }
+{% endblock method_body %}
+
+{% block method_return %}
+        return $this->render('KoreAdminBundle:{{ entity }}:index.html.twig', array(
+            '{{ entity_pluralized }}' => ${{ entity_pluralized }},
+            'direction' => $direction,
+            'sort' => $sort,
+            'deleteForms' => $deleteForms,
+        ));
+{% endblock method_return %}
+    }

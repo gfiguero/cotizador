@@ -1,0 +1,58 @@
+Kore\AdminBundle\Entity\Solicitud:
+    type: entity
+    table: Solicitud
+    repositoryClass: Kore\AdminBundle\Entity\SolicitudRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        acciones:
+            targetEntity: Kore\AdminBundle\Entity\SolicitudAccion
+            mappedBy: solicitud
+    manyToOne:
+        estado:
+            targetEntity: Kore\AdminBundle\Entity\SolicitudEstado
+            inversedBy: solicitudes
+        ruta:
+            targetEntity: Kore\AdminBundle\Entity\Ruta
+            inversedBy: solicitudes
+            joinColumn:
+                onDelete: "SET NULL"
+        persona:
+            targetEntity: Kore\AdminBundle\Entity\Persona
+            inversedBy: solicitudes
+        tipo:
+            targetEntity: Kore\AdminBundle\Entity\SolicitudTipo
+            inversedBy: solicitudes
+        domicilio:
+            targetEntity: Kore\AdminBundle\Entity\Domicilio
+            inversedBy: solicitudes
+    fields:
+        folio:
+            type: string
+            length: 20
+            nullable: true
+        nota:
+            type: text
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

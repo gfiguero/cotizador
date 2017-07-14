@@ -1,0 +1,127 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'resumen.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'resumen.index.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-resumen">
+            <div class="col-md-6 col-lg-3">
+                <fieldset>
+                    <legend>{{'resumen.counters.solicitudes.title'|trans}}</legend>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.totales'|trans}}</td>
+                                <td>{{ solicitudes['totales'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.370'|trans}}</td>
+                                <td>{{ solicitudes['370'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.190'|trans}}</td>
+                                <td>{{ solicitudes['190'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.rutanull'|trans}}</td>
+                                <td>{{ solicitudes['rutanull'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.rutanueva'|trans}}</td>
+                                <td>{{ solicitudes['rutanueva'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.rutaenviada'|trans}}</td>
+                                <td>{{ solicitudes['rutaenviada'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.solicitudes.rutaterminada'|trans}}</td>
+                                <td>{{ solicitudes['rutaterminada'] }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <fieldset>
+                    <legend>{{'resumen.counters.rutas.title'|trans}}</legend>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>{{'resumen.counters.rutas.totales'|trans}}</td>
+                                <td>{{ rutas['totales'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.rutas.nueva'|trans}}</td>
+                                <td>{{ rutas['nueva'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.rutas.enviada'|trans}}</td>
+                                <td>{{ rutas['enviada'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.rutas.terminada'|trans}}</td>
+                                <td>{{ rutas['terminada'] }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <fieldset>
+                    <legend>{{'resumen.counters.domicilios.title'|trans}}</legend>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>{{'resumen.counters.domicilios.sinrol'|trans}}</td>
+                                <td>{{ domicilios['sinrol'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.domicilios.enrolados'|trans}}</td>
+                                <td>{{ domicilios['enrolados'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'resumen.counters.domicilios.roles'|trans}}</td>
+                                <td>{{ domicilios['roles'] }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <fieldset>
+                    <legend>{{'resumen.counters.personas.title'|trans}}</legend>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>{{'resumen.counters.personas.totales'|trans}}</td>
+                                <td>{{ personas['totales'] }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}

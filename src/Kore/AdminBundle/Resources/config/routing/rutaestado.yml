@@ -1,0 +1,24 @@
+admin_rutaestado_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:RutaEstado:index" }
+    methods:  GET
+
+admin_rutaestado_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:RutaEstado:show" }
+    methods:  GET
+
+admin_rutaestado_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:RutaEstado:new" }
+    methods:  [GET, POST]
+
+admin_rutaestado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:RutaEstado:edit" }
+    methods:  [GET, POST]
+
+admin_rutaestado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:RutaEstado:delete" }
+    methods:  DELETE

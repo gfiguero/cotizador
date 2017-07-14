@@ -1,0 +1,21 @@
+{% extends 'KoreFrontBundle:Front:base.html.twig' %}
+{% use 'KoreFrontBundle:Front:navbar.html.twig' %}
+{% use 'KoreFrontBundle:Front:header.html.twig' %}
+{% use 'KoreFrontBundle:Front:about.html.twig' %}
+{% use 'KoreFrontBundle:Front:feature.html.twig' %}
+{% use 'KoreFrontBundle:Front:brand.html.twig' %}
+{% use 'KoreFrontBundle:Front:contact.html.twig' %}
+{% use 'KoreFrontBundle:Front:footer.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% block navbar %}{{ parent() }}{% endblock %}
+    {% block header %}{{ parent() }}{% endblock %}
+    {% block about %}{{ parent() }}{% endblock %}
+    {% block brand %}{{ parent() }}{% endblock %}
+    {% block feature %}{{ parent() }}{% endblock %}
+    {% block contact %}{{ parent() }}{% endblock %}
+    {% block footer %}{{ parent() }}{% endblock %}
+{% endblock %}
+

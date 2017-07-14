@@ -1,0 +1,128 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'ruta.show.title'|trans({'%id%':ruta.id}) }}{% endblock %}
+
+{% block body %}
+
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'ruta.show.title'|trans({'%id%':ruta.id}) }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-default" href="{{ path('agent_ruta_estado_0') }}">{{ icon('list fa-fw') }}&nbsp;{{ 'ruta.index.r00.link'|trans }}</a>
+                    <a type="button" class="btn btn-default" href="{{ path('agent_ruta_estado_5') }}">{{ icon('list fa-fw') }}&nbsp;{{ 'ruta.index.r05.link'|trans }}</a>
+                    <a type="button" class="btn btn-primary" href="{{ path('agent_ruta_edit', { 'id': ruta.id }) }}">{{ icon('edit fa-fw') }}&nbsp;{{ 'ruta.edit.link'|trans }}</a>
+                    <a type="button" class="btn btn-warning" href="{{ path('agent_ruta_receipt', { 'id': ruta.id }) }}">{{ icon('reply fa-fw fa-rotate-270') }}&nbsp;{{ 'ruta.receipt.link'|trans }}</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">{{ icon('trash-o') }}&nbsp;{{ 'ruta.delete.link'|trans }}</button>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-show">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'ruta.show.data'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'ruta.form.id'|trans }}</dt>
+                                <dd>{% if ruta.id %}{{ ruta.id }}{% endif %}</dd>
+                            <dt>{{ 'ruta.form.encuestador'|trans }}</dt>
+                                <dd>{% if ruta.encuestador %}{{ ruta.encuestador }}{% endif %}</dd>
+                            <dt>{{ 'ruta.form.estado'|trans }}</dt>
+                                <dd>{% if ruta.estado %}{{ ruta.estado }}{% endif %}</dd>
+                            <dt>{{ 'ruta.form.created_at'|trans }}</dt>
+                                <dd>{% if ruta.createdAt %}{{ ruta.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}{% endif %}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-show -->
+
+        <div class="row" id="page-list">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'solicitud.index.list'|trans }}</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="records_list table table-middle table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('edit fa-fw') }}</a></div>
+                                    </th>
+                                    <th>{{ 'solicitud.form.id'|trans }}</th>
+                                    <th>{{ 'solicitud.form.domicilio'|trans }}</th>
+                                    <th>{{ 'solicitud.form.persona'|trans }}</th>
+                                    <th>{{ 'solicitud.form.created_at'|trans }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for solicitud in ruta.solicitudes %}
+                                <tr>
+                                    <td>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default" href="{{ path('agent_solicitud_show', { 'id': solicitud.id }) }}">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('agent_solicitud_edit', { 'id': solicitud.id }) }}">{{ icon('edit fa-fw') }}</a></div>
+                                    </td>
+                                    <td>{% if solicitud.id %}{{ solicitud.id }}{% endif %}</td>
+                                    <td>{% if solicitud.domicilio %}{{ solicitud.domicilio }}{% endif %}</td>
+                                    <td>{% if solicitud.persona %}{{ solicitud.persona }}{% endif %}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ solicitud.createdAt|localizeddate('full', 'full', 'es_ES', 'America/Santiago', 'dd-LLL-Y - HH:mm') }}"></span>&nbsp;{{ solicitud.createdAt|ago }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-list -->
+
+        <div id="page-modal">
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">{{ icon('times') }}</button>
+                            <h4 class="modal-title" id="myModalLabel">{{ 'ruta.delete.title'|trans }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-2 text-center">{{ icon('exclamation-triangle fa-5x') }}</div>
+                                <div class="col-xs-10"><p>{{ 'ruta.delete.message'|trans }}</p></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            {{ form_start(deleteForm) }}
+                                <button type="submit" class="btn btn-danger pull-right">{{ icon('trash-o') }}&nbsp;{{ 'ruta.delete.submit'|trans }}</button>
+                            {{ form_end(deleteForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-modal -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+

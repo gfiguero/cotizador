@@ -1,0 +1,5 @@
+agent_resumen_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Resumen:index" }
+    methods:  GET
+
