@@ -5,3 +5,4 @@ twig:
         resources:
             - :Form:bootstrap.html.twig
             - :Form:fileinput.html.twig
+            - :Form:prototype.html.twig

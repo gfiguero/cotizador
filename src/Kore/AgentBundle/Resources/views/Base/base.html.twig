@@ -11,12 +11,11 @@
     <meta name="description" content="">
     <meta name="author" content="Kore">
     <meta name="language" content="es">
-    <title>RS DIDECO QUILLOTA - {% block title %}{% endblock %}</title>
-    <link href="{{ absolute_url(asset('vendor/font-awesome/css/font-awesome.min.css')) }}" rel="stylesheet" type="text/css">
-    <link href="{{ absolute_url(asset('vendor/jquery-ui/themes/base/jquery-ui.min.css')) }}" rel="stylesheet">
-    <link href="{{ absolute_url(asset('bundles/koreagent/css/agent.css')) }}" rel="stylesheet">
-    <link href="{{ absolute_url(asset('vendor/metismenu/metisMenu.min.css')) }}" rel="stylesheet">
-    <link href="{{ absolute_url(asset('bundles/koreadmin/css/admin.css')) }}" rel="stylesheet">
+    <title>Cotizador - {% block title %}{% endblock %}</title>
+    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/jquery-ui/themes/base/jquery-ui.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/metismenu/metisMenu.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/koreagent/css/agent.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,12 +36,11 @@
             </div>
         </div>
     </div>
-    <script src="{{ absolute_url(asset('vendor/jquery/jquery.min.js')) }}"></script>
-    <script src="{{ absolute_url(asset('vendor/jquery-ui/jquery-ui.min.js')) }}"></script>
-    <script src="{{ absolute_url(asset('vendor/bootstrap/js/bootstrap.min.js')) }}"></script>
-    <script src="{{ absolute_url(asset('vendor/braincrafted/js/bc-bootstrap-collection.js')) }}"></script>
-    <script src="{{ absolute_url(asset('vendor/metismenu/metisMenu.min.js')) }}"></script>
-    <script src="{{ absolute_url(asset('bundles/koreadmin/js/admin.js')) }}"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/braincrafted/js/bc-bootstrap-collection.js') }}"></script>
+    <script src="{{ asset('vendor/metismenu/metisMenu.min.js') }}"></script>
     {% block javascript %}{% endblock %}
 </body>
 </html>

@@ -4,8 +4,9 @@ knp_snappy:
         enabled:    true
         binary:     /usr/local/bin/wkhtmltopdf
         options:
-            orientation: Landscape
-            page-size: Legal
+            orientation: Portrait
+            page-size: Letter
+            viewport-size: 1280x768
     image:
         enabled:    true
         binary:     /usr/local/bin/wkhtmltoimage

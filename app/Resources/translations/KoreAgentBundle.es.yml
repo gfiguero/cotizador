@@ -1,273 +1,298 @@
-topmenu:
-    solicitud: Nueva Solicitud
-    ruta: Nueva Ruta
-    logout: Salir
-
 sidemenu:
-    solicitud: 
-        root: Solicitudes
-        indexnull: Sin ruta
-        indexR00: En ruta nueva
-        indexR05: En ruta enviada
-        proceso: Ingresar nueva
-        show: Ver solicitudes
-    ruta:
-        root: Rutas
-        indexR00: Nuevas
-        indexR05: Enviadas
-        indexR10: Terminadas
-        new: Crear nueva
-        buscar: Ver ruta
-    encuestador:
-        root: Encuestadores
-    persona:
-        root: Personas
-        buscar: Buscar
+    seller:
+        root: Vendedores
+    client:
+        root: Clientes
+    provider:
+        root: Proveedores
+    product:
+        root: Productos
+    item:
+        root: Ítems
+    budget:
+        root: Cotizaciones
+    note:
+        root: Notas
 
-solicitud:
+seller:
     index:
-        nul: Sin ruta
-        R00: En ruta nueva
-        R05: En ruta enviada
-        title: Solicitudes
-        list: Lista de solicitudes
-    proceso:
-        personabuscar:
-            form: Formulario de búsqueda de personas
-            submit: Buscar persona
-        persona:
-            form: Formulario de edición de datos personales
-            data: Datos personales registrados
-            submit: Confirmar datos. Siguiente paso
-        domicilio:
-            list: Lista de domicilios registrados
-            buscarform: Buscador de roles
-            buscar: Buscar Rol
-            form: Formulario de registro de domicilio
-            submit: Agregar domicilio
-            data: Datos de domicilio registrados
-            vacio: Esta persona no presenta domicilios registrados
-        solicitudespersona:
-            list: Otras solicitudes registradas por esta persona
-            vacio: Esta persona no presenta otras solicitudes registradas
-        solicitudesdomicilio:
-            list: Otras solicitudes registradas para este domicilio
-            vacio: Este domicilio no presenta otras solicitudes registradas
-        solicitud:
-            form: Formulario de registro de solicitud
-            submit: Confirmar solicitud
-    show:
-        title: Solicitud N° %id%
-        data: Datos de solicitud registrados
-        link: Volver
-    form:
-        id: ID
-        estado: Estado
-        ruta: Ruta
-        nota: Nota
-        folio: Folio
-        persona: Persona
-        rut: Rut
-        telefono: Teléfono
-        tipo: Tipo
-        domicilio: Domicilio
-        direccion: Dirección
-        rol: Rol
-        unidadvecinal: Unidad Vecinal
-        tiempo: Tiempo
-        created_at: Registro
-        updated_at: Actualización
-        placeholder:
-            tipo: Seleccione tipo de solicitud
-            estado: Seleccione estado de solicitud
+        title: Vendedores
+        list: Lista de vendedores
+        link: Lista de vendedores
     new:
-        title: Proceso de ingreso de solicitudes
-        link: Ingresar nueva solicitud
-    edit:
-        title: Edición de solicitud
-        link: Editar Solicitud
-        submit: Guardar cambios
-        flash: Los cambios en solicitud fueron almacenados exitosamente.
-    delete:
-        link: Borrar Solicitud
-        title: Borrado de solicitud
-        message: La solicitud será borrada. La información no podrá ser recuperada.
-        submit: Confirmar borrado
-        flash: La solicitud ha sido borrada.
-    buscar:
-        title: Solicitudes
-        form: Buscar solicitud
-        submit: Buscar
-        list: Últimas solicitudes ingresadas
-        flash: El ID de solicitud ingresado no existe.
-
-resumen:
-    index:
-        title: Resumen General
-    counters:
-        solicitudes:
-            title: Solicitudes
-            totales: Totales
-            370: Últimos 12 meses
-            190: Últimos 6 meses
-            rutanull: Sin ruta
-            rutanueva: En ruta nueva
-            rutaenviada: En ruta enviada
-            rutaterminada: En ruta terminada
-        rutas:
-            title: Rutas
-            totales: Totales
-            nueva: Nuevas
-            enviada: Enviadas
-            terminada: Terminadas
-        domicilios:
-            title: Domicilios
-            sinrol: Sin Rol
-            enrolados: Con Rol
-            roles: Roles únicos
-        personas:
-            title: Personas
-            totales: Totales
-
-domicilio:
-    edit:
-        link: Editar datos
+        title: Vendedores
+        link: Nuevo vendedor
+        form: Formulario de registro de vendedor
+        submit: Registrar vendedor
+        flash: Nuevo vendedor registrado satisfactoriamente.
     show:
-        title: Información de domicilio
-        data: Datos del domicilio
-        solicitud:
-            list: Lista de solicitudes registradas para este domicilio
-            vacio: El domicilio no presenta solicitudes registradas
-        domicilio:
-            list: Lista de otros domicilios registrados con el mismo rol
-            vacio: No se encontraron otros domicilios registrados con el mismo rol
-    form:
-        id: ID
-        direccion: Dirección
-        unidadvecinal: Unidad Vecinal
-        rol: Rol
-        persona: Persona
-        buscar: Buscar
-        seleccionar: Seleccionar
-        created_at: Registro
-        updated_at: Actualización
-
-ruta:
-    index:
-        title: Rutas
-        list: Lista de rutas
-        R00: Nuevas
-        R05: Asignadas
-        R10: Terminadas
-        r00:
-            link: Lista de rutas nuevas
-        r05:
-            link: Lista de rutas asignadas
-    new:
-        title: Creación de Nueva Ruta
-        form: Formulario de creación de ruta
-        submit: Registrar ruta
-        link: Crear Nueva Ruta
-        flash: La ruta fué registrada satisfactoriamente
-    edit:
-        title: Rutas
-        link: Editar Ruta
-        submit: Guardar cambios
-        form: Formulario de edición de ruta
-        flash: Los cambios en ruta fueron registrados satisfactoriamente
-    show:
-        title: Ruta N° %id%
-        data: Datos de ruta
-    form:
-        id: ID
-        created_at: Registro
-        updated_at: Actualización
-        encuestador: Encuestador
-        estado: Estado
-        solicitudes: Solicitudes
-        placeholder:
-            encuestador: Seleccione un encuestador
-    delete:
-        link: Borrar ruta
-        title: Borrado de ruta
-        message: La ruta será borrada completamente pero sus solicitudes permanecerán, sin embargo dichas solicitudes quedarán sin una ruta asignada.
-        submit: Confirmar
-        flash: La ruta ha sido borrada.
-    receipt:
-        title: Rutas
-        link: Recepcionar Ruta
-        form: Formulario de recepción de ruta
-        submit: Confirmar recepción
-    buscar:
-        title: Rutas
-        form: Buscar una ruta
-        submit: Buscar
-
-encuestador:
-    form:
-        id: ID
-        rut: Rut
-        nombre: Nombre
-        apellido: Apellido
-        email: Email
-        celular: Celular
-        created_at: Registro
-        updated_at: Actualización
-    index:
-        title: Encuestadores
-        list: Lista de encuestadores
-        link: Volver a la lista
-    new:
-        title: Encuestadores
-        link: Nuevo encuestador
-        form: Formulario de registro de encuestador
-        submit: Registrar encuestador
-        flash: Nuevo encuestador registrado.
-    show:
-        title: Encuestadores
+        title: Vendedores
         link: Mostrar datos
-        data: Datos de encuestador
+        data: Datos de vendedor
     edit:
-        title: Encuestadores
+        title: Vendedores
         link: Editar datos
-        form: Formulario de edición de encuestador
+        form: Formulario de edición de vendedor
         submit: Guardar cambios
-        flash: Los cambios en el encuestador fueron registrados satisfactoriamente.
+        flash: Los cambios en el vendedor fueron registrados satisfactoriamente.
     delete:
-        link: Borrar encuestador
-        title: Borrado de encuestador
-        message: Los datos no podrán ser recuperados.
+        link: Borrar vendedor
+        title: Borrado de vendedor
+        message: Los datos borrados no podrán ser recuperados.
         submit: Confirmar borrado
-        flash: El encuestador fué borrado.
-
-persona:
+        flash: El vendedor fué borrado totalmente.
     form:
         id: ID
-        rut: RUT
-        primernombre: Primer nombre
-        segundonombre: Segundo nombre
-        primerapellido: Primer apellido
-        segundoapellido: Segundo apellido
-        nombrecompleto: Nombre completo
+        rut: Rut
+        name: Nombre
         email: Email
-        celular: Celular
-        telefono: Teléfono
+        phone: Teléfono
         created_at: Registro
         updated_at: Actualización
+
+client:
+    index:
+        title: Clientes
+        list: Lista de clientes
+        link: Lista de clientes
+    new:
+        title: Clientes
+        link: Nuevo cliente
+        form: Formulario de registro de cliente
+        submit: Registrar cliente
+        flash: Nuevo cliente registrado satisfactoriamente.
     show:
-        title: Personas
-        data: Datos de persona registrados
-        domicilio:
-            list: Lista de domicilios registrados
-        solicitud:
-            list: Lista de solicitudes registradas
+        title: Clientes
+        link: Mostrar datos
+        data: Datos de cliente
     edit:
+        title: Clientes
         link: Editar datos
-        title: Personas
-        form: Formulario de edición de datos personales
+        form: Formulario de edición de cliente
         submit: Guardar cambios
-        flash: Los cambios en la información personal se realizaron exitosamente
-    buscar:
-        title: Personas
-        form: Formulario de búsqueda de personas
-        submit: Buscar
+        flash: Los cambios en el cliente fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar cliente
+        title: Borrado de cliente
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El cliente fué borrado totalmente.
+    form:
+        id: ID
+        rut: Rut
+        name: Nombre
+        contactname: Nombre Contacto
+        email: Email
+        phone: Teléfono
+        address: Dirección
+        created_at: Registro
+        updated_at: Actualización
+
+provider:
+    index:
+        title: Proveedores
+        list: Lista de proveedores
+        link: Lista de proveedores
+    new:
+        title: Proveedores
+        link: Nuevo proveedor
+        form: Formulario de registro de proveedor
+        submit: Registrar proveedor
+        flash: Nuevo proveedor registrado satisfactoriamente.
+    show:
+        title: Proveedores
+        link: Mostrar datos
+        data: Datos de proveedor
+    edit:
+        title: Proveedores
+        link: Editar datos
+        form: Formulario de edición de proveedor
+        submit: Guardar cambios
+        flash: Los cambios en el proveedor fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar proveedor
+        title: Borrado de proveedor
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El proveedor fué borrado totalmente.
+    form:
+        id: ID
+        rut: Rut
+        name: Nombre
+        contactname: Nombre Contacto
+        email: Email
+        phone: Teléfono
+        address: Dirección
+        created_at: Registro
+        updated_at: Actualización
+
+product:
+    index:
+        title: Productos
+        list: Lista de productos
+        link: Lista de productos
+    new:
+        title: Productos
+        link: Nuevo producto
+        form: Formulario de registro de producto
+        submit: Registrar producto
+        flash: Nuevo producto registrado satisfactoriamente.
+    show:
+        title: Productos
+        link: Mostrar datos
+        data: Datos de producto
+    edit:
+        title: Productos
+        link: Editar datos
+        form: Formulario de edición de producto
+        submit: Guardar cambios
+        flash: Los cambios en el producto fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar producto
+        title: Borrado de producto
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El producto fué borrado totalmente.
+    form:
+        id: ID
+        name: Nombre
+        description: Descripción
+        features: Características
+        cm_code: Código CM
+        cost: Costo
+        price: Precio
+        margin: Margen
+        image: Imagen
+        imagefile: Archivo
+        provider: Proveedor
+        created_at: Registro
+        updated_at: Actualización
+
+item:
+    index:
+        title: Ítems
+        list: Lista de ítems
+        link: Lista de ítems
+    new:
+        title: Ítems
+        link: Nuevo ítem
+        form: Formulario de registro de ítem
+        submit: Registrar ítem
+        flash: Nuevo ítem registrado satisfactoriamente.
+    show:
+        title: Ítems
+        link: Mostrar datos
+        data: Datos de ítem
+    edit:
+        title: Ítems
+        link: Editar datos
+        form: Formulario de edición de ítem
+        submit: Guardar cambios
+        flash: Los cambios en el ítem fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar ítem
+        title: Borrado de ítem
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El ítem fué borrado totalmente.
+    form:
+        id: ID
+        quantity: Cantidad
+        discount: Descuento %
+        discountprice: Descuento
+        totaldiscountprice: Descuento Total
+        price: Precio Lista
+        totalprice: Total Precio Lista
+        totalnetprice: Total Neto
+        totaliva: IVA
+        total: Total
+        budget: Cotización
+        product: Producto
+        created_at: Registro
+        updated_at: Actualización
+
+budget:
+    index:
+        title: Cotizaciones
+        list: Lista de cotizaciones
+        link: Lista de cotizaciones
+    new:
+        title: Cotizaciones
+        link: Nueva cotización
+        form: Formulario de registro de cotización
+        submit: Registrar cotización
+        flash: Nueva cotización registrado satisfactoriamente.
+    show:
+        title: Cotización N° %id%
+        link: Mostrar datos
+        data: Datos de cotización
+        client: Datos de cliente
+        seller: Datos de vendedor
+        items: Lista de ítems
+        total: Totales
+        notas: Notas importantes
+        cmpdf: Generar PDF CM
+    edit:
+        title: Cotizaciones
+        link: Editar datos
+        form: Formulario de edición de cotización
+        submit: Guardar cambios
+        flash: Los cambios en la cotización fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar cotización
+        title: Borrado de cotización
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: La cotización fué borrado totalmente.
+    form:
+        id: ID
+        code: Código
+        client: Cliente
+        seller: Vendedor
+        items: Ítems
+        notes: Notas reutilizables
+        note: Nota única
+        additem: Agregar Ítem
+        totalprice: Total Precio Lista
+        totaldiscountprice: Total Descuentos
+        totalnetprice: Total Neto
+        totaliva: IVA
+        total: Total
+        deleteitem: Eliminar Ítem
+        created_at: Registro
+        updated_at: Actualización
+
+note:
+    index:
+        title: Notas
+        list: Lista de notas
+        link: Lista de notas
+    new:
+        title: Notas
+        link: Nueva nota
+        form: Formulario de registro de nota
+        submit: Registrar nota
+        flash: Nueva nota registrado satisfactoriamente.
+    show:
+        title: Notas
+        link: Mostrar datos
+        data: Datos de nota
+    edit:
+        title: Notas
+        link: Editar datos
+        form: Formulario de edición de nota
+        submit: Guardar cambios
+        flash: Los cambios en la nota fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar nota
+        title: Borrado de nota
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: La nota fué borrado totalmente.
+    form:
+        id: ID
+        title: Título
+        description: Descripción
+        created_at: Registro
+        updated_at: Actualización
+

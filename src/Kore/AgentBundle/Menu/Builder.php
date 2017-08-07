@@ -13,12 +13,11 @@ class Builder implements ContainerAwareInterface
     public function topMenu(FactoryInterface $factory, array $options)
     {
         $topmenu = $factory->createItem('root');
-        $topmenu->setChildrenAttribute('class', 'nav navbar-nav navbar-right');
+        $topmenu->setChildrenAttribute('class', 'nav navbar-nav');
         $topmenu->setChildrenAttribute('id', 'top-menu');
 
-        $topmenu->addChild('topmenu.solicitud', array('route' => 'agent_solicitudproceso_personabuscar'))->setExtras(array('translation_domain' => 'KoreAgentBundle'));
-        $topmenu->addChild('topmenu.ruta', array('route' => 'agent_ruta_new'))->setExtras(array('translation_domain' => 'KoreAgentBundle'));
-        $topmenu->addChild('topmenu.logout', array('route' => 'logout'))->setExtras(array('translation_domain' => 'KoreAgentBundle'));
+//        $topmenu->addChild('topmenu.header', array('route' => 'agent_header_index'))->setAttributes(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAgentBundle'));
+//        $topmenu->addChild('topmenu.logout', array('route' => 'front_logout'))->setAttributes(array('icon' => 'sign-out fa-fw', 'translation_domain' => 'KoreFrontBundle'));
 
         return $topmenu;
     }
@@ -26,57 +25,54 @@ class Builder implements ContainerAwareInterface
     public function sideMenu(FactoryInterface $factory, array $options)
     {
         $sidemenu = $factory->createItem('root');
+        $sidemenu->setCurrent($this->container->get('request')->getRequestUri());
         $sidemenu->setChildrenAttribute('class', 'metismenu');
         $sidemenu->setChildrenAttribute('id', 'side-menu');
 
-// Menú Solicitud
-        $sidemenu->addChild('sidemenu.solicitud.root')->setExtras(array('translation_domain' => 'KoreAgentBundle'));
-        $sidemenu['sidemenu.solicitud.root']->setLabelAttributes(array('class' => 'has-arrow'));
-        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.indexnull', array('route' => 'agent_solicitud_rutaestado_null'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => 'agent_solicitud_rutaestado_null'));
-        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.indexR00', array('route' => 'agent_solicitud_rutaestado_0'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => 'agent_solicitud_rutaestado_0'));
-        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.indexR05', array('route' => 'agent_solicitud_rutaestado_5'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => 'agent_solicitud_rutaestado_5'));
-//        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.indexR10', array('route' => 'agent_solicitud_rutaestado', 'routeParameters' => array('codigo' => 'R10')))->setExtras(array('translation_domain' => 'KoreAgentBundle',));
-        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.proceso', array('route' => 'agent_solicitudproceso_personabuscar'))
-            ->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
-                    'agent_solicitudproceso_personabuscar',
-                    'agent_solicitudproceso_personanueva',
-                    'agent_solicitudproceso_personaexistente',
-                    'agent_solicitudproceso_domicilio',
-                    'agent_solicitudproceso_solicitud',
-                ),
-            ));
-        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.show', array('route' => 'agent_solicitud_buscar'))
-            ->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array('agent_solicitud_buscar', 'agent_solicitud_show')));
-
-// Menú Ruta
-        $sidemenu->addChild('sidemenu.ruta.root')->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array('agent_ruta_edit')));
-        $sidemenu['sidemenu.ruta.root']->setLabelAttributes(array('class' => 'has-arrow'));
-        $sidemenu['sidemenu.ruta.root']->addChild('sidemenu.ruta.indexR00', array('route' => 'agent_ruta_estado_0'))->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => 'agent_ruta_estado_0'));
-        $sidemenu['sidemenu.ruta.root']->addChild('sidemenu.ruta.indexR05', array('route' => 'agent_ruta_estado_5'))->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => 'agent_ruta_estado_5'));
-        $sidemenu['sidemenu.ruta.root']->addChild('sidemenu.ruta.indexR10', array('route' => 'agent_ruta_estado_10'))->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => 'agent_ruta_estado_10'));
-        $sidemenu['sidemenu.ruta.root']->addChild('sidemenu.ruta.new', array('route' => 'agent_ruta_new'))->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => 'agent_ruta_new'));
-        $sidemenu['sidemenu.ruta.root']->addChild('sidemenu.ruta.buscar', array('route' => 'agent_ruta_buscar'))
-            ->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => array('agent_ruta_show', 'agent_ruta_buscar', 'agent_ruta_receipt', 'agent_ruta_edit')));
-
-// Menú Encuestador
-        $sidemenu->addChild('sidemenu.encuestador.root', array('route' => 'agent_encuestador_index'))
-            ->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => array('agent_encuestador_index', 'agent_encuestador_new', 'agent_encuestador_edit', 'agent_encuestador_show')));
-
-// Menú Persona
-        $sidemenu->addChild('sidemenu.persona.root', array('route' => 'agent_persona_buscar'))
-            ->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => array('agent_persona_buscar', 'agent_persona_show', 'agent_persona_edit')));
+        $sidemenu->addChild('sidemenu.provider.root', array('route' => 'agent_provider_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_provider_index',
+            'agent_provider_new',
+            'agent_provider_show',
+            'agent_provider_edit',
+        )));
+        $sidemenu->addChild('sidemenu.client.root', array('route' => 'agent_client_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_client_index',
+            'agent_client_new',
+            'agent_client_show',
+            'agent_client_edit',
+        )));
+        $sidemenu->addChild('sidemenu.seller.root', array('route' => 'agent_seller_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_seller_index',
+            'agent_seller_new',
+            'agent_seller_show',
+            'agent_seller_edit',
+        )));
+        $sidemenu->addChild('sidemenu.product.root', array('route' => 'agent_product_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_product_index',
+            'agent_product_new',
+            'agent_product_show',
+            'agent_product_edit',
+        )));
+        $sidemenu->addChild('sidemenu.note.root', array('route' => 'agent_note_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_note_index',
+            'agent_note_new',
+            'agent_note_show',
+            'agent_note_edit',
+        )));
+        $sidemenu->addChild('sidemenu.budget.root', array('route' => 'agent_budget_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_budget_index',
+            'agent_budget_new',
+            'agent_budget_show',
+            'agent_budget_edit',
+        )));
 /*
-        $sidemenu->addChild('sidemenu.persona.root')->setExtras(array('translation_domain' => 'KoreAgentBundle'));
-        $sidemenu['sidemenu.persona.root']->setLabelAttributes(array('class' => 'has-arrow'));
-        $sidemenu['sidemenu.persona.root']->addChild('sidemenu.persona.buscar', array('route' => 'agent_persona_buscar'))->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => 'agent_persona_buscar'));
+        $sidemenu->addChild('sidemenu.item.root', array('route' => 'agent_item_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+            'agent_item_index',
+            'agent_item_new',
+            'agent_item_show',
+            'agent_item_edit',
+        )));
 */
-// Menú Domicilio
-//        $sidemenu->addChild('sidemenu.domicilio', array('route' => 'agent_domicilio_index'))->setExtras(array('translation_domain' => 'KoreAgentBundle','routes' => 'agent_domicilio_index'));
-
-
-
-//        $sidemenu->addChild('sidemenu.solicitudaccion', array('route' => 'agent_solicitudaccion_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAgentBundle', 'routes' => 'agent_solicitudaccion_index'));
-//        $sidemenu->addChild('sidemenu.solicitudestado', array('route' => 'agent_solicitudestado_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAgentBundle', 'routes' => 'agent_solicitudestado_index'));
 
         return $sidemenu;
     }

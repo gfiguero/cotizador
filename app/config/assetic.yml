@@ -11,10 +11,24 @@ assetic:
     read_from: %kernel.root_dir%/..
     write_to: %kernel.root_dir%/..
     assets:
-        frontend_css:
+        kore_admin_css:
+            inputs:
+                - src/Kore/AdminBundle/Resources/less/build.less
+            filters:
+                - less
+                - cssrewrite
+            output: src/Kore/AdminBundle/Resources/public/css/admin.css
+        kore_agent_css:
             inputs:
                 - src/Kore/AgentBundle/Resources/less/build.less
             filters:
                 - less
                 - cssrewrite
             output: src/Kore/AgentBundle/Resources/public/css/agent.css
+#        frontend_css:
+#            inputs:
+#                - src/Kore/AgentBundle/Resources/less/build.less
+#            filters:
+#                - less
+#                - cssrewrite
+#            output: src/Kore/AgentBundle/Resources/public/css/agent.css

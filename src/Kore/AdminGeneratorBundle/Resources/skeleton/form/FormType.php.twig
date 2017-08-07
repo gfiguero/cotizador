@@ -22,7 +22,7 @@ class {{ form_class }} extends AbstractType
         $builder
 
         {%- for field in fields -%}
-            {%- if field not in ['createdAt', 'updatedAt', 'deletedAt'] %} {# excluding unnecessary fields #}
+            {%- if field not in ['created_at', 'updated_at', 'deleted_at'] %} {# excluding unnecessary fields #}
 
             ->add('{{ field }}', null, array(
                 'label' => '{{ entity_class|lower ~ '.form.' ~ field }}',

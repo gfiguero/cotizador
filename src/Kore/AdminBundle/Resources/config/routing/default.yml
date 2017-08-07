@@ -1,4 +1,0 @@
-admin_default_index:
-    path:     /
-    defaults: { _controller: "KoreAdminBundle:Default:index" }
-    methods:  GET

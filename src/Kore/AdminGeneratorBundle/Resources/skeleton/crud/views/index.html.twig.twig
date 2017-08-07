@@ -24,13 +24,13 @@
         <div class="row" id="page-toolbar">
             <div class="col-lg-12">
                 <div class="btn-toolbar">
-                    <a type="button" class="btn btn-success" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">{{ "{{ icon('plus') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".new.link'|trans }}" }}</a>
+                    <a type="button" class="btn btn-success" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">{{ "{{ icon('plus fa-fw') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".new.link'|trans }}" }}</a>
                 </div>
             </div>
         </div>
         <!-- /#page-toolbar -->
 
-        {% set activefields = ['id', 'value', 'score', 'name', 'filename', 'updatedAt', 'createdAt'] -%}
+        {% set activefields = ['id', 'value', 'score', 'name', 'filename', 'updated_at', 'created_at'] -%}
         <div class="row" id="page-list">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -38,7 +38,7 @@
                         <h2 class="panel-title">{{ "{{ '" ~ entity_singularized|lower ~ ".index.list'|trans }}" }}</h2>
                     </div>
                     <div class="table-responsive">
-                        <table class="records_list table table-striped table-hover">
+                        <table class="records_list table table-striped table-hover table-middle">
                             <thead>
                                 <tr>
                                     <th>
@@ -88,7 +88,7 @@
 
                                 {%- elseif metadata.type in ['datetime'] %}
 
-                                    <td>{{ '{% if ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "dd-LLL-Y - HH:mm") }}{% endif %}' }}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title={{ '"{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "dd LLLL Y HH:mm") }}"' }}></span>&nbsp;{{ '{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}' }}</td>
 
                                 {%- else %}
 
@@ -117,7 +117,7 @@
         <div id="page-modal">
             {{ '{% for key, ' ~ entity_singularized|lower ~ ' in ' ~ entity_pluralized ~ ' %}' }}
             <div class="modal fade" id="modalDelete{{ '{{ ' ~ entity_singularized|lower ~ '.id }}' }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">{{ "{{ icon('times') }}" }}</button>
@@ -133,7 +133,7 @@
                             {{ "{% set deleteForm = attribute(deleteForms, key) %}" }}
                             {{ "{{ form_start(deleteForm) }}" }}
                                 {{ "{{ form_widget(deleteForm) }}" }}
-                                <button type="submit" class="btn btn-danger pull-right">{{ "{{ icon('trash') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".delete.submit'|trans }}" }}</button>
+                                <button type="submit" class="btn btn-danger pull-right">{{ "{{ icon('trash fa-fw') }}" }}&nbsp;{{ "{{ '" ~ entity_singularized|lower ~ ".delete.submit'|trans }}" }}</button>
                             {{ "{{ form_end(deleteForm) }}" }}
                         </div>
                     </div>
@@ -147,4 +147,6 @@
     <!-- /#page-wrapper -->
 
 {{ "{% endblock %}" }}
+
+{{ '{% block javascript %}<script type="text/javascript">$(function () { $(\'[data-toggle="tooltip"]\').tooltip() })</script>{% endblock %}' }}
 {% endblock body %}

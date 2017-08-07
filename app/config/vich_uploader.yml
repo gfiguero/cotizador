@@ -13,19 +13,3 @@ vich_uploader:
             uri_prefix: uploads/product
             upload_destination: %kernel.root_dir%/../web/uploads/product
             namer: vich_uploader.namer_origname
-        productgroup_image:
-            uri_prefix: uploads/productgroup
-            upload_destination: %kernel.root_dir%/../web/uploads/productgroup
-            namer: vich_uploader.namer_origname
-        photography_image:
-            uri_prefix: uploads/photography
-            upload_destination: %kernel.root_dir%/../web/uploads/photography
-            namer: vich_uploader.namer_origname
-        feature_image:
-            uri_prefix: uploads/feature
-            upload_destination: %kernel.root_dir%/../web/uploads/feature
-            namer: vich_uploader.namer_origname
-        brand_image:
-            uri_prefix: uploads/brand
-            upload_destination: %kernel.root_dir%/../web/uploads/brand
-            namer: vich_uploader.namer_origname

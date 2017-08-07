@@ -4,18 +4,9 @@ liip_imagine:
             web_path: ~
     filter_sets:
         cache: ~
-        resource_photography_small:
+        product_export_small:
             quality: 75
+            default_image: default.png
             filters:
-                upscale: { min: [140, 80] }
-                thumbnail: { size: [140, 80], mode: outbound }
-        resource_photography_medium:
-            quality: 75
-            filters:
-                upscale: { min: [530, 300] }
-                thumbnail: { size: [530, 300], mode: outbound }
-        resource_photography_large:
-            quality: 75
-            filters:
-                upscale: { min: [920, 1200] }
-                thumbnail: { size: [920, 1200], mode: outbound }
+                upscale: { min: [120, 120] }
+                thumbnail: { size: [120, 120], mode: outbound }

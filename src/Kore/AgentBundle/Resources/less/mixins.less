@@ -1,71 +1,40 @@
 // Mixins
+// --------------------------------------------------
 
-.transition-all() {
-    -webkit-transition: all 0.35s;
-    -moz-transition: all 0.35s;
-    transition: all 0.35s;
-}
+// Utilities
+@import "mixins/hide-text.less";
+@import "mixins/opacity.less";
+@import "mixins/image.less";
+@import "mixins/labels.less";
+@import "mixins/reset-filter.less";
+@import "mixins/resize.less";
+@import "mixins/responsive-visibility.less";
+@import "mixins/size.less";
+@import "mixins/tab-focus.less";
+@import "mixins/reset-text.less";
+@import "mixins/text-emphasis.less";
+@import "mixins/text-overflow.less";
+@import "mixins/vendor-prefixes.less";
 
-.background-cover() {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
+// Components
+@import "mixins/alerts.less";
+@import "mixins/buttons.less";
+@import "mixins/panels.less";
+@import "mixins/pagination.less";
+@import "mixins/list-group.less";
+@import "mixins/nav-divider.less";
+@import "mixins/forms.less";
+@import "mixins/progress-bar.less";
+@import "mixins/table-row.less";
 
-.button-variant(@color; @background; @border) {
-	color: @color;
-	background-color: @background;
-	border-color: @border;
-	.transition-all;
+// Skins
+@import "mixins/background-variant.less";
+@import "mixins/border-radius.less";
+@import "mixins/gradients.less";
 
-	&:hover,
-	&:focus,
-	&.focus,
-	&:active,
-	&.active,
-	.open > .dropdown-toggle& {
-		color: @color;
-		background-color: darken(@background, 5%);
-	    border-color: darken(@border, 7%);
-	}
-	&:active,
-	&.active,
-	.open > .dropdown-toggle& {
-		background-image: none;
-	}
-	&.disabled,
-	&[disabled],
-	fieldset[disabled] & {
-		&,
-		&:hover,
-		&:focus,
-		&.focus,
-		&:active,
-		&.active {
-			background-color: @background;
-			border-color: @border;
-		}
-	}
-
-	.badge {
-		color: @background;
-		background-color: @color;
-	}
-}
-
-.heading-font() {
-	font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-	font-weight: 800;
-	letter-spacing: 1px;
-}
-
-.body-font() {
-	font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
-}
-
-.alt-font() {
-	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
-	text-transform: uppercase;
-	letter-spacing: 2px;
-}
+// Layout
+@import "mixins/clearfix.less";
+@import "mixins/center-block.less";
+@import "mixins/nav-vertical-align.less";
+@import "mixins/grid-framework.less";
+@import "mixins/grid.less";

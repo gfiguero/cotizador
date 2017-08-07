@@ -17,7 +17,7 @@ class Builder implements ContainerAwareInterface
         $topmenu->setChildrenAttribute('id', 'top-menu');
 
 //        $topmenu->addChild('topmenu.header', array('route' => 'admin_header_index'))->setAttributes(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle'));
-        $topmenu->addChild('topmenu.logout', array('route' => 'front_logout'))->setAttributes(array('icon' => 'sign-out fa-fw', 'translation_domain' => 'KoreFrontBundle'));
+//        $topmenu->addChild('topmenu.logout', array('route' => 'front_logout'))->setAttributes(array('icon' => 'sign-out fa-fw', 'translation_domain' => 'KoreFrontBundle'));
 
         return $topmenu;
     }
@@ -29,15 +29,48 @@ class Builder implements ContainerAwareInterface
         $sidemenu->setChildrenAttribute('class', 'metismenu');
         $sidemenu->setChildrenAttribute('id', 'side-menu');
 
-        $sidemenu->addChild('sidemenu.domicilio', array('route' => 'admin_domicilio_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_domicilio_index'));
-        $sidemenu->addChild('sidemenu.encuestador', array('route' => 'admin_encuestador_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_encuestador_index'));
-        $sidemenu->addChild('sidemenu.persona', array('route' => 'admin_persona_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_persona_index'));
-        $sidemenu->addChild('sidemenu.personaaccion', array('route' => 'admin_personaaccion_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_personaaccion_index'));
-        $sidemenu->addChild('sidemenu.ruta', array('route' => 'admin_ruta_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_ruta_index'));
-        $sidemenu->addChild('sidemenu.rutaestado', array('route' => 'admin_rutaestado_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_rutaestado_index'));
-        $sidemenu->addChild('sidemenu.solicitud', array('route' => 'admin_solicitud_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_solicitud_index'));
-        $sidemenu->addChild('sidemenu.solicitudaccion', array('route' => 'admin_solicitudaccion_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_solicitudaccion_index'));
-        $sidemenu->addChild('sidemenu.solicitudestado', array('route' => 'admin_solicitudestado_index'))->setExtras(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle', 'routes' => 'admin_solicitudestado_index'));
+        $sidemenu->addChild('sidemenu.budget.root', array('route' => 'admin_budget_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_budget_index',
+            'admin_budget_new',
+            'admin_budget_show',
+            'admin_budget_edit',
+        )));
+        $sidemenu->addChild('sidemenu.client.root', array('route' => 'admin_client_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_client_index',
+            'admin_client_new',
+            'admin_client_show',
+            'admin_client_edit',
+        )));
+        $sidemenu->addChild('sidemenu.item.root', array('route' => 'admin_item_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_item_index',
+            'admin_item_new',
+            'admin_item_show',
+            'admin_item_edit',
+        )));
+        $sidemenu->addChild('sidemenu.product.root', array('route' => 'admin_product_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_product_index',
+            'admin_product_new',
+            'admin_product_show',
+            'admin_product_edit',
+        )));
+        $sidemenu->addChild('sidemenu.provider.root', array('route' => 'admin_provider_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_provider_index',
+            'admin_provider_new',
+            'admin_provider_show',
+            'admin_provider_edit',
+        )));
+        $sidemenu->addChild('sidemenu.seller.root', array('route' => 'admin_seller_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_seller_index',
+            'admin_seller_new',
+            'admin_seller_show',
+            'admin_seller_edit',
+        )));
+        $sidemenu->addChild('sidemenu.note.root', array('route' => 'admin_note_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_note_index',
+            'admin_note_new',
+            'admin_note_show',
+            'admin_note_edit',
+        )));
 
         return $sidemenu;
     }

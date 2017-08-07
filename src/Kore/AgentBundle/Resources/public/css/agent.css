@@ -1,3 +1,8 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -1438,7 +1443,7 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 160px;
+    width: 80px;
     clear: left;
     text-align: right;
     overflow: hidden;
@@ -1446,7 +1451,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 180px;
+    margin-left: 100px;
   }
 }
 abbr[title],
@@ -1514,7 +1519,7 @@ address {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 340px;
+    width: 180px;
     clear: left;
     text-align: right;
     overflow: hidden;
@@ -1522,8 +1527,11 @@ address {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 360px;
+    margin-left: 200px;
   }
+}
+#page-header .page-header {
+  margin: 10px 0 10px;
 }
 code,
 kbd,
@@ -3813,6 +3821,9 @@ tbody.collapse.in {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
+#page-toolbar .btn-toolbar .btn {
+  margin-bottom: 5px;
+}
 .input-group {
   position: relative;
   display: table;
@@ -4686,6 +4697,73 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
+}
+.sidebar-nav {
+  background: #fff;
+}
+.sidebar-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sidebar-nav .metismenu {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.sidebar-nav .metismenu li + li {
+  margin-top: 5px;
+}
+.sidebar-nav .metismenu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  background: #eee;
+}
+.sidebar-nav .metismenu li:first-child {
+  margin-top: 5px;
+}
+.sidebar-nav .metismenu li:last-child {
+  margin-bottom: 5px;
+}
+.sidebar-nav .metismenu a {
+  position: relative;
+  display: block;
+  padding: 13px 15px;
+  color: #777;
+  outline-width: 0;
+  transition: all 0.3s ease-out;
+}
+.sidebar-nav .metismenu ul a {
+  padding: 10px 15px 10px 30px;
+}
+.sidebar-nav .metismenu ul a ul a {
+  padding: 10px 15px 10px 45px;
+}
+.sidebar-nav .metismenu li.active > a:hover,
+.sidebar-nav .metismenu li.leaf.active a:hover,
+.sidebar-nav .metismenu li.leaf.active a:focus,
+.sidebar-nav .metismenu a:hover,
+.sidebar-nav .metismenu a:focus {
+  color: #f8f9fa;
+  text-decoration: none;
+  background: #286090;
+}
+.sidebar-nav .metismenu li.leaf.active a,
+.sidebar-nav .metismenu a:active {
+  color: #f8f9fa;
+  text-decoration: none;
+  background: #337ab7;
 }
 .breadcrumb {
   padding: 8px 15px;
