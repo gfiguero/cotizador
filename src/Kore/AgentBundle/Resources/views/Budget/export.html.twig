@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kore">
+    <meta name="language" content="es">
+    <title>Cotizador</title>
+    <link href="{{ absolute_url(asset('vendor/font-awesome/css/font-awesome.min.css')) }}" rel="stylesheet" type="text/css">
+    <link href="{{ absolute_url(asset('vendor/jquery-ui/themes/base/jquery-ui.min.css')) }}" rel="stylesheet">
+    <link href="{{ absolute_url(asset('bundles/koreagent/css/agent.css')) }}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .provider {
+            width: 100px;
+        }
+    </style>
+</head>
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+<body>
+    <div class="container-fluid">
+
+        <div class="row" id="page-header">
+            <div class="col-md-6">
+                <h1 class="page-header">
+                    {{ icon('check-square-o fa-fw') }}&nbsp;{{ 'budget.show.title'|trans({'%id%':budget.id}) }}
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-right">{{ 'IMPORT PLANET LTDA' }}</h3>
+                <h5 class="text-right">{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y") }}</h5>
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-client-seller">
+
+            {% if budget.client %}
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'budget.show.client'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'client.form.name'|trans }}</dt>
+                                <dd>{% if budget.client.name %}{{ budget.client.name }}{% endif %}</dd>
+                            <dt>{{ 'client.form.contactname'|trans }}</dt>
+                                <dd>{% if budget.client.contactname %}{{ budget.client.contactname }}{% endif %}</dd>
+                            <dt>{{ 'client.form.phone'|trans }}</dt>
+                                <dd>{% if budget.client.phone %}{{ budget.client.phone }}{% endif %}</dd>
+                            <dt>{{ 'client.form.email'|trans }}</dt>
+                                <dd>{% if budget.client.email %}{{ budget.client.email }}{% endif %}</dd>
+                            <dt>{{ 'client.form.address'|trans }}</dt>
+                                <dd>{% if budget.client.address %}{{ budget.client.address }}{% endif %}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if budget.seller %}
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'budget.show.seller'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'seller.form.name'|trans }}</dt>
+                                <dd>{% if budget.seller.name %}{{ budget.seller.name }}{% endif %}</dd>
+                            <dt>{{ 'seller.form.phone'|trans }}</dt>
+                                <dd>{% if budget.seller.phone %}{{ budget.seller.phone }}{% endif %}</dd>
+                            <dt>{{ 'seller.form.email'|trans }}</dt>
+                                <dd>{% if budget.seller.email %}{{ budget.seller.email }}{% endif %}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+        <!-- /#page-client-seller -->
+
+        <div class="row" id="page-items">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'budget.show.items'|trans }}</h2>
+                    </div>
+                    <table class="table table-middle table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{'product.form.image'|trans }}</th>
+                                <th>{{ '#' }}</th>
+                                <th>{{ 'product.form.description'|trans }}</th>
+                                <th>{{ 'product.form.features'|trans }}</th>
+                                <th>{{ 'product.form.provider'|trans }}</th>
+                                <th>{{ 'product.form.cm_code'|trans }}</th>
+                                <th>{{ 'item.form.totalprice'|trans }}</th>
+                                <th>{{ 'item.form.totaldiscountprice'|trans }}</th>
+                                <th>{{ 'item.form.totalnetprice'|trans }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for k, item in budget.items %}
+                            <tr>
+                                <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
+                                <td class="text-right">{{ item.quantity }}</td>
+                                <td>{{ item.product.description }}</td>
+                                <td>{{ item.product.features }}</td>
+                                <td class="provider">{{ item.product.provider }}<br>{{ item.product.provider.rut }}</td>
+                                <td>{{ item.product.cmcode }}</td>
+                                <td class="text-right">$&nbsp;{{ item.totalprice|number_format(0, ',', '.') }}</td>
+                                <td class="text-right">$&nbsp;{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
+                                <td class="text-right">$&nbsp;{{ item.totalnetprice|number_format(0, ',', '.') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-items -->
+
+        <div class="row" id="page-total">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <p>{{ 'EQUILIBRIUM LTDA y TODO PRODUCTOS SPA son socios de negocios.<br>Para obtener descuentos, por favor, comuníquese con IMPORT PLANET a través de:'|raw }}</p>
+                        <h4>{{ 'Veronica Farias'|raw }}</h4>
+                        <h5>{{ 'contacto@importplanet.cl'|raw }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <table class="table table-middle table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>{{ 'budget.form.totalprice'|trans }}</td>
+                                <td class="text-right">$&nbsp;{{ budget.totalprice|number_format(0, ',', '.') }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ 'budget.form.totaldiscountprice'|trans }}</td>
+                                <td class="text-right">$&nbsp;{{ budget.totaldiscountprice|number_format(0, ',', '.') }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ 'budget.form.totalnetprice'|trans }}</td>
+                                <td class="text-right">$&nbsp;{{ budget.totalnetprice|number_format(0, ',', '.') }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ 'budget.form.totaliva'|trans }}</td>
+                                <td class="text-right">$&nbsp;{{ budget.totaliva|number_format(0, ',', '.') }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ 'budget.form.total'|trans }}</td>
+                                <td class="text-right">$&nbsp;{{ budget.total|number_format(0, ',', '.') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="page-notas">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'budget.show.notas'|trans }}</h2>
+                    </div>
+                    <table class="table table-middle">
+                        <tbody>
+                            <tr>
+                                <td><strong>Descuentos netos</strong></td>
+                                <td>{{ 'Debe comunicarse con cada empresa, con un mínimo de 24 horas antes de la compra, para poder realizar la rebaja de precios en CONVENIO MARCO indicados en esta cotización.'|raw }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Descuentos por tramo</strong></td>
+                                <td>{{ 'Los descuentos por tramo se aplican de forma automática al comprar en CONVENIO MARCO.<br>El valor indicado en esta cotización podría bajar entre 3% y 5%, dependiendo del monto de la compra.'|raw }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rut Empresas</strong></td>
+                                <td>{{ 'IMPORT PLANET trabaja con 2 socios: EQUILIBRIUM LTDA y TODO PRODUCTOS SPA.</br>Las órdenes de compra deben ser a los rut indicados en esta cotización.<br>Por favor comunicarse con IMPORT PLANET, antes de enviar una orden de compra.'|raw }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Despacho</strong></td>
+                                <td>{{ 'IMPORT PLANET no tiene recargo por flete en CONVENIO MARCO didactico y deportivo a todo Chile.'|raw }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+agent_budget_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Budget:index" }
+    methods:  GET
+
+agent_budget_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:Budget:show" }
+    methods:  GET
+
+agent_budget_export:
+    path:     /{id}/export
+    defaults: { _controller: "KoreAgentBundle:Budget:export" }
+    methods:  GET
+
+agent_budget_pdf:
+    path:     /{id}/pdf
+    defaults: { _controller: "KoreAgentBundle:Budget:pdf" }
+    methods:  GET
+
+agent_budget_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:Budget:new" }
+    methods:  [GET, POST]
+
+agent_budget_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:Budget:edit" }
+    methods:  [GET, POST]
+
+agent_budget_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:Budget:delete" }
+    methods:  DELETE

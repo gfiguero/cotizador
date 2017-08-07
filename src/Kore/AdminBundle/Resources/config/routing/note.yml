@@ -1,0 +1,24 @@
+admin_note_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Note:index" }
+    methods:  GET
+
+admin_note_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Note:show" }
+    methods:  GET
+
+admin_note_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Note:new" }
+    methods:  [GET, POST]
+
+admin_note_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Note:edit" }
+    methods:  [GET, POST]
+
+admin_note_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Note:delete" }
+    methods:  DELETE

@@ -1,0 +1,40 @@
+Kore\AdminBundle\Entity\Note:
+    type: entity
+    table: Note
+    repositoryClass: Kore\AdminBundle\Entity\NoteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToMany:
+        budgets:
+            targetEntity: Kore\AdminBundle\Entity\Budget
+            mappedBy: notes
+    fields:
+        title:
+            type: string
+            length: 30
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

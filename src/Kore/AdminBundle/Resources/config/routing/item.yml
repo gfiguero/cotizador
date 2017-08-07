@@ -1,0 +1,24 @@
+admin_item_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Item:index" }
+    methods:  GET
+
+admin_item_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Item:show" }
+    methods:  GET
+
+admin_item_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Item:new" }
+    methods:  [GET, POST]
+
+admin_item_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Item:edit" }
+    methods:  [GET, POST]
+
+admin_item_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Item:delete" }
+    methods:  DELETE

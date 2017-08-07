@@ -1,0 +1,24 @@
+admin_client_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Client:index" }
+    methods:  GET
+
+admin_client_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Client:show" }
+    methods:  GET
+
+admin_client_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Client:new" }
+    methods:  [GET, POST]
+
+admin_client_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Client:edit" }
+    methods:  [GET, POST]
+
+admin_client_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Client:delete" }
+    methods:  DELETE

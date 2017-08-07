@@ -1,0 +1,45 @@
+Kore\AdminBundle\Entity\Item:
+    type: entity
+    table: Item
+    repositoryClass: Kore\AdminBundle\Entity\ItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        budget:
+            targetEntity: Kore\AdminBundle\Entity\Budget
+            inversedBy: items
+        product:
+            targetEntity: Kore\AdminBundle\Entity\Product
+            inversedBy: items
+    fields:
+        quantity:
+            type: integer
+            nullable: true
+        discount:
+            type: integer
+            nullable: true
+        price:
+            type: integer
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,29 @@
+agent_product_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:Product:index" }
+    methods:  GET
+
+agent_product_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:Product:show" }
+    methods:  GET
+
+agent_product_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:Product:new" }
+    methods:  [GET, POST]
+
+agent_product_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:Product:edit" }
+    methods:  [GET, POST]
+
+agent_product_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:Product:delete" }
+    methods:  DELETE
+
+agent_product_search_cm:
+    path:     /searchcm
+    defaults: { _controller: "KoreAgentBundle:Product:searchcm" }
+    methods:  GET

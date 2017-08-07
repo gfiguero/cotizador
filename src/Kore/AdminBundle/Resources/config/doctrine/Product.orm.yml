@@ -1,0 +1,61 @@
+Kore\AdminBundle\Entity\Product:
+    type: entity
+    table: Product
+    repositoryClass: Kore\AdminBundle\Entity\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        items:
+            targetEntity: Kore\AdminBundle\Entity\Item
+            mappedBy: product
+    manyToOne:
+        provider:
+            targetEntity: Kore\AdminBundle\Entity\Provider
+            inversedBy: products
+    fields:
+        name:
+            type: string
+            length: 30
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        features:
+            type: text
+            nullable: true
+        cost:
+            type: integer
+            nullable: true
+        price:
+            type: integer
+            nullable: true
+        image:
+            type: string
+            length: 200
+            nullable: true
+        cm_code:
+            type: string
+            length: 30
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

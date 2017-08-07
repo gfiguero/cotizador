@@ -1,0 +1,52 @@
+{% block _kore_agentbundle_budget_items_widget %}
+    {% spaceless %}
+        {% if prototype is defined %}
+            {% set prototype_vars = {} %}
+            {% if style is defined %}
+                {% set prototype_vars = prototype_vars|merge({'style': 'inline', 'label_col' : 0}) %}
+            {% endif %}
+            {% set prototype_html = '<td><a href="#" class="btn btn-danger btn-sm" data-removefield="collection" data-field="__id__">' ~ icon('times fa-fw') ~ '</a></td>' %}
+            {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.product) ~ '</td>' %}
+            {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.quantity) ~ '</td>' %}
+            {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.discount) ~ '</td>' %}
+
+            {% set attr = attr|merge({'data-prototype': prototype_html }) %}
+            {% set attr = attr|merge({'data-prototype-name': prototype_name }) %}
+        {% endif %}
+        {% if form.vars.allow_add %}
+            {{ form_label(form) }}
+            <div class="form-group">
+                <label class="control-label col-lg-{{ attr.label_col }}" for="kore_agentbundle_budget_seller">{{'budget.form.items'|trans({}, translation_domain) }}</label>
+                <div class="col-lg-{{ attr.widget_col }}">
+                    <a type="button" href="#" class="btn btn-success" data-addfield="collection" data-collection="{{ form.vars.id }}" data-prototype-name="{{ prototype_name }}">{{ icon('plus fa-fw') }}&nbsp;{{ form.vars.add_button_text|trans({}, translation_domain)|parse_icons|raw }}</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <div class="col-lg-{{ attr.widget_col }} col-lg-offset-{{ attr.label_col }}">
+                <div class="panel panel-default">
+                    <div {{ block('widget_container_attributes') }} class="table-responsive">
+                        <table class="table table-middle">
+                            <thead>
+                                <tr>
+                                    <th><a class="btn btn-default btn-sm disabled">{{ icon('times fa-fw') }}</a></th>
+                                    <th>{{'item.form.product'|trans({}, translation_domain) }}</th>
+                                    <th>{{'item.form.quantity'|trans({}, translation_domain) }}</th>
+                                    <th>{{'item.form.discount'|trans({}, translation_domain) }}</th>
+                                </tr>
+                            </thead>
+                            {% for field in form %}
+                                <tr>
+                                    <td><a href="#" class="btn btn-danger btn-sm" data-removefield="collection" data-field="{{ field.vars.id }}">{{ icon('times fa-fw') }}</a></td>
+                                    <td>{{ form_widget(field.product) }}</td>
+                                    <td>{{ form_widget(field.quantity) }}</td>
+                                    <td>{{ form_widget(field.discount) }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    {% endspaceless %}
+{% endblock _kore_agentbundle_budget_items_widget %}

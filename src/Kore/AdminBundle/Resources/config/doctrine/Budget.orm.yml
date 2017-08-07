@@ -1,0 +1,52 @@
+Kore\AdminBundle\Entity\Budget:
+    type: entity
+    table: Budget
+    repositoryClass: Kore\AdminBundle\Entity\BudgetRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        client:
+            targetEntity: Kore\AdminBundle\Entity\Client
+            inversedBy: budgets
+        seller:
+            targetEntity: Kore\AdminBundle\Entity\Seller
+            inversedBy: budgets
+    oneToMany:
+        items:
+            targetEntity: Kore\AdminBundle\Entity\Item
+            mappedBy: budget
+            cascade: ['persist', 'remove']
+    manyToMany:
+        notes:
+            targetEntity: Kore\AdminBundle\Entity\Note
+            inversedBy: budgets
+    fields:
+        code:
+            type: string
+            length: 20
+            nullable: true
+        note:
+            type: text
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

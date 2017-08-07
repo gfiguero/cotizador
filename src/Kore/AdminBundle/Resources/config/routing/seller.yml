@@ -1,0 +1,24 @@
+admin_seller_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Seller:index" }
+    methods:  GET
+
+admin_seller_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Seller:show" }
+    methods:  GET
+
+admin_seller_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Seller:new" }
+    methods:  [GET, POST]
+
+admin_seller_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Seller:edit" }
+    methods:  [GET, POST]
+
+admin_seller_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Seller:delete" }
+    methods:  DELETE

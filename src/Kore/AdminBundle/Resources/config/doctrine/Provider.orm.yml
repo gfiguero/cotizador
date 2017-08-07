@@ -1,0 +1,57 @@
+Kore\AdminBundle\Entity\Provider:
+    type: entity
+    table: Provider
+    repositoryClass: Kore\AdminBundle\Entity\ProviderRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        products:
+            targetEntity: Kore\AdminBundle\Entity\Product
+            mappedBy: provider
+    fields:
+        name:
+            type: string
+            length: 30
+            nullable: true
+        rut:
+            type: string
+            length: 30
+            nullable: true
+        contactname:
+            type: string
+            length: 30
+            nullable: true
+        phone:
+            type: string
+            length: 30
+            nullable: true
+        email:
+            type: string
+            length: 30
+            nullable: true
+        address:
+            type: string
+            length: 100
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

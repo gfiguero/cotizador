@@ -1,0 +1,9 @@
+agent_search_product_name:
+    path:     /product/name
+    defaults: { _controller: "KoreAgentBundle:Search:productName" }
+    methods:  GET
+
+agent_search_product_cm:
+    path:     /product/cm
+    defaults: { _controller: "KoreAgentBundle:Search:productCm" }
+    methods:  GET

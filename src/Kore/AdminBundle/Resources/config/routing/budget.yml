@@ -1,0 +1,24 @@
+admin_budget_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Budget:index" }
+    methods:  GET
+
+admin_budget_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Budget:show" }
+    methods:  GET
+
+admin_budget_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Budget:new" }
+    methods:  [GET, POST]
+
+admin_budget_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Budget:edit" }
+    methods:  [GET, POST]
+
+admin_budget_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Budget:delete" }
+    methods:  DELETE

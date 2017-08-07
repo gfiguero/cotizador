@@ -1,0 +1,49 @@
+Kore\AdminBundle\Entity\Seller:
+    type: entity
+    table: Seller
+    repositoryClass: Kore\AdminBundle\Entity\SellerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        budgets:
+            targetEntity: Kore\AdminBundle\Entity\Budget
+            mappedBy: seller
+    fields:
+        name:
+            type: string
+            length: 30
+            nullable: true
+        rut:
+            type: string
+            length: 30
+            nullable: true
+        phone:
+            type: string
+            length: 30
+            nullable: true
+        email:
+            type: string
+            length: 30
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }
