@@ -104,12 +104,14 @@
                     <table class="table table-middle table-bordered">
                         <thead>
                             <tr>
-                                <th>{{'product.form.image'|trans }}</th>
+                                <th width="120">{{'product.form.image'|trans }}</th>
                                 <th>{{ '#' }}</th>
                                 <th>{{ 'product.form.description'|trans }}</th>
                                 <th>{{ 'product.form.features'|trans }}</th>
+{#}
                                 <th>{{ 'product.form.provider'|trans }}</th>
                                 <th>{{ 'product.form.cm_code'|trans }}</th>
+{#}
                                 <th>{{ 'item.form.totalprice'|trans }}</th>
                                 <th>{{ 'item.form.totaldiscountprice'|trans }}</th>
                                 <th>{{ 'item.form.totalnetprice'|trans }}</th>
@@ -120,10 +122,12 @@
                             <tr>
                                 <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
                                 <td class="text-right">{{ item.quantity }}</td>
-                                <td>{{ item.product.description }}</td>
-                                <td>{{ item.product.features }}</td>
+                                <td>{{ item.product.description|truncate(100, true) }}</td>
+                                <td>{{ item.product.features|truncate(100, true) }}</td>
+{#}
                                 <td class="provider">{{ item.product.provider }}<br>{{ item.product.provider.rut }}</td>
                                 <td>{{ item.product.cmcode }}</td>
+{#}
                                 <td class="text-right">$&nbsp;{{ item.totalprice|number_format(0, ',', '.') }}</td>
                                 <td class="text-right">$&nbsp;{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
                                 <td class="text-right">$&nbsp;{{ item.totalnetprice|number_format(0, ',', '.') }}</td>

@@ -77,3 +77,7 @@
 
 {% endblock %}
 
+{% block javascript %}
+<script src="{{ asset('bundles/koreagent/js/jquery.rut.min.js') }}"></script>
+<script type="text/javascript">$('#kore_agentbundle_client_rut').Rut();</script>
+{% endblock %}
