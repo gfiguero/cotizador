@@ -157,7 +157,7 @@ product:
         id: ID
         name: Nombre
         description: Descripción
-        features: Características
+        features: Dimensiones
         cm_code: Código CM
         cost: Costo
         price: Precio
