@@ -25,6 +25,13 @@ assetic:
                 - less
                 - cssrewrite
             output: src/Kore/AgentBundle/Resources/public/css/agent.css
+        kore_agentexport_css:
+            inputs:
+                - src/Kore/AgentBundle/Resources/less/buildexport.less
+            filters:
+                - less
+                - cssrewrite
+            output: src/Kore/AgentBundle/Resources/public/css/agentexport.css
 #        frontend_css:
 #            inputs:
 #                - src/Kore/AgentBundle/Resources/less/build.less

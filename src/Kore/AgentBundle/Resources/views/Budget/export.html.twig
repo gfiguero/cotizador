@@ -14,18 +14,13 @@
     <title>Cotizador</title>
     <link href="{{ absolute_url(asset('vendor/font-awesome/css/font-awesome.min.css')) }}" rel="stylesheet" type="text/css">
     <link href="{{ absolute_url(asset('vendor/jquery-ui/themes/base/jquery-ui.min.css')) }}" rel="stylesheet">
-    <link href="{{ absolute_url(asset('bundles/koreagent/css/agent.css')) }}" rel="stylesheet">
+    <link href="{{ absolute_url(asset('bundles/koreagent/css/agentexport.css')) }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-        .provider {
-            width: 100px;
-        }
-    </style>
 </head>
 
 {% trans_default_domain 'KoreAgentBundle' %}
@@ -101,7 +96,7 @@
                     <div class="panel-heading">
                         <h2 class="panel-title">{{ 'budget.show.items'|trans }}</h2>
                     </div>
-                    <table class="table table-middle table-bordered">
+                    <table class="table table-middle table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th width="120">{{'product.form.image'|trans }}</th>
@@ -112,9 +107,9 @@
                                 <th>{{ 'product.form.provider'|trans }}</th>
                                 <th>{{ 'product.form.cm_code'|trans }}</th>
 {#}
-                                <th>{{ 'item.form.totalprice'|trans }}</th>
-                                <th>{{ 'item.form.totaldiscountprice'|trans }}</th>
-                                <th>{{ 'item.form.totalnetprice'|trans }}</th>
+                                <th width="90">{{ 'item.form.totalprice'|trans }}</th>
+                                <th width="90">{{ 'item.form.totaldiscountprice'|trans }}</th>
+                                <th width="90">{{ 'item.form.totalnetprice'|trans }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,8 +117,8 @@
                             <tr>
                                 <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
                                 <td class="text-right">{{ item.quantity }}</td>
-                                <td>{{ item.product.description|truncate(100, true) }}</td>
-                                <td>{{ item.product.features|truncate(100, true) }}</td>
+                                <td>{{ item.product.description|truncate(170, true) }}</td>
+                                <td>{{ item.product.features|truncate(170, true) }}</td>
 {#}
                                 <td class="provider">{{ item.product.provider }}<br>{{ item.product.provider.rut }}</td>
                                 <td>{{ item.product.cmcode }}</td>

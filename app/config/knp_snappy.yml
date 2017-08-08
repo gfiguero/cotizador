@@ -2,12 +2,13 @@ knp_snappy:
     temporary_folder: %kernel.cache_dir%/snappy
     pdf:
         enabled:    true
-        binary:     /usr/local/bin/wkhtmltopdf
+        binary:     /usr/local/bin/wkhtmltopdf.sh #/usr/local/bin/wkhtmltopdf
         options:
             orientation: Portrait
             page-size: Letter
-            viewport-size: 1280x768
-            dpi: 300
+            viewport-size: 1920x1080
+            use-xserver: true
+            dpi: 100
     image:
         enabled:    true
         binary:     /usr/local/bin/wkhtmltoimage

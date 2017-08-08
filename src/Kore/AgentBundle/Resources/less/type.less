@@ -1,5 +1,22 @@
 @import "../../../../../vendor/bower_components/bootstrap/less/type.less";
 
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: @line-height-computed / 2;
+}
+dt,
+dd {
+  line-height: @line-height-base;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+
 .dl-horizontal {
   dd {
     &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present

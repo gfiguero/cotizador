@@ -1516,6 +1516,20 @@ address {
   font-style: normal;
   line-height: 1.42857143;
 }
+dl {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+dt,
+dd {
+  line-height: 1.42857143;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
