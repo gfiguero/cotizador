@@ -56,16 +56,16 @@
                     </div>
                     <div class="panel-body">
                         <dl class="dl-horizontal">
-                            <dt>{{ 'client.form.name'|trans }}</dt>
-                                <dd>{% if budget.client.name %}{{ budget.client.name }}{% endif %}</dd>
-                            <dt>{{ 'client.form.contactname'|trans }}</dt>
-                                <dd>{% if budget.client.contactname %}{{ budget.client.contactname }}{% endif %}</dd>
-                            <dt>{{ 'client.form.phone'|trans }}</dt>
-                                <dd>{% if budget.client.phone %}{{ budget.client.phone }}{% endif %}</dd>
-                            <dt>{{ 'client.form.email'|trans }}</dt>
-                                <dd>{% if budget.client.email %}{{ budget.client.email }}{% endif %}</dd>
-                            <dt>{{ 'client.form.address'|trans }}</dt>
-                                <dd>{% if budget.client.address %}{{ budget.client.address }}{% endif %}</dd>
+                            {% if budget.client.name %}<dt>{{ 'client.form.name'|trans }}</dt>
+                                <dd>{{ budget.client.name }}</dd>{% endif %}
+                            {% if budget.client.contactname %}<dt>{{ 'client.form.contactname'|trans }}</dt>
+                                <dd>{{ budget.client.contactname }}</dd>{% endif %}
+                            {% if budget.client.phone %}<dt>{{ 'client.form.phone'|trans }}</dt>
+                                <dd>{{ budget.client.phone }}</dd>{% endif %}
+                            {% if budget.client.email %}<dt>{{ 'client.form.email'|trans }}</dt>
+                                <dd>{{ budget.client.email }}</dd>{% endif %}
+                            {% if budget.client.address %}<dt>{{ 'client.form.address'|trans }}</dt>
+                                <dd>{{ budget.client.address }}</dd>{% endif %}
                         </dl>
                     </div>
                 </div>
