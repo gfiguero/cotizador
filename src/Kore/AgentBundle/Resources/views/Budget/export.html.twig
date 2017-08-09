@@ -146,9 +146,11 @@
 
         <div class="row" id="page-total">
             <div class="col-md-8">
+                {% if budget.note %}
                 <div class="panel panel-default">
                     <div class="panel-body">{{ budget.note|raw }}</div>
                 </div>
+                {% endif %}
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
@@ -180,6 +182,7 @@
             </div>
         </div>
 
+        {% if budget.notes is not empty %}
         <div class="row" id="page-notas">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -198,8 +201,8 @@
                     </table>
                 </div>
             </div>
-
         </div>
+        {% endif %}
 
     </div>
 </body>
