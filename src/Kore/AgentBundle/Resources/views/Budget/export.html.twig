@@ -119,10 +119,10 @@
                                 <td class="text-right">{{ item.quantity }}</td>
                                 <td>{{ item.product.description|truncate(170, true) }}</td>
                                 <td style="white-space: nowrap;">
-                                    {{ 'product.form.height'|trans }}:&nbsp;{{ item.product.height|number_format(0, ',', '.') }}<br>
-                                    {{ 'product.form.width'|trans }}:&nbsp;{{ item.product.width|number_format(0, ',', '.') }}<br>
-                                    {{ 'product.form.length'|trans }}:&nbsp;{{ item.product.length|number_format(0, ',', '.') }}<br>
-                                    {{ 'product.form.weight'|trans }}:&nbsp;{{ item.product.weight|number_format(0, ',', '.') }}<br>
+                                    {% if item.product.height %}{{ 'product.form.height'|trans }}:&nbsp;{{ item.product.height|number_format(0, ',', '.') }}<br>{% endif %}
+                                    {% if item.product.width %}{{ 'product.form.width'|trans }}:&nbsp;{{ item.product.width|number_format(0, ',', '.') }}<br>{% endif %}
+                                    {% if item.product.length %}{{ 'product.form.length'|trans }}:&nbsp;{{ item.product.length|number_format(0, ',', '.') }}<br>{% endif %}
+                                    {% if item.product.weight %}{{ 'product.form.weight'|trans }}:&nbsp;{{ item.product.weight|number_format(0, ',', '.') }}<br>{% endif %}
 {#}
                                     {{ 'product.form.size'|trans }}:&nbsp;{{ item.product.size|number_format(3, ',', '.') }}<br>
                                     {{ 'product.form.density'|trans }}:&nbsp;{{ item.product.density|number_format(3, ',', '.') }}<br>
