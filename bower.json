@@ -20,6 +20,8 @@
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "jquery-ui": "jqueryui#^1.12.1",
-    "metismenu": "^2.7.0"
+    "metismenu": "^2.7.0",
+    "summernote": "^0.8.6",
+    "bootstrap-multiselect": "^0.9.13"
   }
 }
