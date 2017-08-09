@@ -11,7 +11,7 @@ agent_budget_show:
 agent_budget_export:
     path:     /{id}/export
     defaults: { _controller: "KoreAgentBundle:Budget:export" }
-    methods:  GET
+    methods:  [GET, POST]
 
 agent_budget_pdf:
     path:     /{id}/pdf

@@ -42,6 +42,7 @@
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('edit fa-fw') }}</a></div>
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('trash fa-fw') }}</a></div>
                                     </th>
+                                    <th>{{ knp_pagination_sortable(notes, 'note.form.name'|trans, 'name') }}{% if sort == 'name' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(notes, 'note.form.title'|trans, 'title') }}{% if sort == 'title' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(notes, 'note.form.description'|trans, 'description') }}{% if sort == 'description' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(notes, 'note.form.updated_at'|trans, 'updated_at') }}{% if sort == 'updated_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
@@ -55,6 +56,7 @@
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('agent_note_edit', { 'id': note.id }) }}">{{ icon('edit fa-fw') }}</a></div>
                                         <div class="btn-group" role="group"><button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modalDelete{{ note.id }}">{{ icon('trash fa-fw') }}</button></div>
                                     </td>
+                                    <td>{% if note.name %}{{ note.name|raw }}{% endif %}</td>
                                     <td>{% if note.title %}{{ note.title|raw }}{% endif %}</td>
                                     <td>{% if note.description %}{{ note.description|raw|truncate(60, true) }}{% endif %}</td>
                                     <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ note.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL Y HH:mm") }}"></span>&nbsp;{{ note.updatedat|ago }}</td>

@@ -102,7 +102,7 @@
                                 <th width="100">{{'product.form.image'|trans }}</th>
                                 <th>{{ '#' }}</th>
                                 <th>{{ 'product.form.description'|trans }}</th>
-                                <th>{{ 'product.form.features'|trans }}</th>
+                                <th>{{ 'product.form.dimensions'|trans }}</th>
 {#}
                                 <th>{{ 'product.form.provider'|trans }}</th>
                                 <th>{{ 'product.form.cm_code'|trans }}</th>
@@ -118,7 +118,16 @@
                                 <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
                                 <td class="text-right">{{ item.quantity }}</td>
                                 <td>{{ item.product.description|truncate(170, true) }}</td>
-                                <td>{{ item.product.features|truncate(170, true) }}</td>
+                                <td style="white-space: nowrap;">
+                                    {{ 'product.form.height'|trans }}:&nbsp;{{ item.product.height|number_format(0, ',', '.') }}<br>
+                                    {{ 'product.form.width'|trans }}:&nbsp;{{ item.product.width|number_format(0, ',', '.') }}<br>
+                                    {{ 'product.form.length'|trans }}:&nbsp;{{ item.product.length|number_format(0, ',', '.') }}<br>
+                                    {{ 'product.form.weight'|trans }}:&nbsp;{{ item.product.weight|number_format(0, ',', '.') }}<br>
+{#}
+                                    {{ 'product.form.size'|trans }}:&nbsp;{{ item.product.size|number_format(3, ',', '.') }}<br>
+                                    {{ 'product.form.density'|trans }}:&nbsp;{{ item.product.density|number_format(3, ',', '.') }}<br>
+{#}
+                                </td>
 {#}
                                 <td class="provider">{{ item.product.provider }}<br>{{ item.product.provider.rut }}</td>
                                 <td>{{ item.product.cmcode }}</td>
@@ -138,11 +147,7 @@
         <div class="row" id="page-total">
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-body text-center">
-                        <p>{{ 'EQUILIBRIUM LTDA y TODO PRODUCTOS SPA son socios de negocios.<br>Para obtener descuentos, por favor, comuníquese con IMPORT PLANET a través de:'|raw }}</p>
-                        <h4>{{ 'Veronica Farias'|raw }}</h4>
-                        <h5>{{ 'contacto@importplanet.cl'|raw }}</h5>
-                    </div>
+                    <div class="panel-body">{{ budget.note|raw }}</div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -165,9 +170,9 @@
                                 <td>{{ 'budget.form.totaliva'|trans }}</td>
                                 <td class="text-right">$&nbsp;{{ budget.totaliva|number_format(0, ',', '.') }}</td>
                             </tr>
-                            <tr>
-                                <td>{{ 'budget.form.total'|trans }}</td>
-                                <td class="text-right">$&nbsp;{{ budget.total|number_format(0, ',', '.') }}</td>
+                            <tr class="active">
+                                <td><strong>{{ 'budget.form.total'|trans }}</strong></td>
+                                <td class="text-right"><strong>$&nbsp;{{ budget.total|number_format(0, ',', '.') }}</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -183,22 +188,12 @@
                     </div>
                     <table class="table table-middle">
                         <tbody>
+                            {% for note in budget.notes %}
                             <tr>
-                                <td><strong>Descuentos netos</strong></td>
-                                <td>{{ 'Debe comunicarse con cada empresa, con un mínimo de 24 horas antes de la compra, para poder realizar la rebaja de precios en CONVENIO MARCO indicados en esta cotización.'|raw }}</td>
+                                <td><strong style="white-space: nowrap;">{{ note.title }}</strong></td>
+                                <td>{{ note.description|raw }}</td>
                             </tr>
-                            <tr>
-                                <td><strong>Descuentos por tramo</strong></td>
-                                <td>{{ 'Los descuentos por tramo se aplican de forma automática al comprar en CONVENIO MARCO.<br>El valor indicado en esta cotización podría bajar entre 3% y 5%, dependiendo del monto de la compra.'|raw }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Rut Empresas</strong></td>
-                                <td>{{ 'IMPORT PLANET trabaja con 2 socios: EQUILIBRIUM LTDA y TODO PRODUCTOS SPA.</br>Las órdenes de compra deben ser a los rut indicados en esta cotización.<br>Por favor comunicarse con IMPORT PLANET, antes de enviar una orden de compra.'|raw }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Despacho</strong></td>
-                                <td>{{ 'IMPORT PLANET no tiene recargo por flete en CONVENIO MARCO didactico y deportivo a todo Chile.'|raw }}</td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

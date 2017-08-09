@@ -8,6 +8,10 @@ Kore\AdminBundle\Entity\Seller:
             id: true
             generator:
                 strategy: AUTO
+    manyToOne:
+        user:
+            targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: sellers
     oneToMany:
         budgets:
             targetEntity: Kore\AdminBundle\Entity\Budget

@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new Kore\AdminBundle\KoreAdminBundle(),
             new Kore\AgentBundle\KoreAgentBundle(),
             new Kore\UserBundle\KoreUserBundle(),

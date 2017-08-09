@@ -16,6 +16,9 @@ Kore\AdminBundle\Entity\Product:
         provider:
             targetEntity: Kore\AdminBundle\Entity\Provider
             inversedBy: products
+        user:
+            targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: products
     fields:
         name:
             type: string
@@ -24,8 +27,17 @@ Kore\AdminBundle\Entity\Product:
         description:
             type: text
             nullable: true
-        features:
-            type: text
+        height:
+            type: integer
+            nullable: true
+        width:
+            type: integer
+            nullable: true
+        length:
+            type: integer
+            nullable: true
+        weight:
+            type: integer
             nullable: true
         cost:
             type: integer

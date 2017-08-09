@@ -334,4 +334,33 @@ class Provider
     {
         return $this->address;
     }
+    /**
+     * @var \Kore\AdminBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \Kore\AdminBundle\Entity\User $user
+     *
+     * @return Provider
+     */
+    public function setUser(\Kore\AdminBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Kore\AdminBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

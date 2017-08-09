@@ -38,9 +38,14 @@ class ProviderType extends AbstractType
                 'label' => 'provider.form.email',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
-            ))
+            )) 
             ->add('address', null, array(
                 'label' => 'provider.form.address',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('user', null, array(
+                'label' => 'provider.form.user',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             ))

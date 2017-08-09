@@ -34,6 +34,11 @@ class BudgetType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('user', null, array(
+                'label' => 'budget.form.user',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('notes', null, array(
                 'label' => 'budget.form.notes',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

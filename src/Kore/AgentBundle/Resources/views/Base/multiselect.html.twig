@@ -1,0 +1,18 @@
+{% block multiselectcss %}
+    <link href="{{ asset('vendor/multiselect/css/bootstrap-multiselect.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block multiselectjs %}
+    <script src="{{ asset('vendor/multiselect/js/bootstrap-multiselect.js') }}"></script>
+    <script type="text/javascript">
+    var optionsMultiselect = {
+        enableFiltering: false,
+        includeSelectAllOption: true,
+        selectAllText: 'Seleccionar todo',
+        allSelectedText: 'Todo seleccionado',
+        nonSelectedText: 'Ningún elemento seleccionado',
+        nSelectedText: 'Elementos seleccionados'
+    };
+    $('.multiselect').multiselect(optionsMultiselect);
+    </script>
+{% endblock %}

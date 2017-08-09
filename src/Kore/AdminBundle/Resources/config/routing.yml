@@ -1,3 +1,7 @@
+kore_admin_user:
+    resource: "@KoreAdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
 kore_admin_budget:
     resource: "@KoreAdminBundle/Resources/config/routing/budget.yml"
     prefix:   /budget

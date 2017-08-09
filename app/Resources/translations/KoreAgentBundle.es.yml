@@ -157,13 +157,20 @@ product:
         id: ID
         name: Nombre
         description: Descripción
-        features: Dimensiones
+        features: Características
+        dimensions: Dimensiones
+        height: Atura (cm)
+        weight: Peso (Kg)
+        width: Ancho (cm)
+        length: Longitud (cm)
+        size: Volumen (m3)
+        density: Densidad (Kg/m3)
         cm_code: Código CM
         cost: Costo
         price: Precio
         margin: Margen
         image: Imagen
-        imagefile: Archivo
+        imagefile: Archivo de Imagen
         provider: Proveedor
         created_at: Registro
         updated_at: Actualización
@@ -291,6 +298,7 @@ note:
         flash: La nota fué borrado totalmente.
     form:
         id: ID
+        name: Nombre Identificador
         title: Título
         description: Descripción
         created_at: Registro

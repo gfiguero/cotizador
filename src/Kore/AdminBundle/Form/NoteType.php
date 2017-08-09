@@ -14,6 +14,11 @@ class NoteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
+            ->add('name', null, array(
+                'label' => 'note.form.name',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('title', null, array(
                 'label' => 'note.form.title',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
@@ -21,6 +26,11 @@ class NoteType extends AbstractType
             )) 
             ->add('description', null, array(
                 'label' => 'note.form.description',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('user', null, array(
+                'label' => 'note.form.user',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 

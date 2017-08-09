@@ -1,0 +1,32 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Kore\AdminBundle\Entity\User
+    use_listener:               true
+    use_username_form_type:     true
+    model_manager_name:         null
+
+    service:
+        mailer:                 fos_user.mailer.default
+        email_canonicalizer:    fos_user.util.canonicalizer.default
+        username_canonicalizer: fos_user.util.canonicalizer.default
+        token_generator:        fos_user.util.token_generator.default
+        user_manager:           fos_user.user_manager.default
+
+    from_email:
+        address: unipage@dev.elklan.cl
+        sender_name: Equipo de uniPage
+
+    registration:
+        confirmation:
+            enabled:            true
+            from_email:
+                address: unipage@dev.elklan.cl
+                sender_name: Equipo de uniPage
+
+    resetting:
+        token_ttl: 86400
+        email:
+            from_email:
+                address: unipage@dev.elklan.cl
+                sender_name: Equipo de uniPage

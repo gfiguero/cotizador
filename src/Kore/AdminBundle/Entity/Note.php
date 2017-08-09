@@ -213,5 +213,62 @@ class Note
     {
         return $this->budgets;
     }
-}
+    /**
+     * @var string
+     */
+    private $name;
 
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Note
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    /**
+     * @var \Kore\AdminBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \Kore\AdminBundle\Entity\User $user
+     *
+     * @return Note
+     */
+    public function setUser(\Kore\AdminBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Kore\AdminBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

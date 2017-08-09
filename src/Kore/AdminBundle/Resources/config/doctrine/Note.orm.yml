@@ -8,15 +8,21 @@ Kore\AdminBundle\Entity\Note:
             id: true
             generator:
                 strategy: AUTO
+    manyToOne:
+        user:
+            targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: notes
     manyToMany:
         budgets:
             targetEntity: Kore\AdminBundle\Entity\Budget
             mappedBy: notes
     fields:
+        name:
+            type: string
+            length: 30
         title:
             type: string
             length: 30
-            nullable: true
         description:
             type: text
             nullable: true

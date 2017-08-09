@@ -23,6 +23,11 @@ class Item
     private $discount;
 
     /**
+     * @var integer
+     */
+    private $price;
+
+    /**
      * @var \DateTime
      */
     private $created_at;
@@ -231,44 +236,89 @@ class Item
     {
         return $this->product;
     }
-    /**
-     * @var integer
-     */
-    private $netprice;
-
 
     /**
-     * Set netprice
+     * Set price
      *
-     * @param integer $netprice
+     * @param integer $price
      *
      * @return Item
      */
-    public function setNetprice($netprice)
+    public function setPrice($price)
     {
-        $this->netprice = $netprice;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get netprice
+     * Get price
      *
      * @return integer
      */
-    public function getNetprice()
+    public function getPrice()
     {
-        return $this->netprice;
+        return $this->price;
     }
 
     /**
-     * Get total discount
+     * Get totalPrice
      *
      * @return integer
      */
-    public function getTotalDiscount()
+    public function getTotalPrice()
     {
-        return $this->quantity * $this->discount ;
+        return $this->getQuantity() * $this->getPrice();
+    }
+
+    /**
+     * Get discountPrice
+     *
+     * @return integer
+     */
+    public function getDiscountPrice()
+    {
+        return round( $this->getPrice() * ($this->getDiscount() / 100));
+    }
+
+    /**
+     * Get totalDiscountPrice
+     *
+     * @return integer
+     */
+    public function getTotalDiscountPrice()
+    {
+        return $this->getQuantity() * $this->getDiscountPrice();
+    }
+
+    /**
+     * Get netPrice
+     *
+     * @return integer
+     */
+    public function getNetPrice()
+    {
+        return $this->getPrice() - $this->getDiscountPrice();
+    }
+
+    /**
+     * Get totalNetPrice
+     *
+     * @return integer
+     */
+    public function getTotalNetPrice()
+    {
+        return $this->getQuantity() * $this->getNetPrice();
+    }
+
+    /**
+     * Get totalIva
+     *
+     * @return integer
+     */
+    public function getTotalIva()
+    {
+        return round( 0.19 * $this->getTotalNetPrice() );
     }
 
     /**
@@ -278,6 +328,17 @@ class Item
      */
     public function getTotal()
     {
-        return $this->quantity * ( $this->netprice - $this->discount );
+        return round( 1.19 * $this->getTotalNetPrice() );
+    }
+
+    public function setReferencePrice()
+    {
+        $product = $this->getProduct();
+
+        if($product) {
+            $this->setPrice( $product->getPrice() );
+        }
+
+        return $this;
     }
 }

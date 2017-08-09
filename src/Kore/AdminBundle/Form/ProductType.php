@@ -24,8 +24,23 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
-            ->add('features', null, array(
-                'label' => 'product.form.features',
+            ->add('height', null, array(
+                'label' => 'product.form.height',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('width', null, array(
+                'label' => 'product.form.width',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('length', null, array(
+                'label' => 'product.form.length',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('weight', null, array(
+                'label' => 'product.form.weight',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
@@ -51,6 +66,11 @@ class ProductType extends AbstractType
             )) 
             ->add('provider', null, array(
                 'label' => 'product.form.provider',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('user', null, array(
+                'label' => 'product.form.user',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             ))

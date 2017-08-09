@@ -43,6 +43,7 @@
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('trash fa-fw') }}</a></div>
                                     </th>
                                     <th>{{ knp_pagination_sortable(notes, 'note.form.id'|trans, 'id') }}{% if sort == 'id' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(notes, 'note.form.name'|trans, 'name') }}{% if sort == 'name' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(notes, 'note.form.created_at'|trans, 'created_at') }}{% if sort == 'created_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(notes, 'note.form.updated_at'|trans, 'updated_at') }}{% if sort == 'updated_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                 </tr>
@@ -56,6 +57,7 @@
                                         <div class="btn-group" role="group"><button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modalDelete{{ note.id }}">{{ icon('trash fa-fw') }}</button></div>
                                     </td>
                                     <td>{% if note.id %}{{ note.id }}{% endif %}</td>
+                                    <td>{% if note.name %}{{ note.name }}{% endif %}</td>
                                     <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ note.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL Y HH:mm") }}"></span>&nbsp;{{ note.createdat|ago }}</td>
                                     <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ note.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL Y HH:mm") }}"></span>&nbsp;{{ note.updatedat|ago }}</td>
                                 </tr>

@@ -8,6 +8,10 @@ Kore\AdminBundle\Entity\Provider:
             id: true
             generator:
                 strategy: AUTO
+    manyToOne:
+        user:
+            targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: providers
     oneToMany:
         products:
             targetEntity: Kore\AdminBundle\Entity\Product

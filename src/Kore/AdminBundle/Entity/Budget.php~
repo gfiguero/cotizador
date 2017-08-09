@@ -13,11 +13,6 @@ class Budget
     private $id;
 
     /**
-     * @var string
-     */
-    private $nota;
-
-    /**
      * @var \DateTime
      */
     private $created_at;
@@ -45,30 +40,6 @@ class Budget
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nota
-     *
-     * @param string $nota
-     *
-     * @return Budget
-     */
-    public function setNota($nota)
-    {
-        $this->nota = $nota;
-
-        return $this;
-    }
-
-    /**
-     * Get nota
-     *
-     * @return string
-     */
-    public function getNota()
-    {
-        return $this->nota;
     }
 
     /**
@@ -352,5 +323,63 @@ class Budget
     public function getNotes()
     {
         return $this->notes;
+    }
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var string
+     */
+    private $note;
+
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Budget
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set note
+     *
+     * @param string $note
+     *
+     * @return Budget
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }

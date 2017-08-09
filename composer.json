@@ -21,6 +21,7 @@
         "braincrafted/bootstrap-bundle": "^2.2",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
+        "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "knplabs/knp-menu-bundle": "^2.1",
         "knplabs/knp-paginator-bundle": "^2.6",

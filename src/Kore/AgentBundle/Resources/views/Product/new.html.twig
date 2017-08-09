@@ -3,6 +3,7 @@
 {% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
 {% use 'KoreAgentBundle:Base:icons.html.twig' %}
 {% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+{% use 'KoreAgentBundle:Base:wysiwyg.html.twig' %}
 
 {% trans_default_domain 'KoreAgentBundle' %}
 
@@ -51,30 +52,10 @@
 
 {% endblock %}
 
+{% block stylesheet %}
+    {% block wysiwygcss %}{{ parent() }}{% endblock %}
+{% endblock %}
+
 {% block javascript %}
-<script type="text/javascript">
-$("#kore_agentbundle_product_cm").autocomplete({
-    minLength: 1,
-    autoFocus: true,
-    source: function (request, response) {
-        $.ajax({
-            url: "{{ path('agent_product_search_cm') }}",
-            dataType: "json",
-            data: { "cm": $("#kore_agentbundle_product_cm").val() },
-            success: function( data ) {
-                response( $.map( data, function( item ) {
-                    return {
-                        label: item.cm,
-                        value: item.cm
-                    }
-                }));
-            },
-            select: function(event, ui) { 
-                $(this).val(ui.item.cm);
-                return false;
-            },
-        });
-    }
-});
-</script>
+    {% block wysiwygjs %}{{ parent() }}{% endblock %}
 {% endblock %}

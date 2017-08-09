@@ -441,4 +441,173 @@ class Product
     {
         return $this->provider;
     }
+    /**
+     * @var integer
+     */
+    private $height;
+
+    /**
+     * @var integer
+     */
+    private $width;
+
+    /**
+     * @var integer
+     */
+    private $length;
+
+    /**
+     * @var integer
+     */
+    private $weight;
+
+
+    /**
+     * Set height
+     *
+     * @param integer $height
+     *
+     * @return Product
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Get height
+     *
+     * @return integer
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Set width
+     *
+     * @param integer $width
+     *
+     * @return Product
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    /**
+     * Get width
+     *
+     * @return integer
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Set length
+     *
+     * @param integer $length
+     *
+     * @return Product
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+
+        return $this;
+    }
+
+    /**
+     * Get length
+     *
+     * @return integer
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param integer $weight
+     *
+     * @return Product
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return integer
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * Get Size
+     *
+     * @return float
+     */
+    public function getSize()
+    {
+        return round(($this->height * $this->length * $this->width / 1000000), 3);
+    }
+
+    /**
+     * Get density
+     *
+     * @return float
+     */
+    public function getDensity()
+    {
+        if($this->getSize())
+        {
+            return round(( $this->getWeight() / $this->getSize()), 3);
+        }
+        return null;
+    }
+    /**
+     * @var \Kore\AdminBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \Kore\AdminBundle\Entity\User $user
+     *
+     * @return Product
+     */
+    public function setUser(\Kore\AdminBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Kore\AdminBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

@@ -1,3 +1,7 @@
+kore_agent_test:
+    resource: "@KoreAgentBundle/Resources/config/routing/test.yml"
+    prefix:   /test
+
 kore_agent_budget:
     resource: "@KoreAgentBundle/Resources/config/routing/budget.yml"
     prefix:   /budget

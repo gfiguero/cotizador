@@ -43,17 +43,15 @@ class BudgetType extends AbstractType
             ))
             ->add('notes', null, array(
                 'label' => 'budget.form.notes',
-                'attr'  => array( 'label_col' => 2, 'widget_col' => 10 ),
+                'attr'  => array( 'label_col' => 2, 'widget_col' => 10, 'class' => 'multiselect' ),
                 'translation_domain' => 'KoreAgentBundle',
-                'multiple' => true,
-                'expanded' => true,
                 'choice_label' => function($val, $key, $index) {
-                    return $val->getTitle();
+                    return $val->getName();
                 }
             ))
             ->add('note', null, array(
                 'label' => 'budget.form.note',
-                'attr'  => array( 'label_col' => 2, 'widget_col' => 10 ),
+                'attr'  => array( 'label_col' => 2, 'widget_col' => 10, 'class' => 'wysiwyg' ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
         ;

@@ -24,6 +24,11 @@ class ItemType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('price', null, array(
+                'label' => 'item.form.price',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('budget', null, array(
                 'label' => 'item.form.budget',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

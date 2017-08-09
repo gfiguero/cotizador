@@ -5,7 +5,6 @@ root:
         path: /login
         permanent: true
 
-
 front_login:
     path: /login
     defaults: { _controller: "KoreUserBundle:Security:login" }

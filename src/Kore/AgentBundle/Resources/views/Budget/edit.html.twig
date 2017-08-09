@@ -3,6 +3,8 @@
 {% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
 {% use 'KoreAgentBundle:Base:icons.html.twig' %}
 {% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+{% use 'KoreAgentBundle:Base:wysiwyg.html.twig' %}
+{% use 'KoreAgentBundle:Base:multiselect.html.twig' %}
 
 {% trans_default_domain 'KoreAgentBundle' %}
 
@@ -37,11 +39,11 @@
                     <div class="panel-body">
                         {{ form_start(editForm, { 'style': 'horizontal' }) }}
                             {{ form_widget(editForm) }}
-                                <div class="form-group">
-                                    <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-primary pull-right">{{ icon('save fa-fw') }}&nbsp;{{ 'budget.edit.submit'|trans }}</button>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-2">
+                                    <button type="submit" class="btn btn-primary">{{ icon('save fa-fw') }}&nbsp;{{ 'budget.edit.submit'|trans }}</button>
                                 </div>
+                            </div>
                         {{ form_end(editForm) }}
                     </div>
                 </div>
@@ -79,6 +81,13 @@
 
 {% endblock %}
 
+{% block stylesheet %}
+    {% block wysiwygcss %}{{ parent() }}{% endblock %}
+    {% block multiselectcss %}{{ parent() }}{% endblock %}
+{% endblock %}
+
 {% block javascript %}
     <script src="{{ asset('bundles/koreagent/js/budget.item.js') }}"></script>
+    {% block wysiwygjs %}{{ parent() }}{% endblock %}
+    {% block multiselectjs %}{{ parent() }}{% endblock %}
 {% endblock %}

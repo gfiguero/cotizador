@@ -3,6 +3,7 @@
 {% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
 {% use 'KoreAgentBundle:Base:icons.html.twig' %}
 {% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+{% use 'KoreAgentBundle:Base:wysiwyg.html.twig' %}
 
 {% trans_default_domain 'KoreAgentBundle' %}
 
@@ -77,3 +78,10 @@
 
 {% endblock %}
 
+{% block stylesheet %}
+    {% block wysiwygcss %}{{ parent() }}{% endblock %}
+{% endblock %}
+
+{% block javascript %}
+    {% block wysiwygjs %}{{ parent() }}{% endblock %}
+{% endblock %}

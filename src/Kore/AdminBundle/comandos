@@ -5,6 +5,7 @@ php app/console doctrine:generate:entities KoreAdminBundle:Product --path=src
 php app/console doctrine:generate:entities KoreAdminBundle:Provider --path=src
 php app/console doctrine:generate:entities KoreAdminBundle:Seller --path=src
 php app/console doctrine:generate:entities KoreAdminBundle:Note --path=src
+php app/console doctrine:generate:entities KoreAdminBundle:User --path=src
 
 php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Budget --route-prefix=admin_budget
 php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Client --route-prefix=admin_client
@@ -13,6 +14,7 @@ php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --
 php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Provider --route-prefix=admin_provider
 php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Seller --route-prefix=admin_seller
 php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Note --route-prefix=admin_note
+php app/console kore:admingenerate:crud --overwrite --format=yml --with-write --no-interaction --entity=KoreAdminBundle:User --route-prefix=admin_user
 
 php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Budget --route-prefix=admin_budget
 php app/console kore:admingenerate:crud --format=yml --with-write --no-interaction --entity=KoreAdminBundle:Client --route-prefix=admin_client

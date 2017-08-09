@@ -1,0 +1,75 @@
+{% extends 'KoreAgentBundle:Base:base.html.twig' %}
+{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
+{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% use 'KoreAgentBundle:Base:icons.html.twig' %}
+{% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block title %}{{ 'test.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'test.index.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-test">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'test.index.list'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ form(testForm, {'style' : 'horizontal'}) }}
+                    </div>
+                    <div id="response" class="panel-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-list -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+    var headers = {'Content-Type': 'application/json', 'X-Shipit-Email': 'gfiguero@gmail.com', 'X-Shipit-Access-Token': '_kZA9UkUVmizSb1wZzxA', 'Accept': 'application/vnd.shipit.v2'};
+    var url = 'http://api.shipit.cl/v/communes';
+    var optionsTest = {
+        enableClickableOptGroups: true,
+        enableCollapsibleOptGroups: true,
+        enableFiltering: true,
+        includeSelectAllOption: true,
+        buttonWidth: '100%',
+        filterPlaceholder: 'Buscar',
+        onDropdownShown: function() {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType:'json',
+                headers: headers,
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.setRequestHeader('X-Shipit-Email', 'gfiguero@gmail.com');
+                    xhr.setRequestHeader('X-Shipit-Access-Token', '_kZA9UkUVmizSb1wZzxA');
+                    xhr.setRequestHeader('Accept', 'application/vnd.shipit.v2');
+                },
+                success: function(html) {
+                    console.log(html);
+                    /*$('#kore_agentbundle_test_comune').multiselect('destroy');*/
+                    /*$('#response').replaceWith($(html));*/
+                }
+            });
+        }
+    };
+    $('#kore_agentbundle_test_comune').multiselect(optionsTest);
+</script>
+{% endblock %}

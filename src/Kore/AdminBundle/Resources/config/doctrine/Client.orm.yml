@@ -8,6 +8,10 @@ Kore\AdminBundle\Entity\Client:
             id: true
             generator:
                 strategy: AUTO
+    manyToOne:
+        user:
+            targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: clients
     oneToMany:
         budgets:
             targetEntity: Kore\AdminBundle\Entity\Budget

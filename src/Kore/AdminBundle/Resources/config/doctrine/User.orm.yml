@@ -1,0 +1,51 @@
+Kore\AdminBundle\Entity\User:
+    type: entity
+    table: User
+    repositoryClass: Kore\AdminBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        providers:
+            targetEntity: Kore\AdminBundle\Entity\Provider
+            mappedBy: user
+        sellers:
+            targetEntity: Kore\AdminBundle\Entity\Seller
+            mappedBy: user
+        clients:
+            targetEntity: Kore\AdminBundle\Entity\Client
+            mappedBy: user
+        budgets:
+            targetEntity: Kore\AdminBundle\Entity\Budget
+            mappedBy: user
+        products:
+            targetEntity: Kore\AdminBundle\Entity\Product
+            mappedBy: user
+        notes:
+            targetEntity: Kore\AdminBundle\Entity\Note
+            mappedBy: user
+    fields:
+        budget_note:
+            type: text
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deleted_at:
+            type: datetime
+            nullable: true
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
+    lifecycleCallbacks: {  }

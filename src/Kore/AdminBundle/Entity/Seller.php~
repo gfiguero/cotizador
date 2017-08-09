@@ -47,6 +47,11 @@ class Seller
      */
     private $deleted_at;
 
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
+
 
     /**
      * Get id
@@ -225,5 +230,50 @@ class Seller
     {
         return $this->deleted_at;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $budgets;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->budgets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add budget
+     *
+     * @param \Kore\AdminBundle\Entity\Budget $budget
+     *
+     * @return Seller
+     */
+    public function addBudget(\Kore\AdminBundle\Entity\Budget $budget)
+    {
+        $this->budgets[] = $budget;
+
+        return $this;
+    }
+
+    /**
+     * Remove budget
+     *
+     * @param \Kore\AdminBundle\Entity\Budget $budget
+     */
+    public function removeBudget(\Kore\AdminBundle\Entity\Budget $budget)
+    {
+        $this->budgets->removeElement($budget);
+    }
+
+    /**
+     * Get budgets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBudgets()
+    {
+        return $this->budgets;
+    }
+}

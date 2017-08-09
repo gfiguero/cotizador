@@ -15,6 +15,9 @@ Kore\AdminBundle\Entity\Budget:
         seller:
             targetEntity: Kore\AdminBundle\Entity\Seller
             inversedBy: budgets
+        user:
+            targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: budgets
     oneToMany:
         items:
             targetEntity: Kore\AdminBundle\Entity\Item
