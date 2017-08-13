@@ -305,4 +305,33 @@ class Seller
     {
         return $this->user;
     }
+    /**
+     * @var \Kore\AdminBundle\Entity\Group
+     */
+    private $group;
+
+
+    /**
+     * Set group
+     *
+     * @param \Kore\AdminBundle\Entity\Group $group
+     *
+     * @return Seller
+     */
+    public function setGroup(\Kore\AdminBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Kore\AdminBundle\Entity\Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
 }

@@ -1,0 +1,21 @@
+{% extends "KoreUserBundle:Base:layout.html.twig" %}
+
+{% trans_default_domain 'KoreUserBundle' %}
+
+{% block title %}&nbsp;-&nbsp;{{ 'profile.show.title'|trans }}{% endblock %}
+
+{% block user %}
+    <section id="uiuser">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="page-header">{{ 'profile.show.title'|trans }}</h1>
+                    <div class="row">
+                        <div class="col-md-4"><strong>{{ 'profile.show.username'|trans }}</strong></div><div class="col-md-8">{{ user.username }}</div>
+                        <div class="col-md-4"><strong>{{ 'profile.show.email'|trans }}</strong></div><div class="col-md-8">{{ user.email }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

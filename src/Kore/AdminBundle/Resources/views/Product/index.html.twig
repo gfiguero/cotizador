@@ -52,14 +52,14 @@
                             {% for key, product in products %}
                                 <tr>
                                     <td>
-                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('admin_product_show', { 'id': product.id }) }}">{{ icon('search fa-fw') }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default" href="{{ path('admin_product_show', { 'id': product.id }) }}">{{ icon('search fa-fw') }}</a></div>
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ path('admin_product_edit', { 'id': product.id }) }}">{{ icon('edit fa-fw') }}</a></div>
                                         <div class="btn-group" role="group"><button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modalDelete{{ product.id }}">{{ icon('trash fa-fw') }}</button></div>
                                     </td>
                                     <td>{% if product.id %}{{ product.id }}{% endif %}</td>
                                     <td>{% if product.name %}{{ product.name }}{% endif %}</td>
-                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ product.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL Y HH:mm") }}"></span>&nbsp;{{ product.createdat|ago }}</td>
-                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ product.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL Y HH:mm") }}"></span>&nbsp;{{ product.updatedat|ago }}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ product.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL y HH:mm") }}"></span>&nbsp;{{ product.createdat|ago }}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ product.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL y HH:mm") }}"></span>&nbsp;{{ product.updatedat|ago }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>

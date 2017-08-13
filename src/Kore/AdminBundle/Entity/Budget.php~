@@ -29,7 +29,7 @@ class Budget
 
     public function __toString()
     {
-        return (string) $this->id;
+        return (string) $this->name;
     }
 
     /**
@@ -381,5 +381,92 @@ class Budget
     public function getNote()
     {
         return $this->note;
+    }
+    /**
+     * @var \Kore\AdminBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \Kore\AdminBundle\Entity\User $user
+     *
+     * @return Budget
+     */
+    public function setUser(\Kore\AdminBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Kore\AdminBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * @var \Kore\AdminBundle\Entity\Group
+     */
+    private $group;
+
+
+    /**
+     * Set group
+     *
+     * @param \Kore\AdminBundle\Entity\Group $group
+     *
+     * @return Budget
+     */
+    public function setGroup(\Kore\AdminBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Kore\AdminBundle\Entity\Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+    /**
+     * @var string
+     */
+    private $name;
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Budget
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

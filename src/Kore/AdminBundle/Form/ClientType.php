@@ -39,13 +39,28 @@ class ClientType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
-            ->add('address', null, array(
-                'label' => 'client.form.address',
+            ->add('address_street', null, array(
+                'label' => 'client.form.address_street',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('address_number', null, array(
+                'label' => 'client.form.address_number',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
             ->add('user', null, array(
                 'label' => 'client.form.user',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('group', null, array(
+                'label' => 'client.form.group',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('commune', null, array(
+                'label' => 'client.form.commune',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             ))

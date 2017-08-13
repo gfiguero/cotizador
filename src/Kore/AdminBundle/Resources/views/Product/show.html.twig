@@ -60,9 +60,9 @@
                             <dt>{{ 'product.form.cm_code'|trans }}</dt>
                                 <dd>{% if product.cmcode %}{{ product.cmcode }}{% endif %}</dd>
                             <dt>{{ 'product.form.created_at'|trans }}</dt>
-                                <dd>{% if product.createdat %}{{ product.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ product.createdat|ago }}){% endif %}</dd>
+                                <dd>{% if product.createdat %}{{ product.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ product.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'product.form.updated_at'|trans }}</dt>
-                                <dd>{% if product.updatedat %}{{ product.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ product.updatedat|ago }}){% endif %}</dd>                        </dl>
+                                <dd>{% if product.updatedat %}{{ product.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ product.updatedat|ago }}){% endif %}</dd>                        </dl>
                     </div>
                 </div>
             </div>

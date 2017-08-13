@@ -363,4 +363,120 @@ class Provider
     {
         return $this->user;
     }
+    /**
+     * @var \Kore\AdminBundle\Entity\Group
+     */
+    private $group;
+
+
+    /**
+     * Set group
+     *
+     * @param \Kore\AdminBundle\Entity\Group $group
+     *
+     * @return Provider
+     */
+    public function setGroup(\Kore\AdminBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Kore\AdminBundle\Entity\Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+    /**
+     * @var string
+     */
+    private $address_street;
+
+    /**
+     * @var string
+     */
+    private $address_number;
+
+    /**
+     * @var \Kore\AdminBundle\Entity\Commune
+     */
+    private $commune;
+
+
+    /**
+     * Set addressStreet
+     *
+     * @param string $addressStreet
+     *
+     * @return Provider
+     */
+    public function setAddressStreet($addressStreet)
+    {
+        $this->address_street = $addressStreet;
+
+        return $this;
+    }
+
+    /**
+     * Get addressStreet
+     *
+     * @return string
+     */
+    public function getAddressStreet()
+    {
+        return $this->address_street;
+    }
+
+    /**
+     * Set addressNumber
+     *
+     * @param string $addressNumber
+     *
+     * @return Provider
+     */
+    public function setAddressNumber($addressNumber)
+    {
+        $this->address_number = $addressNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get addressNumber
+     *
+     * @return string
+     */
+    public function getAddressNumber()
+    {
+        return $this->address_number;
+    }
+
+    /**
+     * Set commune
+     *
+     * @param \Kore\AdminBundle\Entity\Commune $commune
+     *
+     * @return Provider
+     */
+    public function setCommune(\Kore\AdminBundle\Entity\Commune $commune = null)
+    {
+        $this->commune = $commune;
+
+        return $this;
+    }
+
+    /**
+     * Get commune
+     *
+     * @return \Kore\AdminBundle\Entity\Commune
+     */
+    public function getCommune()
+    {
+        return $this->commune;
+    }
 }

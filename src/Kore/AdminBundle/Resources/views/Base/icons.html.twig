@@ -1,10 +1,14 @@
 {% block icons %}
     {% if app.request.attributes.get( '_route' ) starts with 'home' %}{{ icon('home fa-fw') }}
     {% elseif '_client_' in app.request.attributes.get( '_route' ) %}{{ icon('handshake-o fa-fw') }}
-    {% elseif '_item_' in app.request.attributes.get( '_route' ) %}{{ icon('dollar fa-fw') }}
+    {% elseif '_item_' in app.request.attributes.get( '_route' ) %}{{ icon('cubes fa-fw') }}
     {% elseif '_product_' in app.request.attributes.get( '_route' ) %}{{ icon('cube fa-fw') }}
-    {% elseif '_seller_' in app.request.attributes.get( '_route' ) %}{{ icon('user fa-fw') }}
+    {% elseif '_seller_' in app.request.attributes.get( '_route' ) %}{{ icon('id-card fa-fw') }}
     {% elseif '_budget_' in app.request.attributes.get( '_route' ) %}{{ icon('check-square-o fa-fw') }}
     {% elseif '_provider_' in app.request.attributes.get( '_route' ) %}{{ icon('truck fa-fw') }}
+    {% elseif '_note_' in app.request.attributes.get( '_route' ) %}{{ icon('sticky-note fa-fw') }}
+    {% elseif '_issuer_' in app.request.attributes.get( '_route' ) %}{{ icon('bookmark fa-fw') }}
+    {% elseif '_user_' in app.request.attributes.get( '_route' ) %}{{ icon('user fa-fw') }}
+    {% elseif '_group_' in app.request.attributes.get( '_route' ) %}{{ icon('group fa-fw') }}
     {% endif %}
 {% endblock %}

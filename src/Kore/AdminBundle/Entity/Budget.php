@@ -29,7 +29,7 @@ class Budget
 
     public function __toString()
     {
-        return (string) $this->id;
+        return (string) $this->name;
     }
 
     /**
@@ -410,5 +410,150 @@ class Budget
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * @var \Kore\AdminBundle\Entity\Group
+     */
+    private $group;
+
+
+    /**
+     * Set group
+     *
+     * @param \Kore\AdminBundle\Entity\Group $group
+     *
+     * @return Budget
+     */
+    public function setGroup(\Kore\AdminBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Kore\AdminBundle\Entity\Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+    /**
+     * @var string
+     */
+    private $name;
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Budget
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $adjudicated_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $expired_at;
+
+    /**
+     * @var \Kore\AdminBundle\Entity\Issuer
+     */
+    private $issuer;
+
+
+    /**
+     * Set adjudicatedAt
+     *
+     * @param \DateTime $adjudicatedAt
+     *
+     * @return Budget
+     */
+    public function setAdjudicatedAt($adjudicatedAt)
+    {
+        $this->adjudicated_at = $adjudicatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get adjudicatedAt
+     *
+     * @return \DateTime
+     */
+    public function getAdjudicatedAt()
+    {
+        return $this->adjudicated_at;
+    }
+
+    /**
+     * Set expiredAt
+     *
+     * @param \DateTime $expiredAt
+     *
+     * @return Budget
+     */
+    public function setExpiredAt($expiredAt)
+    {
+        $this->expired_at = $expiredAt;
+
+        return $this;
+    }
+
+    /**
+     * Get expiredAt
+     *
+     * @return \DateTime
+     */
+    public function getExpiredAt()
+    {
+        return $this->expired_at;
+    }
+
+    /**
+     * Set issuer
+     *
+     * @param \Kore\AdminBundle\Entity\Issuer $issuer
+     *
+     * @return Budget
+     */
+    public function setIssuer(\Kore\AdminBundle\Entity\Issuer $issuer = null)
+    {
+        $this->issuer = $issuer;
+
+        return $this;
+    }
+
+    /**
+     * Get issuer
+     *
+     * @return \Kore\AdminBundle\Entity\Issuer
+     */
+    public function getIssuer()
+    {
+        return $this->issuer;
     }
 }

@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Note:
     type: entity
-    table: Note
+    table: kore_note
     repositoryClass: Kore\AdminBundle\Entity\NoteRepository
     id:
         id:
@@ -12,6 +12,9 @@ Kore\AdminBundle\Entity\Note:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: notes
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
+            inversedBy: notes
     manyToMany:
         budgets:
             targetEntity: Kore\AdminBundle\Entity\Budget
@@ -19,7 +22,7 @@ Kore\AdminBundle\Entity\Note:
     fields:
         name:
             type: string
-            length: 30
+            length: 100
         title:
             type: string
             length: 30

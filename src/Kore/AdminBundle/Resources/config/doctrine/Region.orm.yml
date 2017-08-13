@@ -1,0 +1,21 @@
+Kore\AdminBundle\Entity\Region:
+    type: entity
+    table: utils_region
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        provinces:
+            targetEntity: Kore\AdminBundle\Entity\Province
+            mappedBy: region
+    fields:
+        name:
+            type: string
+            length: 50
+        iso:
+            type: string
+            length: 5
+    lifecycleCallbacks: {  }

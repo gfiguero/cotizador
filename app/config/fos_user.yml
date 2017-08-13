@@ -18,6 +18,8 @@ fos_user:
         sender_name: Equipo de uniPage
 
     registration:
+        form:
+            type: Kore\UserBundle\Form\RegistrationType
         confirmation:
             enabled:            true
             from_email:
@@ -25,8 +27,23 @@ fos_user:
                 sender_name: Equipo de uniPage
 
     resetting:
+        form:
+            type: Kore\UserBundle\Form\ResettingType
         token_ttl: 86400
         email:
             from_email:
                 address: unipage@dev.elklan.cl
                 sender_name: Equipo de uniPage
+
+    group:
+        group_class: Kore\AdminBundle\Entity\Group
+        form:
+            type: KoreUserBundle\Form\GroupType
+
+    change_password:
+        form:
+            type: Kore\UserBundle\Form\ChangePasswordType
+
+    profile:
+        form:
+            type: Kore\UserBundle\Form\ProfileType

@@ -1,0 +1,31 @@
+{% extends "KoreUserBundle:Base:layout.html.twig" %}
+
+{% trans_default_domain 'KoreUserBundle' %}
+
+{% block title %}&nbsp;-&nbsp;{{ 'registration.register.title'|trans }}{% endblock %}
+
+{% block user %}
+    <section id="user">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">{{ 'registration.register.title'|trans }}</h1>
+                        </div>
+                        <div class="panel-body">
+                            {{ form_start(form, {'style' : 'horizontal'}) }}
+                                {{ form_widget(form) }}
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary" id="submit" name="_submit">{{ 'registration.register.submit'|trans }}</button>
+                                    </div>
+                                </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

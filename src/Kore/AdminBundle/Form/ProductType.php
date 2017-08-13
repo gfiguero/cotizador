@@ -73,6 +73,11 @@ class ProductType extends AbstractType
                 'label' => 'product.form.user',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('group', null, array(
+                'label' => 'product.form.group',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
             ))
         ;
     }

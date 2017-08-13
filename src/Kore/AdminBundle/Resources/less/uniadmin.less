@@ -1,0 +1,31 @@
+@import "bootstrap-extensions/forms.less";
+@import "bootstrap-extensions/tables.less";
+
+@import "uniadmin/sidebar.less";
+
+.dl-horizontal {
+  dd {
+    &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: @dl-horizontal-breakpoint) {
+    dt {
+      float: left;
+      width: (2*@dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      .text-overflow();
+    }
+    dd {
+      margin-left: 2*@dl-horizontal-offset;
+    }
+  }
+}
+
+#page-header .page-header {
+    margin: 10px 0 10px;
+}
+
+#page-toolbar .btn-toolbar .btn {
+    margin-bottom: 5px;
+}

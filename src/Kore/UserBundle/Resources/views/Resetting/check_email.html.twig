@@ -1,0 +1,24 @@
+{% extends "KoreUserBundle:Base:layout.html.twig" %}
+
+{% trans_default_domain 'KoreUserBundle' %}
+
+{% block title %}&nbsp;-&nbsp;{{ 'resetting.check_email.title'|trans }}{% endblock %}
+
+{% block user %}
+    <section id="user">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">{{ 'resetting.check_email.title'|trans }}</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p>{{ 'resetting.check_email.message'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

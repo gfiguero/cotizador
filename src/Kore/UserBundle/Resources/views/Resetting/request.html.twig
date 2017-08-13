@@ -1,0 +1,36 @@
+{% extends "KoreUserBundle:Base:layout.html.twig" %}
+
+{% trans_default_domain 'KoreUserBundle' %}
+
+{% block title %}&nbsp;-&nbsp;{{ 'resetting.request.title'|trans }}{% endblock %}
+
+{% block user %}
+    <section id="user">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">{{ 'resetting.request.title'|trans }}</h1>
+                        </div>
+                        <div class="panel-body">
+                            <form action="{{ path('fos_user_resetting_send_email') }}" method="post" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="username" class="control-label col-md-4 required">{{ 'security.form.username'|trans }}</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="username" name="username" required="required" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary" id="_submit" name="_submit">{{ 'resetting.request.submit'|trans }}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

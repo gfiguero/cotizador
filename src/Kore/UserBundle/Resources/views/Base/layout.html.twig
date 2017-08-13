@@ -1,0 +1,9 @@
+{% extends 'KoreUserBundle:Base:base.html.twig' %}
+{% use 'KoreUserBundle:Base:flashbag.html.twig' %}
+{% use 'KoreUserBundle:Base:header.html.twig' %}
+
+{% block body %}
+    {% block header %}{{ parent() }}{% endblock %}
+    {% block user %}{% endblock %}
+    {% block footer %}{{ parent() }}{% endblock %}
+{% endblock %}

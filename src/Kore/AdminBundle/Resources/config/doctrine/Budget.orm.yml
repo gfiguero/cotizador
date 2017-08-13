@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Budget:
     type: entity
-    table: Budget
+    table: kore_budget
     repositoryClass: Kore\AdminBundle\Entity\BudgetRepository
     id:
         id:
@@ -15,8 +15,14 @@ Kore\AdminBundle\Entity\Budget:
         seller:
             targetEntity: Kore\AdminBundle\Entity\Seller
             inversedBy: budgets
+        issuer:
+            targetEntity: Kore\AdminBundle\Entity\Issuer
+            inversedBy: budgets
         user:
             targetEntity: Kore\AdminBundle\Entity\User
+            inversedBy: budgets
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
             inversedBy: budgets
     oneToMany:
         items:
@@ -28,13 +34,17 @@ Kore\AdminBundle\Entity\Budget:
             targetEntity: Kore\AdminBundle\Entity\Note
             inversedBy: budgets
     fields:
-        code:
+        name:
             type: string
-            length: 20
+            length: 100
             nullable: true
         note:
             type: text
             nullable: true
+        adjudicated_at:
+            type: datetime
+        expired_at:
+            type: datetime
         created_at:
             type: datetime
             gedmo:

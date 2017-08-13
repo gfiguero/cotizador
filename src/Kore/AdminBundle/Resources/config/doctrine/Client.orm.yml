@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Client:
     type: entity
-    table: Client
+    table: kore_client
     repositoryClass: Kore\AdminBundle\Entity\ClientRepository
     id:
         id:
@@ -12,6 +12,11 @@ Kore\AdminBundle\Entity\Client:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: clients
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
+            inversedBy: clients
+        commune:
+            targetEntity: Kore\AdminBundle\Entity\Commune
     oneToMany:
         budgets:
             targetEntity: Kore\AdminBundle\Entity\Budget
@@ -19,7 +24,7 @@ Kore\AdminBundle\Entity\Client:
     fields:
         name:
             type: string
-            length: 30
+            length: 100
             nullable: true
         rut:
             type: string
@@ -37,9 +42,13 @@ Kore\AdminBundle\Entity\Client:
             type: string
             length: 30
             nullable: true
-        address:
+        address_street:
             type: string
             length: 100
+            nullable: true
+        address_number:
+            type: string
+            length: 10
             nullable: true
         created_at:
             type: datetime

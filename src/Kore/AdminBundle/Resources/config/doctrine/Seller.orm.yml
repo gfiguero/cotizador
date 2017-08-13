@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Seller:
     type: entity
-    table: Seller
+    table: kore_seller
     repositoryClass: Kore\AdminBundle\Entity\SellerRepository
     id:
         id:
@@ -12,6 +12,9 @@ Kore\AdminBundle\Entity\Seller:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: sellers
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
+            inversedBy: sellers
     oneToMany:
         budgets:
             targetEntity: Kore\AdminBundle\Entity\Budget
@@ -19,7 +22,7 @@ Kore\AdminBundle\Entity\Seller:
     fields:
         name:
             type: string
-            length: 30
+            length: 100
             nullable: true
         rut:
             type: string

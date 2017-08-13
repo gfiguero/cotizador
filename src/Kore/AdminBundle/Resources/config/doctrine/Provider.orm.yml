@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Provider:
     type: entity
-    table: Provider
+    table: kore_provider
     repositoryClass: Kore\AdminBundle\Entity\ProviderRepository
     id:
         id:
@@ -12,6 +12,11 @@ Kore\AdminBundle\Entity\Provider:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: providers
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
+            inversedBy: providers
+        commune:
+            targetEntity: Kore\AdminBundle\Entity\Commune
     oneToMany:
         products:
             targetEntity: Kore\AdminBundle\Entity\Product
@@ -19,7 +24,7 @@ Kore\AdminBundle\Entity\Provider:
     fields:
         name:
             type: string
-            length: 30
+            length: 100
             nullable: true
         rut:
             type: string
@@ -37,9 +42,13 @@ Kore\AdminBundle\Entity\Provider:
             type: string
             length: 30
             nullable: true
-        address:
+        address_street:
             type: string
             length: 100
+            nullable: true
+        address_number:
+            type: string
+            length: 10
             nullable: true
         created_at:
             type: datetime

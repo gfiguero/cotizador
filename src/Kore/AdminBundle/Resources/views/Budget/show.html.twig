@@ -39,14 +39,18 @@
                         <dl class="dl-horizontal">
                             <dt>{{ 'budget.form.id'|trans }}</dt>
                                 <dd>{% if budget.id %}{{ budget.id }}{% endif %}</dd>
-                            <dt>{{ 'budget.form.code'|trans }}</dt>
-                                <dd>{% if budget.code %}{{ budget.code }}{% endif %}</dd>
+                            <dt>{{ 'budget.form.name'|trans }}</dt>
+                                <dd>{% if budget.name %}{{ budget.name }}{% endif %}</dd>
                             <dt>{{ 'budget.form.note'|trans }}</dt>
                                 <dd>{% if budget.note %}{{ budget.note }}{% endif %}</dd>
+                            <dt>{{ 'budget.form.adjudicated_at'|trans }}</dt>
+                                <dd>{% if budget.adjudicatedat %}{{ budget.adjudicatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ budget.adjudicatedat|ago }}){% endif %}</dd>
+                            <dt>{{ 'budget.form.expired_at'|trans }}</dt>
+                                <dd>{% if budget.expiredat %}{{ budget.expiredat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ budget.expiredat|ago }}){% endif %}</dd>
                             <dt>{{ 'budget.form.created_at'|trans }}</dt>
-                                <dd>{% if budget.createdat %}{{ budget.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ budget.createdat|ago }}){% endif %}</dd>
+                                <dd>{% if budget.createdat %}{{ budget.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ budget.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'budget.form.updated_at'|trans }}</dt>
-                                <dd>{% if budget.updatedat %}{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ budget.updatedat|ago }}){% endif %}</dd>                        </dl>
+                                <dd>{% if budget.updatedat %}{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ budget.updatedat|ago }}){% endif %}</dd>                        </dl>
                     </div>
                 </div>
             </div>

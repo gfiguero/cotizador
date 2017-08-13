@@ -39,12 +39,12 @@
                         <dl class="dl-horizontal">
                             <dt>{{ 'user.form.id'|trans }}</dt>
                                 <dd>{% if user.id %}{{ user.id }}{% endif %}</dd>
-                            <dt>{{ 'user.form.budget_note'|trans }}</dt>
-                                <dd>{% if user.budgetnote %}{{ user.budgetnote }}{% endif %}</dd>
+                            <dt>{{ 'user.form.name'|trans }}</dt>
+                                <dd>{% if user.name %}{{ user.name }}{% endif %}</dd>
                             <dt>{{ 'user.form.created_at'|trans }}</dt>
-                                <dd>{% if user.createdat %}{{ user.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ user.createdat|ago }}){% endif %}</dd>
+                                <dd>{% if user.createdat %}{{ user.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ user.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'user.form.updated_at'|trans }}</dt>
-                                <dd>{% if user.updatedat %}{{ user.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ user.updatedat|ago }}){% endif %}</dd>                        </dl>
+                                <dd>{% if user.updatedat %}{{ user.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ user.updatedat|ago }}){% endif %}</dd>                        </dl>
                     </div>
                 </div>
             </div>

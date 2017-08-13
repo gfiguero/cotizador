@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Item:
     type: entity
-    table: Item
+    table: kore_item
     repositoryClass: Kore\AdminBundle\Entity\ItemRepository
     id:
         id:

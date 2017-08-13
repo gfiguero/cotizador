@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\Product:
     type: entity
-    table: Product
+    table: kore_product
     repositoryClass: Kore\AdminBundle\Entity\ProductRepository
     id:
         id:
@@ -8,10 +8,6 @@ Kore\AdminBundle\Entity\Product:
             id: true
             generator:
                 strategy: AUTO
-    oneToMany:
-        items:
-            targetEntity: Kore\AdminBundle\Entity\Item
-            mappedBy: product
     manyToOne:
         provider:
             targetEntity: Kore\AdminBundle\Entity\Provider
@@ -19,10 +15,17 @@ Kore\AdminBundle\Entity\Product:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: products
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
+            inversedBy: products
+    oneToMany:
+        items:
+            targetEntity: Kore\AdminBundle\Entity\Item
+            mappedBy: product
     fields:
         name:
             type: string
-            length: 30
+            length: 100
             nullable: true
         description:
             type: text

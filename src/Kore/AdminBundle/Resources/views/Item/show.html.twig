@@ -46,9 +46,9 @@
                             <dt>{{ 'item.form.price'|trans }}</dt>
                                 <dd>{% if item.price %}{{ item.price }}{% endif %}</dd>
                             <dt>{{ 'item.form.created_at'|trans }}</dt>
-                                <dd>{% if item.createdat %}{{ item.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ item.createdat|ago }}){% endif %}</dd>
+                                <dd>{% if item.createdat %}{{ item.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ item.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'item.form.updated_at'|trans }}</dt>
-                                <dd>{% if item.updatedat %}{{ item.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ item.updatedat|ago }}){% endif %}</dd>                        </dl>
+                                <dd>{% if item.updatedat %}{{ item.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ item.updatedat|ago }}){% endif %}</dd>                        </dl>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 Kore\AdminBundle\Entity\User:
     type: entity
-    table: User
+    table: kore_user
     repositoryClass: Kore\AdminBundle\Entity\UserRepository
     id:
         id:
@@ -27,9 +27,14 @@ Kore\AdminBundle\Entity\User:
         notes:
             targetEntity: Kore\AdminBundle\Entity\Note
             mappedBy: user
+    manyToOne:
+        group:
+            targetEntity: Kore\AdminBundle\Entity\Group
+            inversedBy: users
     fields:
-        budget_note:
-            type: text
+        name:
+            type: string
+            length: 100
             nullable: true
         created_at:
             type: datetime

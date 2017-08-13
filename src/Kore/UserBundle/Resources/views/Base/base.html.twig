@@ -11,11 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="Kore">
     <meta name="language" content="es">
-    <title>Kore - {% block title %}{% endblock %}</title>
+    <title>Kore{% block title %}{% endblock %}</title>
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/jquery-ui/themes/base/jquery-ui.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/koreagent/css/agent.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/metismenu/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/koreadmin/css/admin.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,23 +24,10 @@
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
-    {% block navbar %}{% endblock %}
-    <div class="container-fluid">
-        <div class="row">
-            <aside class="col-md-2">
-                {% block sidebar %}{% endblock %}
-            </aside>
-            <div class="col-md-10">
-                {% block body %}{% endblock %}
-            </div>
-        </div>
-    </div>
+    {% block body %}{% endblock %}
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('vendor/braincrafted/js/bc-bootstrap-collection.js') }}"></script>
-    <script src="{{ asset('vendor/metismenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('bundles/koreadmin/js/admin.js') }}"></script>
     {% block javascript %}{% endblock %}
 </body>
 </html>

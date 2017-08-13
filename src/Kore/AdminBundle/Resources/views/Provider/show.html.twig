@@ -49,12 +49,14 @@
                                 <dd>{% if provider.phone %}{{ provider.phone }}{% endif %}</dd>
                             <dt>{{ 'provider.form.email'|trans }}</dt>
                                 <dd>{% if provider.email %}{{ provider.email }}{% endif %}</dd>
-                            <dt>{{ 'provider.form.address'|trans }}</dt>
-                                <dd>{% if provider.address %}{{ provider.address }}{% endif %}</dd>
+                            <dt>{{ 'provider.form.address_street'|trans }}</dt>
+                                <dd>{% if provider.addressstreet %}{{ provider.addressstreet }}{% endif %}</dd>
+                            <dt>{{ 'provider.form.address_number'|trans }}</dt>
+                                <dd>{% if provider.addressnumber %}{{ provider.addressnumber }}{% endif %}</dd>
                             <dt>{{ 'provider.form.created_at'|trans }}</dt>
-                                <dd>{% if provider.createdat %}{{ provider.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ provider.createdat|ago }}){% endif %}</dd>
+                                <dd>{% if provider.createdat %}{{ provider.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ provider.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'provider.form.updated_at'|trans }}</dt>
-                                <dd>{% if provider.updatedat %}{{ provider.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ provider.updatedat|ago }}){% endif %}</dd>                        </dl>
+                                <dd>{% if provider.updatedat %}{{ provider.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ provider.updatedat|ago }}){% endif %}</dd>                        </dl>
                     </div>
                 </div>
             </div>

@@ -14,8 +14,13 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
-            ->add('budget_note', null, array(
-                'label' => 'user.form.budget_note',
+            ->add('name', null, array(
+                'label' => 'user.form.name',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('group', null, array(
+                'label' => 'user.form.group',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             ))

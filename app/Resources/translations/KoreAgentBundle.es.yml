@@ -80,7 +80,7 @@ client:
     form:
         id: ID
         rut: Rut
-        name: Nombre
+        name: Nombre o Razón Social
         contactname: Nombre Contacto
         email: Email
         phone: Teléfono
@@ -118,7 +118,7 @@ provider:
     form:
         id: ID
         rut: Rut
-        name: Nombre
+        name: Nombre o Razón Social
         contactname: Nombre Contacto
         email: Email
         phone: Teléfono

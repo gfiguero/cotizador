@@ -1,0 +1,24 @@
+admin_region_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Region:index" }
+    methods:  GET
+
+admin_region_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Region:show" }
+    methods:  GET
+
+admin_region_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Region:new" }
+    methods:  [GET, POST]
+
+admin_region_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Region:edit" }
+    methods:  [GET, POST]
+
+admin_region_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Region:delete" }
+    methods:  DELETE

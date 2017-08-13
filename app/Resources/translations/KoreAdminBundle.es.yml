@@ -1,4 +1,16 @@
 sidemenu:
+    commune:
+        root: Comunas
+    province:
+        root: Provincias
+    region:
+        root: Regiones
+    group:
+        root: Grupos
+    user:
+        root: Usuarios
+    issuer:
+        root: Emisores
     seller:
         root: Vendedores
     client:
@@ -11,6 +23,8 @@ sidemenu:
         root: Ítems
     budget:
         root: Cotizaciones
+    note:
+        root: Notas
 
 seller:
     index:

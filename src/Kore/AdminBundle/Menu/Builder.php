@@ -13,11 +13,23 @@ class Builder implements ContainerAwareInterface
     public function topMenu(FactoryInterface $factory, array $options)
     {
         $topmenu = $factory->createItem('root');
-        $topmenu->setChildrenAttribute('class', 'nav navbar-nav');
+        $topmenu->setChildrenAttribute('class', 'nav navbar-nav navbar-right');
         $topmenu->setChildrenAttribute('id', 'top-menu');
 
 //        $topmenu->addChild('topmenu.header', array('route' => 'admin_header_index'))->setAttributes(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle'));
 //        $topmenu->addChild('topmenu.logout', array('route' => 'front_logout'))->setAttributes(array('icon' => 'sign-out fa-fw', 'translation_domain' => 'KoreFrontBundle'));
+        $topmenu->addChild('topmenu.group.root', array('route' => 'admin_group_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_group_index',
+            'admin_group_new',
+            'admin_group_show',
+            'admin_group_edit',
+        )));
+        $topmenu->addChild('topmenu.user.root', array('route' => 'admin_user_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_user_index',
+            'admin_user_new',
+            'admin_user_show',
+            'admin_user_edit',
+        )));
 
         return $topmenu;
     }
@@ -29,6 +41,32 @@ class Builder implements ContainerAwareInterface
         $sidemenu->setChildrenAttribute('class', 'metismenu');
         $sidemenu->setChildrenAttribute('id', 'side-menu');
 
+/*
+        $sidemenu->addChild('sidemenu.commune.root', array('route' => 'admin_commune_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_commune_index',
+            'admin_commune_new',
+            'admin_commune_show',
+            'admin_commune_edit',
+        )));
+        $sidemenu->addChild('sidemenu.province.root', array('route' => 'admin_province_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_province_index',
+            'admin_province_new',
+            'admin_province_show',
+            'admin_province_edit',
+        )));
+        $sidemenu->addChild('sidemenu.region.root', array('route' => 'admin_region_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_region_index',
+            'admin_region_new',
+            'admin_region_show',
+            'admin_region_edit',
+        )));
+*/
+        $sidemenu->addChild('sidemenu.issuer.root', array('route' => 'admin_issuer_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_issuer_index',
+            'admin_issuer_new',
+            'admin_issuer_show',
+            'admin_issuer_edit',
+        )));
         $sidemenu->addChild('sidemenu.budget.root', array('route' => 'admin_budget_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
             'admin_budget_index',
             'admin_budget_new',

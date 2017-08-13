@@ -1,0 +1,24 @@
+admin_commune_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Commune:index" }
+    methods:  GET
+
+admin_commune_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Commune:show" }
+    methods:  GET
+
+admin_commune_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Commune:new" }
+    methods:  [GET, POST]
+
+admin_commune_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Commune:edit" }
+    methods:  [GET, POST]
+
+admin_commune_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Commune:delete" }
+    methods:  DELETE

@@ -1,6 +1,78 @@
-login:
-    form:
+topmenu:
+    register: Registrar
+    login: Ingreso
+    logout: Salir
+    reset: Recuperar Password
+    changepassword: Cambiar Password
+
+security:
+    login:
         title: Formulario de ingreso
+        submit: Ingresar
+    changepassword:
+        title: Cambiar Password
+        submit: Cambiar Password
+    form:
+        email: Email
         username: Nombre de Usuario
         password: Password
-        submit: Ingresar
+        password_confirmation: Repetir Password
+        remember_me: Recordar
+        current_password: Password actual
+        new_password: Nueva Password
+        new_password_confirmation: Repetir Password
+        invalid_current_password: Password inválida
+        mismatch_password: Password no coincide
+
+
+registration:
+    register:
+        title: Registro de Usuarios
+        flash: El usuario se ha creado satisfactoriamente.
+        link: Registrar una cuenta
+        back: Volver a la página original.
+        submit: Registrar
+    check_email:
+        title: Verificación de Email
+        message: Se ha enviado un email a %email%. Contiene un enlace de activación que debes presionar para activar tu cuenta.
+    confirmed:
+        title: Confirmación de Cuenta
+        message: Felicidades %username%, tu cuenta está ahora confirmada.
+        back: Regresar
+    email:
+        subject: Su cuenta ha sido registrada
+        message: |
+            Hola %username%!
+
+            Para completar la validación de tu cuenta, por favor visita %confirmationUrl%
+            
+            Este enlace sólo puede utilizarse una vez para validar tu cuenta.
+
+            Atentamente,
+            el Equipo de uniSign.
+
+resetting:
+    reset:
+        title: Restablecer Password
+        submit: Restablecer
+    request:
+        title: Recuperación de Password
+        link: Recuperar Password
+        submit: Solicitar Recuperación
+    check_email:
+        title: Recuperación en Proceso
+        message: |
+            Un email ha sido enviado. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.
+            Nota: Solo se puede solicitar una nueva contraseña dentro %tokenLifetime% horas.
+
+            Si no recibe un correo electrónico, comprueba tu carpeta de correo no deseado o inténtelo de nuevo.
+
+    email:
+        subject: Restablecer Password
+        message: |
+            Hola %username%!
+
+            Para restablecer tu contraseña, por favor visita %confirmationUrl%
+
+            Atentamente,
+            el Equipo de uniSign.

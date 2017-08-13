@@ -1,0 +1,24 @@
+admin_province_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Province:index" }
+    methods:  GET
+
+admin_province_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Province:show" }
+    methods:  GET
+
+admin_province_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Province:new" }
+    methods:  [GET, POST]
+
+admin_province_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Province:edit" }
+    methods:  [GET, POST]
+
+admin_province_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Province:delete" }
+    methods:  DELETE

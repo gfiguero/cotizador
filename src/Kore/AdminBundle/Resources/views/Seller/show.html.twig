@@ -48,9 +48,9 @@
                             <dt>{{ 'seller.form.email'|trans }}</dt>
                                 <dd>{% if seller.email %}{{ seller.email }}{% endif %}</dd>
                             <dt>{{ 'seller.form.created_at'|trans }}</dt>
-                                <dd>{% if seller.createdat %}{{ seller.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ seller.createdat|ago }}){% endif %}</dd>
+                                <dd>{% if seller.createdat %}{{ seller.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ seller.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'seller.form.updated_at'|trans }}</dt>
-                                <dd>{% if seller.updatedat %}{{ seller.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' Y - HH:mm") }}&nbsp;({{ seller.updatedat|ago }}){% endif %}</dd>                        </dl>
+                                <dd>{% if seller.updatedat %}{{ seller.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ seller.updatedat|ago }}){% endif %}</dd>                        </dl>
                     </div>
                 </div>
             </div>

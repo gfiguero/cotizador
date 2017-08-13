@@ -46,7 +46,7 @@
 
                                 {%- if metadata.type in ['date'] %}
 
-                                <dd>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "d \'de\' LLLL \'de\' Y") }}&nbsp;({{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}){% endif %}' }}</dd>
+                                <dd>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "d \'de\' LLLL \'de\' y") }}&nbsp;({{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}){% endif %}' }}</dd>
 
                                 {%- elseif metadata.type in ['time'] %}
 
@@ -54,7 +54,7 @@
 
                                 {%- elseif metadata.type in ['datetime'] %}
 
-                                <dd>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "d \'de\' LLLL \'de\' Y - HH:mm") }}&nbsp;({{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}){% endif %}' }}</dd>
+                                <dd>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "d \'de\' LLLL \'de\' y - HH:mm") }}&nbsp;({{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}){% endif %}' }}</dd>
 
                                 {%- elseif metadata.type in ['array'] %}
 

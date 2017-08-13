@@ -63,7 +63,7 @@
                             {{ '{% for key, ' ~ entity_singularized|lower ~ ' in ' ~ entity_pluralized ~ ' %}' }}
                                 <tr>
                                     <td>
-                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': " ~ entity_singularized|lower ~ "." ~ identifier ~ " }) }}" }}">{{ "{{ icon('search fa-fw') }}" }}</a></div>
+                                        <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default" href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': " ~ entity_singularized|lower ~ "." ~ identifier ~ " }) }}" }}">{{ "{{ icon('search fa-fw') }}" }}</a></div>
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-primary" href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': " ~ entity_singularized|lower ~ "." ~ identifier ~ " }) }}" }}">{{ "{{ icon('edit fa-fw') }}" }}</a></div>
                                         <div class="btn-group" role="group"><button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modalDelete{{ "{{ " ~ entity_singularized|lower ~ ".id }}" }}">{{ "{{ icon('trash fa-fw') }}" }}</button></div>
                                     </td>
@@ -80,7 +80,7 @@
 
                                 {%- elseif metadata.type in ['date'] %}
 
-                                    <td>{{ '{% if ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "dd-LLL-Y") }}{% endif %}' }}</td>
+                                    <td>{{ '{% if ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "dd-LLL-y") }}{% endif %}' }}</td>
 
                                 {%- elseif metadata.type in ['time'] %}
 
@@ -88,7 +88,7 @@
 
                                 {%- elseif metadata.type in ['datetime'] %}
 
-                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title={{ '"{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "dd LLLL Y HH:mm") }}"' }}></span>&nbsp;{{ '{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}' }}</td>
+                                    <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title={{ '"{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|localizeddate(\'full\', \'full\', \'es_ES\', \'America/Santiago\', "dd LLLL y HH:mm") }}"' }}></span>&nbsp;{{ '{{ ' ~ entity_singularized|lower ~ '.' ~ field|replace({'_': ''}) ~ '|ago }}' }}</td>
 
                                 {%- else %}
 

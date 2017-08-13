@@ -9,6 +9,7 @@
             {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.product) ~ '</td>' %}
             {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.quantity) ~ '</td>' %}
             {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.discount) ~ '</td>' %}
+            {% set prototype_html = prototype_html ~ '<script type="text/javascript">$("#__id__").multiselect({maxHeight: 400, buttonWidth: "200px"});</script>' %}
 
             {% set attr = attr|merge({'data-prototype': prototype_html }) %}
             {% set attr = attr|merge({'data-prototype-name': prototype_name }) %}
@@ -25,14 +26,14 @@
         <div class="form-group">
             <div class="col-lg-{{ attr.widget_col }} col-lg-offset-{{ attr.label_col }}">
                 <div class="panel panel-default">
-                    <div {{ block('widget_container_attributes') }} class="table-responsive">
+                    <div {{ block('widget_container_attributes') }} >
                         <table class="table table-middle">
                             <thead>
                                 <tr>
-                                    <th><a class="btn btn-default btn-sm disabled">{{ icon('times fa-fw') }}</a></th>
-                                    <th>{{'item.form.product'|trans({}, translation_domain) }}</th>
-                                    <th>{{'item.form.quantity'|trans({}, translation_domain) }}</th>
-                                    <th>{{'item.form.discount'|trans({}, translation_domain) }}</th>
+                                    <th width="40"><a class="btn btn-default btn-sm disabled">{{ icon('times fa-fw') }}</a></th>
+                                    <th width="200">{{'item.form.product'|trans({}, translation_domain) }}</th>
+                                    <th width="100">{{'item.form.quantity'|trans({}, translation_domain) }}</th>
+                                    <th width="100">{{'item.form.discount'|trans({}, translation_domain) }}</th>
                                 </tr>
                             </thead>
                             {% for field in form %}

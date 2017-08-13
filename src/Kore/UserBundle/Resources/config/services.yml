@@ -1,4 +1,28 @@
 services:
+    kore_user.form.change_password:
+        class: Kore\UserBundle\Form\ChangePasswordType
+        tags:
+            - { name: form.type, alias: kore_user_change_password }
+    kore_user.form.group:
+        class: Kore\UserBundle\Form\GroupType
+        tags:
+            - { name: form.type, alias: kore_user_group }
+    kore_user.form.profile:
+        class: Kore\UserBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: kore_user_profile }
+    kore_user.form.registration:
+        class: Kore\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: kore_user_registration }
+    kore_user.form.resetting:
+        class: Kore\UserBundle\Form\ResettingType
+        tags:
+            - { name: form.type, alias: kore_user_resetting }
+    kore_user.form.username:
+        class: Kore\UserBundle\Form\UsernameType
+        tags:
+            - { name: form.type, alias: kore_user_username }
 #    kore_user.example:
 #        class: Kore\UserBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

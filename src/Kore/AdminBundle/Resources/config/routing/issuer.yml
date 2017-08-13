@@ -1,0 +1,24 @@
+admin_issuer_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Issuer:index" }
+    methods:  GET
+
+admin_issuer_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Issuer:show" }
+    methods:  GET
+
+admin_issuer_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Issuer:new" }
+    methods:  [GET, POST]
+
+admin_issuer_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Issuer:edit" }
+    methods:  [GET, POST]
+
+admin_issuer_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Issuer:delete" }
+    methods:  DELETE

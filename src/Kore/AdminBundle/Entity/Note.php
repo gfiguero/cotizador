@@ -50,6 +50,11 @@ class Note
         $this->budgets = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
+
     /**
      * Get id
      *
@@ -270,5 +275,34 @@ class Note
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * @var \Kore\AdminBundle\Entity\Group
+     */
+    private $group;
+
+
+    /**
+     * Set group
+     *
+     * @param \Kore\AdminBundle\Entity\Group $group
+     *
+     * @return Note
+     */
+    public function setGroup(\Kore\AdminBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Kore\AdminBundle\Entity\Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

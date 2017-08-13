@@ -34,6 +34,11 @@ class NoteType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('group', null, array(
+                'label' => 'note.form.group',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('budgets', null, array(
                 'label' => 'note.form.budgets',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

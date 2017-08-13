@@ -1,0 +1,18 @@
+Kore\AdminBundle\Entity\Commune:
+    type: entity
+    table: utils_commune
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        province:
+            targetEntity: Kore\AdminBundle\Entity\Province
+            inversedBy: communes
+    fields:
+        name:
+            type: string
+            length: 20
+    lifecycleCallbacks: {  }
