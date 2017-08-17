@@ -1,0 +1,6 @@
+user_root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: fos_user_profile_show
+        permanent: true

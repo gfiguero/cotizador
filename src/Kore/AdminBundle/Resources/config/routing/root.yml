@@ -1,0 +1,6 @@
+admin_root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: admin_budget_index
+        permanent: true

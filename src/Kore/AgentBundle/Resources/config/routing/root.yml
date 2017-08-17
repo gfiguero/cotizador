@@ -1,0 +1,6 @@
+agent_root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: agent_budget_index
+        permanent: true
