@@ -18,10 +18,6 @@ kore_admin_region:
     resource: "@KoreAdminBundle/Resources/config/routing/region.yml"
     prefix:   /region
 
-kore_admin_group:
-    resource: "@KoreAdminBundle/Resources/config/routing/group.yml"
-    prefix:   /group
-
 kore_admin_user:
     resource: "@KoreAdminBundle/Resources/config/routing/user.yml"
     prefix:   /user
