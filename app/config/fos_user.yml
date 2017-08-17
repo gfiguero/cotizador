@@ -14,8 +14,8 @@ fos_user:
         user_manager:           fos_user.user_manager.default
 
     from_email:
-        address: unipage@dev.elklan.cl
-        sender_name: Equipo de uniPage
+        address: contacto@cotizador.unisign.cl
+        sender_name: Equipo de KoreBudget
 
     registration:
         form:
@@ -23,8 +23,8 @@ fos_user:
         confirmation:
             enabled:            true
             from_email:
-                address: unipage@dev.elklan.cl
-                sender_name: Equipo de uniPage
+                address: registration@cotizador.unisign.cl
+                sender_name: Equipo de KoreBudget
 
     resetting:
         form:
@@ -32,8 +32,8 @@ fos_user:
         token_ttl: 86400
         email:
             from_email:
-                address: unipage@dev.elklan.cl
-                sender_name: Equipo de uniPage
+                address: resetting@cotizador.unisign.cl
+                sender_name: Equipo de KoreBudget
 
     group:
         group_class: Kore\AdminBundle\Entity\Group
