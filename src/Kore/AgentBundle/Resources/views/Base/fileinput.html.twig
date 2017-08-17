@@ -4,8 +4,9 @@
 {% endblock %}
 
 {% block fileinputjs %}
-    {% if editForm is defined %}{% set entity = editForm.vars.value %}{% endif %}
     <script src="{{ asset('vendor/fileinput/js/fileinput.min.js') }}"></script>
+    {% if editForm is defined %}
+    {% set entity = editForm.vars.value %}
     <script type="text/javascript">
     var optionsFileipnut = {
         overwriteInitial: true,
@@ -20,11 +21,32 @@
         removeTitle: 'Cancelar Cambios',
         elErrorContainer: '#kv-avatar-errors-1',
         msgErrorClass: 'alert alert-block alert-danger',
-        defaultPreviewContent: '<div class="file-preview-frame krajee-default  kv-preview-thumb"><div class="kv-file-content"><img class="img img-responsive" src="{{ vich_uploader_asset(entity, "imagefile")|imagine_filter("product_edit_preview") }}"></div></div>',
 //        layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+        defaultPreviewContent: '<div class="file-preview-frame krajee-default  kv-preview-thumb"><div class="kv-file-content"><img class="img img-responsive" src="{{ vich_uploader_asset(entity, "imagefile")|imagine_filter("product_edit_preview") }}"></div></div>',
         layoutTemplates: {footer:''},
         allowedFileExtensions: ["jpg", "png", "gif"]
     };
     $('.fileinput').fileinput(optionsFileipnut);
     </script>
+    {% else %}
+    <script type="text/javascript">
+    var optionsFileipnut = {
+        overwriteInitial: true,
+        showClose: false,
+        showUpload: false,
+        showZoom: false,
+        showCaption: false,
+        browseLabel: '',
+        removeLabel: '',
+        browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+        removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        removeTitle: 'Cancelar Cambios',
+        elErrorContainer: '#kv-avatar-errors-1',
+        msgErrorClass: 'alert alert-block alert-danger',
+        layoutTemplates: {footer:''},
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    };
+    $('.fileinput').fileinput(optionsFileipnut);
+    </script>    
+    {% endif %}
 {% endblock %}
