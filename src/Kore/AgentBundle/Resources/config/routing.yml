@@ -46,9 +46,6 @@ kore_agent_search:
     resource: "@KoreAgentBundle/Resources/config/routing/search.yml"
     prefix:   /search
 
-kore_agent:
-    path: /
-    defaults:
-        _controller: FrameworkBundle:Redirect:redirect
-        route: agent_budget_index
-        permanent: true
+kore_agent_root:
+    resource: "@KoreAgentBundle/Resources/config/routing/root.yml"
+    prefix:   /

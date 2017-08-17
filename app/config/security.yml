@@ -26,10 +26,10 @@ security:
                 login_path: fos_user_security_login 
                 check_path: fos_user_security_check
                 failure_path: fos_user_security_login
-                always_use_default_target_path: true
-                default_target_path: /agent
+                default_target_path: agent_budget_index
+                use_referer: true
                 csrf_token_generator: security.csrf.token_manager
-                failure_path: /login
+                failure_path: fos_user_security_login
             remember_me:
                 secret: '%secret%'
             logout:

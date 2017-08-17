@@ -50,3 +50,7 @@ kore_admin_note:
     resource: "@KoreAdminBundle/Resources/config/routing/note.yml"
     prefix:   /note
 
+kore_admin_root:
+    resource: "@KoreAdminBundle/Resources/config/routing/root.yml"
+    prefix:   /
+

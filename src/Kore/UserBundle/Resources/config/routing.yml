@@ -1,14 +1,3 @@
-root:
-    path: /
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /login
-        permanent: true
-
-front_login:
-    path: /login
-    defaults: { _controller: "KoreUserBundle:Security:login" }
-    methods: [GET, POST]
-
-logout:
-    path: /logout
+kore_user_root:
+    resource: "@KoreUserBundle/Resources/config/routing/root.yml"
+    prefix:   /
