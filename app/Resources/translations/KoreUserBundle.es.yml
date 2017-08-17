@@ -50,7 +50,7 @@ registration:
             Este enlace sólo puede utilizarse una vez para validar tu cuenta.
 
             Atentamente,
-            el Equipo de uniSign.
+            el Equipo de KoreBudget.
 
 resetting:
     reset:
@@ -76,7 +76,7 @@ resetting:
             Para restablecer tu contraseña, por favor visita %confirmationUrl%
 
             Atentamente,
-            el Equipo de uniSign.
+            el Equipo de KoreBudget.
 
 profile:
     show:
