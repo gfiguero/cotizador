@@ -31,6 +31,25 @@ class RegistrationType extends AbstractType
                 'invalid_message' => 'security.form.password_mismatch',
                 'attr' => array('label_col' => 4, 'widget_col' => 8),
             ))
+            ->add('name', null, array(
+                'label' => 'security.form.name',
+                'translation_domain' => 'KoreUserBundle',
+                'attr' => array('label_col' => 4, 'widget_col' => 8),
+            ))
+            ->add('account', null, array(
+                'label' => 'security.form.account',
+                'translation_domain' => 'KoreUserBundle',
+                'attr' => array('label_col' => 4, 'widget_col' => 8),
+                'required' => true,
+            ))
+            ->add('groups', null, array(
+                'label' => 'security.form.groups',
+                'translation_domain' => 'KoreUserBundle',
+                'attr' => array('label_col' => 4, 'widget_col' => 8),
+                'required' => true,
+                'multiple' => true,
+                'expanded' => true,
+            ))
         ;
     }
 

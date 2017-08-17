@@ -21,13 +21,13 @@ class ClientController extends Controller
     public function indexAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $clients = $em->getRepository('KoreAdminBundle:Client')->findBy(array('group' => $group), array($sort => $direction));
-        else $clients = $em->getRepository('KoreAdminBundle:Client')->findBy(array('group' => $group));
+        if($sort) $clients = $em->getRepository('KoreAdminBundle:Client')->findBy(array('account' => $account), array($sort => $direction));
+        else $clients = $em->getRepository('KoreAdminBundle:Client')->findBy(array('account' => $account));
         $paginator = $this->get('knp_paginator');
         $clients = $paginator->paginate($clients, $request->query->getInt('page', 1), 100);
 
@@ -51,7 +51,7 @@ class ClientController extends Controller
     public function newAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $client = new Client();
         $newForm = $this->createNewForm($client);
@@ -60,7 +60,7 @@ class ClientController extends Controller
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
                 $client->setUser($user);
-                $client->setGroup($group);
+                $client->setAccount($account);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($client);
                 $em->flush();
@@ -95,8 +95,8 @@ class ClientController extends Controller
     public function showAction(Client $client)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $client->getGroup()) return $this->redirect($this->generateUrl('agent_client_index'));
+        $account = $user->getAccount();
+        if ($account != $client->getAccount()) return $this->redirect($this->generateUrl('agent_client_index'));
 
         $editForm = $this->createEditForm($client);
         $deleteForm = $this->createDeleteForm($client);
@@ -115,8 +115,8 @@ class ClientController extends Controller
     public function editAction(Request $request, Client $client)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $client->getGroup()) return $this->redirect($this->generateUrl('agent_client_index'));
+        $account = $user->getAccount();
+        if ($account != $client->getAccount()) return $this->redirect($this->generateUrl('agent_client_index'));
 
         $editForm = $this->createEditForm($client);
         $deleteForm = $this->createDeleteForm($client);
@@ -160,8 +160,8 @@ class ClientController extends Controller
     public function deleteAction(Request $request, Client $client)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $client->getGroup()) return $this->redirect($this->generateUrl('agent_client_index'));
+        $account = $user->getAccount();
+        if ($account != $client->getAccount()) return $this->redirect($this->generateUrl('agent_client_index'));
 
         $deleteForm = $this->createDeleteForm($client);
         $deleteForm->handleRequest($request);

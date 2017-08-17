@@ -2,9 +2,9 @@ kore_agent_issuer:
     resource: "@KoreAgentBundle/Resources/config/routing/issuer.yml"
     prefix:   /issuer
 
-kore_agent_group:
-    resource: "@KoreAgentBundle/Resources/config/routing/group.yml"
-    prefix:   /group
+kore_agent_account:
+    resource: "@KoreAgentBundle/Resources/config/routing/account.yml"
+    prefix:   /account
 
 kore_agent_user:
     resource: "@KoreAgentBundle/Resources/config/routing/user.yml"
@@ -45,6 +45,14 @@ kore_agent_note:
 kore_agent_search:
     resource: "@KoreAgentBundle/Resources/config/routing/search.yml"
     prefix:   /search
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
 
 kore_agent_root:
     resource: "@KoreAgentBundle/Resources/config/routing/root.yml"

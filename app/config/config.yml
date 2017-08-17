@@ -15,6 +15,7 @@ imports:
     - { resource: vich_uploader.yml }
     - { resource: liip_imagine.yml }
     - { resource: fos_user.yml }
+    - { resource: roles.yml }
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:

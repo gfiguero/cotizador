@@ -15,8 +15,8 @@ Kore\AdminBundle\Entity\Product:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: products
-        group:
-            targetEntity: Kore\AdminBundle\Entity\Group
+        account:
+            targetEntity: Kore\AdminBundle\Entity\Account
             inversedBy: products
     oneToMany:
         items:

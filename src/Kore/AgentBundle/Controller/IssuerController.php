@@ -21,13 +21,13 @@ class IssuerController extends Controller
     public function indexAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $issuers = $em->getRepository('KoreAdminBundle:Issuer')->findBy(array('group' => $group), array($sort => $direction));
-        else $issuers = $em->getRepository('KoreAdminBundle:Issuer')->findBy(array('group' => $group));
+        if($sort) $issuers = $em->getRepository('KoreAdminBundle:Issuer')->findBy(array('account' => $account), array($sort => $direction));
+        else $issuers = $em->getRepository('KoreAdminBundle:Issuer')->findBy(array('account' => $account));
         $paginator = $this->get('knp_paginator');
         $issuers = $paginator->paginate($issuers, $request->query->getInt('page', 1), 100);
 
@@ -51,7 +51,7 @@ class IssuerController extends Controller
     public function newAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $issuer = new Issuer();
         $newForm = $this->createNewForm($issuer);
@@ -60,7 +60,7 @@ class IssuerController extends Controller
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
                 $issuer->setUser($user);
-                $issuer->setGroup($group);
+                $issuer->setAccount($account);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($issuer);
                 $em->flush();
@@ -95,8 +95,8 @@ class IssuerController extends Controller
     public function showAction(Issuer $issuer)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $issuer->getGroup()) return $this->redirect($this->generateUrl('agent_issuer_index'));
+        $account = $user->getAccount();
+        if ($account != $issuer->getAccount()) return $this->redirect($this->generateUrl('agent_issuer_index'));
 
         $editForm = $this->createEditForm($issuer);
         $deleteForm = $this->createDeleteForm($issuer);
@@ -115,8 +115,8 @@ class IssuerController extends Controller
     public function editAction(Request $request, Issuer $issuer)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $issuer->getGroup()) return $this->redirect($this->generateUrl('agent_issuer_index'));
+        $account = $user->getAccount();
+        if ($account != $issuer->getAccount()) return $this->redirect($this->generateUrl('agent_issuer_index'));
 
         $editForm = $this->createEditForm($issuer);
         $deleteForm = $this->createDeleteForm($issuer);
@@ -160,8 +160,8 @@ class IssuerController extends Controller
     public function deleteAction(Request $request, Issuer $issuer)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $issuer->getGroup()) return $this->redirect($this->generateUrl('agent_issuer_index'));
+        $account = $user->getAccount();
+        if ($account != $issuer->getAccount()) return $this->redirect($this->generateUrl('agent_issuer_index'));
 
         $deleteForm = $this->createDeleteForm($issuer);
         $deleteForm->handleRequest($request);

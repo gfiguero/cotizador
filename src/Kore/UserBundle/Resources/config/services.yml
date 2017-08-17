@@ -26,3 +26,10 @@ services:
 #    kore_user.example:
 #        class: Kore\UserBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    kore_user.form.type.roles:
+        class: Kore\UserBundle\Form\Type\RoleType
+        arguments:
+            - "%roles%"
+        tags:
+            - { name: form.type, alias: kore_user_role }

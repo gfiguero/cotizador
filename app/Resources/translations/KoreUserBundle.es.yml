@@ -14,6 +14,9 @@ security:
         title: Cambiar Password
         submit: Cambiar Password
     form:
+        name: Nombre Completo
+        account: Cuenta
+        groups: Grupos
         email: Email
         username: Nombre de Usuario
         password: Password

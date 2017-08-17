@@ -1,3 +1,6 @@
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
 kore_admin:
     resource: "@KoreAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
@@ -8,13 +11,7 @@ kore_agent:
 
 kore_user:
     resource: "@KoreUserBundle/Resources/config/routing.yml"
-    prefix:   /user
-
-_liip_imagine:
-    resource: "@LiipImagineBundle/Resources/config/routing.xml"
-
-fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:   /
 
 root:
     path: /

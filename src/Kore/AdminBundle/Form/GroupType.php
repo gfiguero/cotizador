@@ -14,14 +14,9 @@ class GroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
-            ->add('name', null, array(
-                'label' => 'group.form.name',
+            ->add('users', null, array(
+                'label' => 'group.form.users',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
-                'translation_domain' => 'KoreAdminBundle',
-            )) 
-            ->add('predefined_note', null, array(
-                'label' => 'group.form.predefined_note',
-                'attr'  => array( 'label_col' => 4, 'widget_col' => 8, 'class' => 'wysiwyg' ),
                 'translation_domain' => 'KoreAdminBundle',
             ))
         ;

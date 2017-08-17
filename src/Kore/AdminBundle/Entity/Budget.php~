@@ -469,4 +469,91 @@ class Budget
     {
         return $this->name;
     }
+    /**
+     * @var \DateTime
+     */
+    private $adjudicated_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $expired_at;
+
+    /**
+     * @var \Kore\AdminBundle\Entity\Issuer
+     */
+    private $issuer;
+
+
+    /**
+     * Set adjudicatedAt
+     *
+     * @param \DateTime $adjudicatedAt
+     *
+     * @return Budget
+     */
+    public function setAdjudicatedAt($adjudicatedAt)
+    {
+        $this->adjudicated_at = $adjudicatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get adjudicatedAt
+     *
+     * @return \DateTime
+     */
+    public function getAdjudicatedAt()
+    {
+        return $this->adjudicated_at;
+    }
+
+    /**
+     * Set expiredAt
+     *
+     * @param \DateTime $expiredAt
+     *
+     * @return Budget
+     */
+    public function setExpiredAt($expiredAt)
+    {
+        $this->expired_at = $expiredAt;
+
+        return $this;
+    }
+
+    /**
+     * Get expiredAt
+     *
+     * @return \DateTime
+     */
+    public function getExpiredAt()
+    {
+        return $this->expired_at;
+    }
+
+    /**
+     * Set issuer
+     *
+     * @param \Kore\AdminBundle\Entity\Issuer $issuer
+     *
+     * @return Budget
+     */
+    public function setIssuer(\Kore\AdminBundle\Entity\Issuer $issuer = null)
+    {
+        $this->issuer = $issuer;
+
+        return $this;
+    }
+
+    /**
+     * Get issuer
+     *
+     * @return \Kore\AdminBundle\Entity\Issuer
+     */
+    public function getIssuer()
+    {
+        return $this->issuer;
+    }
 }

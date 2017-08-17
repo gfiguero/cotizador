@@ -38,7 +38,7 @@ fos_user:
     group:
         group_class: Kore\AdminBundle\Entity\Group
         form:
-            type: KoreUserBundle\Form\GroupType
+            type: Kore\UserBundle\Form\GroupType
 
     change_password:
         form:

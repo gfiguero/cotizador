@@ -12,8 +12,8 @@ Kore\AdminBundle\Entity\Client:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: clients
-        group:
-            targetEntity: Kore\AdminBundle\Entity\Group
+        account:
+            targetEntity: Kore\AdminBundle\Entity\Account
             inversedBy: clients
         commune:
             targetEntity: Kore\AdminBundle\Entity\Commune

@@ -1,5 +1,54 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends 'KoreAdminBundle:Base:layout.html.twig' %}
+{% use 'KoreAdminBundle:Base:icons.html.twig' %}
+{% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
 
-{% block fos_user_content %}
-{% include "@FOSUser/Group/new_content.html.twig" %}
-{% endblock fos_user_content %}
+{% trans_default_domain 'KoreUserBundle' %}
+
+{% block title %}&nbsp;-&nbsp;{{ 'group.new.title'|trans }}{% endblock %}
+
+{% block admin %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'group.new.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-default" href="{{ path('fos_user_group_list') }}">{{ icon('list fa-fw') }}&nbsp;{{ 'group.index.link'|trans }}</a>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-new">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'group.new.form'|trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_start(form, { 'style' : 'horizontal', 'label_col' : 4 , 'widget_col' : 8, 'action': path('fos_user_group_new'), 'attr': { 'class': 'fos_user_group_new' } }) }}
+                            {{ form_widget(form) }}
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">{{ icon('save fa-fw') }}&nbsp;{{ 'group.new.submit'|trans }}</button>
+                                </div>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-new -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}
+
+

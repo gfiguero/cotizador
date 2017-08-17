@@ -22,17 +22,17 @@ class ItemType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $group = $this->tokenStorage->getToken()->getUser()->getGroup();
+        $account = $this->tokenStorage->getToken()->getUser()->getAccount();
         $builder 
             ->add('product', null, array(
                 'label' => false,
                 'required' => true,
                 'placeholder' => 'item.form.placeholder.product',
                 'attr' => array( 'class' => 'multiselect' ),
-                'query_builder' => function (EntityRepository $er) use ($group) {
+                'query_builder' => function (EntityRepository $er) use ($account) {
                     return $er->createQueryBuilder('p')
-                        ->where('p.group = :group')
-                        ->setParameter('group', $group)
+                        ->where('p.account = :account')
+                        ->setParameter('account', $account)
                     ;
                 },
             ))

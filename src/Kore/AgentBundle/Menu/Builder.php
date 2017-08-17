@@ -21,19 +21,19 @@ class Builder implements ContainerAwareInterface
 
         if ($checker->isGranted('ROLE_USER')) {
 
-            $topmenu->addChild('topmenu.group');
-            $topmenu['topmenu.group']->setUri('#');
-            $topmenu['topmenu.group']->setLabel($user->getGroup());
-            $topmenu['topmenu.group']->setLinkAttributes(array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'role' => 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false'));
-            $topmenu['topmenu.group']->setExtras(array('dropdown' => true, 'translation_domain' => 'KoreAgentBundle'));
-            $topmenu['topmenu.group']->setChildrenAttributes(array('class' => 'dropdown-menu'));
+            $topmenu->addChild('topmenu.account');
+            $topmenu['topmenu.account']->setUri('#');
+            $topmenu['topmenu.account']->setLabel($user->getAccount());
+            $topmenu['topmenu.account']->setLinkAttributes(array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'role' => 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false'));
+            $topmenu['topmenu.account']->setExtras(array('dropdown' => true, 'translation_domain' => 'KoreAgentBundle'));
+            $topmenu['topmenu.account']->setChildrenAttributes(array('class' => 'dropdown-menu'));
 
-            $topmenu['topmenu.group']->addChild('topmenu.settings', array('route' => 'agent_group_edit'));
-            $topmenu['topmenu.group']['topmenu.settings']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'user fa-fw'));
+            $topmenu['topmenu.account']->addChild('topmenu.settings', array('route' => 'agent_account_edit'));
+            $topmenu['topmenu.account']['topmenu.settings']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'user fa-fw'));
 
             $topmenu->addChild('topmenu.user');
             $topmenu['topmenu.user']->setUri('#');
-            $topmenu['topmenu.user']->setLabel($user->getEmail());
+            $topmenu['topmenu.user']->setLabel($user->getName());
             $topmenu['topmenu.user']->setLinkAttributes(array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'role' => 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false'));
             $topmenu['topmenu.user']->setExtras(array('dropdown' => true, 'translation_domain' => 'KoreAgentBundle'));
             $topmenu['topmenu.user']->setChildrenAttributes(array('class' => 'dropdown-menu'));

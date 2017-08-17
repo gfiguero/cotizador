@@ -4,7 +4,7 @@
 
 {% trans_default_domain 'KoreAdminBundle' %}
 
-{% block title %}{{ 'group.show.title'|trans({'%id%':group.id}) }}{% endblock %}
+{% block title %}&nbsp;-&nbsp;{{ 'group.show.title'|trans({'%id%':group.id}) }}{% endblock %}
 
 {% block admin %}
     <div id="page-wrapper">
@@ -37,10 +37,6 @@
                         <dl class="dl-horizontal">
                             <dt>{{ 'group.form.id'|trans }}</dt>
                                 <dd>{% if group.id %}{{ group.id }}{% endif %}</dd>
-                            <dt>{{ 'group.form.name'|trans }}</dt>
-                                <dd>{% if group.name %}{{ group.name }}{% endif %}</dd>
-                            <dt>{{ 'group.form.predefined_note'|trans }}</dt>
-                                <dd>{% if group.predefinednote %}{{ group.predefinednote }}{% endif %}</dd>
                             <dt>{{ 'group.form.created_at'|trans }}</dt>
                                 <dd>{% if group.createdat %}{{ group.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ group.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'group.form.updated_at'|trans }}</dt>

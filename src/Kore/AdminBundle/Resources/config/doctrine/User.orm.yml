@@ -28,7 +28,11 @@ Kore\AdminBundle\Entity\User:
             targetEntity: Kore\AdminBundle\Entity\Note
             mappedBy: user
     manyToOne:
-        group:
+        account:
+            targetEntity: Kore\AdminBundle\Entity\Account
+            mappedBy: users
+    manyToMany:
+        groups:
             targetEntity: Kore\AdminBundle\Entity\Group
             inversedBy: users
     fields:

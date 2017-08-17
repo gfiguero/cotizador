@@ -1,1 +1,5 @@
 find . -type f -print0 | xargs -0 sed -i 's/Admin/Agent/g'
+
+find . -type f -print0 | xargs -0 sed -i 's/group/account/g'
+find . -type f -print0 | xargs -0 sed -i 's/getGroup/getAccount/g'
+find . -type f -print0 | xargs -0 sed -i 's/setGroup/setAccount/g'

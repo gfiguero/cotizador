@@ -1,24 +1,42 @@
-{% extends "KoreUserBundle:Base:layout.html.twig" %}
+{% extends 'KoreAdminBundle:Base:layout.html.twig' %}
+{% use 'KoreAdminBundle:Base:icons.html.twig' %}
+{% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
 
 {% trans_default_domain 'KoreUserBundle' %}
 
 {% block title %}&nbsp;-&nbsp;{{ 'registration.check_email.title'|trans }}{% endblock %}
 
-{% block user %}
-    <section id="user">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h1 class="panel-title">{{ 'registration.check_email.title'|trans }}</h1>
-                        </div>
-                        <div class="panel-body">
-                            <p>{{ 'registration.check_email.message'|trans({'%email%': user.email}) }}</p>
-                        </div>
+{% block admin %}
+    <div id="page-wrapper">
+        <div class="row" id="page-header">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'registration.check_email.title'|trans }}</h1>
+                {% block flashbag %}{{ parent() }}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-header -->
+
+        <div class="row" id="page-toolbar">
+            <div class="col-lg-12">
+                <div class="btn-toolbar">
+                    <a type="button" class="btn btn-default" href="{{ path('admin_user_index') }}">{{ icon('list fa-fw') }}&nbsp;{{ 'user.index.link'|trans }}</a>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-toolbar -->
+
+        <div class="row" id="page-registration">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>{{ 'registration.check_email.message'|trans({'%email%': user.email}) }}</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- /#page-registration -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
 {% endblock %}

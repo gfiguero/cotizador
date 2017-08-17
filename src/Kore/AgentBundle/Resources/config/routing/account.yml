@@ -1,0 +1,9 @@
+agent_account_show:
+    path:     /show
+    defaults: { _controller: "KoreAgentBundle:Account:show" }
+    methods:  GET
+
+agent_account_edit:
+    path:     /edit
+    defaults: { _controller: "KoreAgentBundle:Account:edit" }
+    methods:  [GET, POST]

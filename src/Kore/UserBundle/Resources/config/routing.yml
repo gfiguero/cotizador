@@ -1,3 +1,11 @@
-kore_user_root:
-    resource: "@KoreUserBundle/Resources/config/routing/root.yml"
-    prefix:   /
+kore_user_registration:
+    resource: "@KoreUserBundle/Resources/config/routing/registration.yml"
+    prefix:   /register
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+

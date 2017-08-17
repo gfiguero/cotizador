@@ -21,13 +21,13 @@ class SellerController extends Controller
     public function indexAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $sellers = $em->getRepository('KoreAdminBundle:Seller')->findBy(array('group' => $group), array($sort => $direction));
-        else $sellers = $em->getRepository('KoreAdminBundle:Seller')->findBy(array('group' => $group));
+        if($sort) $sellers = $em->getRepository('KoreAdminBundle:Seller')->findBy(array('account' => $account), array($sort => $direction));
+        else $sellers = $em->getRepository('KoreAdminBundle:Seller')->findBy(array('account' => $account));
         $paginator = $this->get('knp_paginator');
         $sellers = $paginator->paginate($sellers, $request->query->getInt('page', 1), 100);
 
@@ -51,7 +51,7 @@ class SellerController extends Controller
     public function newAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $seller = new Seller();
         $newForm = $this->createNewForm($seller);
@@ -60,7 +60,7 @@ class SellerController extends Controller
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
                 $seller->setUser($user);
-                $seller->setGroup($group);
+                $seller->setAccount($account);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($seller);
                 $em->flush();
@@ -95,8 +95,8 @@ class SellerController extends Controller
     public function showAction(Seller $seller)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $seller->getGroup()) return $this->redirect($this->generateUrl('agent_seller_index'));
+        $account = $user->getAccount();
+        if ($account != $seller->getAccount()) return $this->redirect($this->generateUrl('agent_seller_index'));
 
         $editForm = $this->createEditForm($seller);
         $deleteForm = $this->createDeleteForm($seller);
@@ -115,8 +115,8 @@ class SellerController extends Controller
     public function editAction(Request $request, Seller $seller)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $seller->getGroup()) return $this->redirect($this->generateUrl('agent_seller_index'));
+        $account = $user->getAccount();
+        if ($account != $seller->getAccount()) return $this->redirect($this->generateUrl('agent_seller_index'));
 
         $editForm = $this->createEditForm($seller);
         $deleteForm = $this->createDeleteForm($seller);
@@ -160,8 +160,8 @@ class SellerController extends Controller
     public function deleteAction(Request $request, Seller $seller)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $seller->getGroup()) return $this->redirect($this->generateUrl('agent_seller_index'));
+        $account = $user->getAccount();
+        if ($account != $seller->getAccount()) return $this->redirect($this->generateUrl('agent_seller_index'));
 
         $deleteForm = $this->createDeleteForm($seller);
         $deleteForm->handleRequest($request);

@@ -1,0 +1,24 @@
+admin_account_index:
+    path:     /
+    defaults: { _controller: "KoreAdminBundle:Account:index" }
+    methods:  GET
+
+admin_account_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAdminBundle:Account:show" }
+    methods:  GET
+
+admin_account_new:
+    path:     /new
+    defaults: { _controller: "KoreAdminBundle:Account:new" }
+    methods:  [GET, POST]
+
+admin_account_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAdminBundle:Account:edit" }
+    methods:  [GET, POST]
+
+admin_account_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAdminBundle:Account:delete" }
+    methods:  DELETE

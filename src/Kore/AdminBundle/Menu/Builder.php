@@ -18,11 +18,17 @@ class Builder implements ContainerAwareInterface
 
 //        $topmenu->addChild('topmenu.header', array('route' => 'admin_header_index'))->setAttributes(array('icon' => 'database fa-fw', 'translation_domain' => 'KoreAdminBundle'));
 //        $topmenu->addChild('topmenu.logout', array('route' => 'front_logout'))->setAttributes(array('icon' => 'sign-out fa-fw', 'translation_domain' => 'KoreFrontBundle'));
-        $topmenu->addChild('topmenu.group.root', array('route' => 'admin_group_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+        $topmenu->addChild('topmenu.group.root', array('route' => 'fos_user_group_list'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
             'admin_group_index',
             'admin_group_new',
             'admin_group_show',
             'admin_group_edit',
+        )));
+        $topmenu->addChild('topmenu.account.root', array('route' => 'admin_account_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
+            'admin_account_index',
+            'admin_account_new',
+            'admin_account_show',
+            'admin_account_edit',
         )));
         $topmenu->addChild('topmenu.user.root', array('route' => 'admin_user_index'))->setExtras(array('translation_domain' => 'KoreAdminBundle', 'routes' => array(
             'admin_user_index',

@@ -4,7 +4,7 @@
 
 {% trans_default_domain 'KoreAdminBundle' %}
 
-{% block title %}{{ 'user.index.title'|trans }}{% endblock %}
+{% block title %}&nbsp;-&nbsp;{{ 'user.index.title'|trans }}{% endblock %}
 
 {% block admin %}
     <div id="page-wrapper">
@@ -19,7 +19,7 @@
         <div class="row" id="page-toolbar">
             <div class="col-lg-12">
                 <div class="btn-toolbar">
-                    <a type="button" class="btn btn-success" href="{{ path('admin_user_new') }}">{{ icon('plus fa-fw') }}&nbsp;{{ 'user.new.link'|trans }}</a>
+                    <a type="button" class="btn btn-success" href="{{ path('fos_user_registration_register') }}">{{ icon('plus fa-fw') }}&nbsp;{{ 'user.new.link'|trans }}</a>
                 </div>
             </div>
         </div>
@@ -41,6 +41,8 @@
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('trash fa-fw') }}</a></div>
                                     </th>
                                     <th>{{ knp_pagination_sortable(users, 'user.form.id'|trans, 'id') }}{% if sort == 'id' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(users, 'user.form.email'|trans, 'email') }}{% if sort == 'email' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(users, 'user.form.enabled'|trans, 'enabled') }}{% if sort == 'enabled' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(users, 'user.form.name'|trans, 'name') }}{% if sort == 'name' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(users, 'user.form.created_at'|trans, 'created_at') }}{% if sort == 'created_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                     <th>{{ knp_pagination_sortable(users, 'user.form.updated_at'|trans, 'updated_at') }}{% if sort == 'updated_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
@@ -55,6 +57,8 @@
                                         <div class="btn-group" role="group"><button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modalDelete{{ user.id }}">{{ icon('trash fa-fw') }}</button></div>
                                     </td>
                                     <td>{% if user.id %}{{ user.id }}{% endif %}</td>
+                                    <td>{% if user.email %}{{ user.email }}{% endif %}</td>
+                                    <td>{% if user.enabled %}<span class="fa-stack"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-check fa-stack-1x fa-inverse"></i></span>{% else %}<span class="fa-stack"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x fa-inverse"></i></span>{% endif %}</td>
                                     <td>{% if user.name %}{{ user.name }}{% endif %}</td>
                                     <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ user.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL y HH:mm") }}"></span>&nbsp;{{ user.createdat|ago }}</td>
                                     <td><span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="left" title="{{ user.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "dd LLLL y HH:mm") }}"></span>&nbsp;{{ user.updatedat|ago }}</td>

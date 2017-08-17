@@ -22,13 +22,13 @@ class BudgetController extends Controller
     public function indexAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array('group' => $group), array($sort => $direction));
-        else $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array('group' => $group));
+        if($sort) $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array('account' => $account), array($sort => $direction));
+        else $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array('account' => $account));
         $paginator = $this->get('knp_paginator');
         $budgets = $paginator->paginate($budgets, $request->query->getInt('page', 1), 100);
 
@@ -52,9 +52,9 @@ class BudgetController extends Controller
     public function newAction(Request $request)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
+        $account = $user->getAccount();
 
-        $note = $group->getPredefinedNote();
+        $note = $account->getPredefinedNote();
         $adjudicationDate = new \DateTime('+ 10 days');
         $expirationDate = new \DateTime('+ 20 days');
 
@@ -70,7 +70,7 @@ class BudgetController extends Controller
             if($newForm->isValid()) {
                 $budget->setReferencePrices();
                 $budget->setUser($user);
-                $budget->setGroup($group);
+                $budget->setAccount($account);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($budget);
                 $em->flush();
@@ -105,8 +105,8 @@ class BudgetController extends Controller
     public function showAction(Budget $budget)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $budget->getGroup()) return $this->redirect($this->generateUrl('agent_budget_index'));
+        $account = $user->getAccount();
+        if ($account != $budget->getAccount()) return $this->redirect($this->generateUrl('agent_budget_index'));
 
         $editForm = $this->createEditForm($budget);
         $deleteForm = $this->createDeleteForm($budget);
@@ -121,8 +121,8 @@ class BudgetController extends Controller
     public function exportAction(Budget $budget)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $budget->getGroup()) return $this->redirect($this->generateUrl('agent_budget_index'));
+        $account = $user->getAccount();
+        if ($account != $budget->getAccount()) return $this->redirect($this->generateUrl('agent_budget_index'));
 
         $items = $budget->getItems();
         $seller = $budget->getSeller();
@@ -133,7 +133,7 @@ class BudgetController extends Controller
             'items' => $items,
             'seller' => $seller,
             'client' => $client,
-            'group' => $group,
+            'account' => $account,
             'notes' => $notes,
         ));
     }
@@ -141,8 +141,8 @@ class BudgetController extends Controller
     public function pdfAction(Budget $budget)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $budget->getGroup()) return $this->redirect($this->generateUrl('agent_budget_index'));
+        $account = $user->getAccount();
+        if ($account != $budget->getAccount()) return $this->redirect($this->generateUrl('agent_budget_index'));
 
         $items = $budget->getItems();
         $seller = $budget->getSeller();
@@ -154,7 +154,7 @@ class BudgetController extends Controller
             'items' => $items,
             'seller' => $seller,
             'client' => $client,
-            'group' => $group,
+            'account' => $account,
             'notes' => $notes,
         ));
 
@@ -168,8 +168,8 @@ class BudgetController extends Controller
     public function editAction(Request $request, Budget $budget)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $budget->getGroup()) {
+        $account = $user->getAccount();
+        if ($account != $budget->getAccount()) {
             return $this->redirect($this->generateUrl('agent_budget_index'));
         }
         $editForm = $this->createEditForm($budget);
@@ -215,8 +215,8 @@ class BudgetController extends Controller
     public function deleteAction(Request $request, Budget $budget)
     {
         $user = $this->getUser();
-        $group = $user->getGroup();
-        if ($group != $budget->getGroup()) {
+        $account = $user->getAccount();
+        if ($account != $budget->getAccount()) {
             return $this->redirect($this->generateUrl('agent_budget_index'));
         }
         $deleteForm = $this->createDeleteForm($budget);

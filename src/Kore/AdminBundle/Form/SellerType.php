@@ -39,8 +39,8 @@ class SellerType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
-            ->add('group', null, array(
-                'label' => 'seller.form.group',
+            ->add('account', null, array(
+                'label' => 'seller.form.account',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             ))

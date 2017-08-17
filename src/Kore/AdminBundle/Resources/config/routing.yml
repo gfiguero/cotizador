@@ -1,3 +1,7 @@
+kore_admin_account:
+    resource: "@KoreAdminBundle/Resources/config/routing/account.yml"
+    prefix:   /account
+
 kore_admin_issuer:
     resource: "@KoreAdminBundle/Resources/config/routing/issuer.yml"
     prefix:   /issuer
@@ -50,7 +54,14 @@ kore_admin_note:
     resource: "@KoreAdminBundle/Resources/config/routing/note.yml"
     prefix:   /note
 
+kore_admin_registration:
+    resource: "@KoreAdminBundle/Resources/config/routing/registration.yml"
+    prefix: /register
+
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group
+
 kore_admin_root:
     resource: "@KoreAdminBundle/Resources/config/routing/root.yml"
     prefix:   /
-

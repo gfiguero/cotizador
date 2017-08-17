@@ -21,8 +21,8 @@ Kore\AdminBundle\Entity\Budget:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: budgets
-        group:
-            targetEntity: Kore\AdminBundle\Entity\Group
+        account:
+            targetEntity: Kore\AdminBundle\Entity\Account
             inversedBy: budgets
     oneToMany:
         items:

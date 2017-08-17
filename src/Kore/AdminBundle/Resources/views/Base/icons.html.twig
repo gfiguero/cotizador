@@ -8,7 +8,7 @@
     {% elseif '_provider_' in app.request.attributes.get( '_route' ) %}{{ icon('truck fa-fw') }}
     {% elseif '_note_' in app.request.attributes.get( '_route' ) %}{{ icon('sticky-note fa-fw') }}
     {% elseif '_issuer_' in app.request.attributes.get( '_route' ) %}{{ icon('bookmark fa-fw') }}
+    {% elseif '_user_group_' in app.request.attributes.get( '_route' ) %}{{ icon('group fa-fw') }}
     {% elseif '_user_' in app.request.attributes.get( '_route' ) %}{{ icon('user fa-fw') }}
-    {% elseif '_group_' in app.request.attributes.get( '_route' ) %}{{ icon('group fa-fw') }}
     {% endif %}
 {% endblock %}

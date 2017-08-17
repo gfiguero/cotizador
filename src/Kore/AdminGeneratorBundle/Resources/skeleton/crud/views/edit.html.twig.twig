@@ -7,7 +7,7 @@
 {% block body %}
 {{ "{% trans_default_domain 'KoreAdminBundle' %}" }}
 
-{{ "{% block title %}" }}{{ "{{ '" ~ entity_singularized|lower ~ ".edit.title'|trans({'%" ~ identifier ~ "%':" ~ entity_singularized ~ "." ~ identifier ~ "}) }}" }}{{ "{% endblock %}" }}
+{{ "{% block title %}&nbsp;-&nbsp;" }}{{ "{{ '" ~ entity_singularized|lower ~ ".edit.title'|trans({'%" ~ identifier ~ "%':" ~ entity_singularized ~ "." ~ identifier ~ "}) }}" }}{{ "{% endblock %}" }}
 
 {{ "{% block admin %}" }}
     <div id="page-wrapper">

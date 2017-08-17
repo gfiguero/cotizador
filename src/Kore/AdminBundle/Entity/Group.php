@@ -2,15 +2,23 @@
 
 namespace Kore\AdminBundle\Entity;
 
+use FOS\UserBundle\Model\Group as BaseGroup;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Group
  */
-class Group
+class Group extends BaseGroup
 {
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
+
+    /**
+     * @var string
+     */
+    protected $name;
 
     /**
      * @var \DateTime
@@ -70,8 +78,9 @@ class Group
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($roles = array())
     {
+        parent::__construct($roles);
         $this->issuers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sellers = new \Doctrine\Common\Collections\ArrayCollection();
@@ -469,11 +478,6 @@ class Group
     {
         return $this->predefined_note;
     }
-    /**
-     * @var string
-     */
-    private $name;
-
 
     /**
      * Set name

@@ -3,6 +3,11 @@ security:
         Symfony\Component\Security\Core\User\User: bcrypt
         Kore\AdminBundle\Entity\User: bcrypt
 
+    role_hierarchy:
+        ROLE_LEADER: ROLE_USER
+        ROLE_ADMIN: ROLE_LEADER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
     providers:
         chain_provider:
             chain:
@@ -35,6 +40,7 @@ security:
             logout:
                 path:   /logout
                 target: /login
+
     access_control:
         - { path: ^/login, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: ^/admin, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }

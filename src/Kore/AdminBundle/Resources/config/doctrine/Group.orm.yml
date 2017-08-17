@@ -8,39 +8,11 @@ Kore\AdminBundle\Entity\Group:
             id: true
             generator:
                 strategy: AUTO
-    oneToMany:
-        issuers:
-            targetEntity: Kore\AdminBundle\Entity\Issuer
-            mappedBy: group
-        providers:
-            targetEntity: Kore\AdminBundle\Entity\Provider
-            mappedBy: group
-        sellers:
-            targetEntity: Kore\AdminBundle\Entity\Seller
-            mappedBy: group
-        clients:
-            targetEntity: Kore\AdminBundle\Entity\Client
-            mappedBy: group
-        budgets:
-            targetEntity: Kore\AdminBundle\Entity\Budget
-            mappedBy: group
-        products:
-            targetEntity: Kore\AdminBundle\Entity\Product
-            mappedBy: group
-        notes:
-            targetEntity: Kore\AdminBundle\Entity\Note
-            mappedBy: group
+    manyToMany:
         users:
             targetEntity: Kore\AdminBundle\Entity\User
-            mappedBy: group
+            mappedBy: groups
     fields:
-        name:
-            type: string
-            length: 100
-            nullable: true
-        predefined_note:
-            type: text
-            nullable: true
         created_at:
             type: datetime
             gedmo:

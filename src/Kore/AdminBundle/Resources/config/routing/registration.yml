@@ -1,0 +1,10 @@
+fos_user_registration_register:
+    path:     /
+    defaults: { _controller: "FOSUserBundle:Registration:register" }
+    methods:  [GET, POST]
+
+fos_user_registration_check_email:
+    path:     /check-email
+    defaults: { _controller: "FOSUserBundle:Registration:checkEmail" }
+    methods:  GET
+

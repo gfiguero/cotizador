@@ -22,7 +22,7 @@ sidemenu:
     item:
         root: Ítems
     budget:
-        root: Cotizaciones
+        root: Presupuestos
     note:
         root: Notas
 
@@ -216,31 +216,31 @@ item:
 
 budget:
     index:
-        title: Cotizaciones
-        list: Lista de cotizaciones
-        link: Lista de cotizaciones
+        title: Presupuestos
+        list: Lista de presupuestos
+        link: Lista de presupuestos
     new:
-        title: Cotizaciones
-        link: Nueva cotización
-        form: Formulario de registro de cotización
-        submit: Registrar cotización
-        flash: Nueva cotización registrado satisfactoriamente.
+        title: Presupuestos
+        link: Nuevo presupuesto
+        form: Formulario de registro de presupuesto
+        submit: Registrar presupuesto
+        flash: Nuevo presupuesto registrado satisfactoriamente.
     show:
-        title: Cotizaciones
+        title: Presupuestos
         link: Mostrar datos
-        data: Datos de cotización
+        data: Datos de presupuesto
     edit:
-        title: Cotizaciones
+        title: Presupuestos
         link: Editar datos
-        form: Formulario de edición de cotización
+        form: Formulario de edición de presupuesto
         submit: Guardar cambios
-        flash: Los cambios en la cotización fueron registrados satisfactoriamente.
+        flash: Los cambios en el presupuesto fueron registrados satisfactoriamente.
     delete:
-        link: Borrar cotización
-        title: Borrado de cotización
+        link: Borrar presupuesto
+        title: Borrado de presupuesto
         message: Los datos borrados no podrán ser recuperados.
         submit: Confirmar borrado
-        flash: La cotización fué borrado totalmente.
+        flash: El presupuesto fué borrado totalmente.
     form:
         id: ID
         nota: Nota

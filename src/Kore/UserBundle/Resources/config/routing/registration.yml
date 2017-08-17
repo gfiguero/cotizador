@@ -1,0 +1,10 @@
+fos_user_registration_confirm:
+    path:     /confirm/{token}
+    defaults: { _controller: "FOSUserBundle:Registration:confirm" }
+    methods:  GET
+
+fos_user_registration_confirmed:
+    path:     /confirmed
+    defaults: { _controller: "FOSUserBundle:Registration:confirmed" }
+    methods:  GET
+

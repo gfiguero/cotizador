@@ -12,8 +12,8 @@ Kore\AdminBundle\Entity\Note:
         user:
             targetEntity: Kore\AdminBundle\Entity\User
             inversedBy: notes
-        group:
-            targetEntity: Kore\AdminBundle\Entity\Group
+        account:
+            targetEntity: Kore\AdminBundle\Entity\Account
             inversedBy: notes
     manyToMany:
         budgets:
