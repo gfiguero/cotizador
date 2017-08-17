@@ -5,6 +5,7 @@ namespace Kore\AgentBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class BudgetType extends AbstractType
 {
@@ -14,8 +15,8 @@ class BudgetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code', null, array(
-                'label' => 'budget.form.code',
+            ->add('name', null, array(
+                'label' => 'budget.form.name',
                 'attr'  => array( 'label_col' => 2, 'widget_col' => 10 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
@@ -26,6 +27,16 @@ class BudgetType extends AbstractType
             ))
             ->add('seller', null, array(
                 'label' => 'budget.form.seller',
+                'attr'  => array( 'label_col' => 2, 'widget_col' => 10 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('adjudicated_at', DateType::class, array(
+                'label' => 'budget.form.adjudicatedAt',
+                'attr'  => array( 'label_col' => 2, 'widget_col' => 10 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('expired_at', DateType::class, array(
+                'label' => 'budget.form.expiredAt',
                 'attr'  => array( 'label_col' => 2, 'widget_col' => 10 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))

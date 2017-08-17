@@ -18,6 +18,13 @@ assetic:
                 - less
                 - cssrewrite
             output: src/Kore/AdminBundle/Resources/public/css/admin.css
+        kore_user_css:
+            inputs:
+                - src/Kore/UserBundle/Resources/less/build.less
+            filters:
+                - less
+                - cssrewrite
+            output: src/Kore/UserBundle/Resources/public/css/user.css
         kore_agent_css:
             inputs:
                 - src/Kore/AgentBundle/Resources/less/build.less
@@ -27,7 +34,7 @@ assetic:
             output: src/Kore/AgentBundle/Resources/public/css/agent.css
         kore_agentexport_css:
             inputs:
-                - src/Kore/AgentBundle/Resources/less/buildexport.less
+                - src/Kore/AgentBundle/Resources/less/export/build.less
             filters:
                 - less
                 - cssrewrite

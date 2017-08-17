@@ -1,6 +1,4 @@
-{% extends 'KoreAgentBundle:Base:base.html.twig' %}
-{% use 'KoreAgentBundle:Base:navbar.html.twig' %}
-{% use 'KoreAgentBundle:Base:sidebar.html.twig' %}
+{% extends 'KoreAgentBundle:Base:layout.html.twig' %}
 {% use 'KoreAgentBundle:Base:icons.html.twig' %}
 {% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
 
@@ -8,7 +6,7 @@
 
 {% block title %}{{ 'client.edit.title'|trans({'%id%':client.id}) }}{% endblock %}
 
-{% block body %}
+{% block agent %}
     <div id="page-wrapper">
         <div class="row" id="page-header">
             <div class="col-lg-12">

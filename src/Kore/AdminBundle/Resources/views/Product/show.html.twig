@@ -1,6 +1,4 @@
-{% extends 'KoreAdminBundle:Base:base.html.twig' %}
-{% use 'KoreAdminBundle:Base:navbar.html.twig' %}
-{% use 'KoreAdminBundle:Base:sidebar.html.twig' %}
+{% extends 'KoreAdminBundle:Base:layout.html.twig' %}
 {% use 'KoreAdminBundle:Base:icons.html.twig' %}
 {% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
 
@@ -8,7 +6,7 @@
 
 {% block title %}{{ 'product.show.title'|trans({'%id%':product.id}) }}{% endblock %}
 
-{% block body %}
+{% block admin %}
     <div id="page-wrapper">
         <div class="row" id="page-header">
             <div class="col-lg-12">
@@ -41,8 +39,20 @@
                                 <dd>{% if product.id %}{{ product.id }}{% endif %}</dd>
                             <dt>{{ 'product.form.name'|trans }}</dt>
                                 <dd>{% if product.name %}{{ product.name }}{% endif %}</dd>
+                            <dt>{{ 'product.form.short'|trans }}</dt>
+                                <dd>{% if product.short %}{{ product.short }}{% endif %}</dd>
                             <dt>{{ 'product.form.description'|trans }}</dt>
                                 <dd>{% if product.description %}{{ product.description }}{% endif %}</dd>
+                            <dt>{{ 'product.form.image'|trans }}</dt>
+                                <dd>{% if product.image %}{{ product.image }}{% endif %}</dd>
+                            <dt>{{ 'product.form.cost'|trans }}</dt>
+                                <dd>{% if product.cost %}{{ product.cost }}{% endif %}</dd>
+                            <dt>{{ 'product.form.price'|trans }}</dt>
+                                <dd>{% if product.price %}{{ product.price }}{% endif %}</dd>
+                            <dt>{{ 'product.form.upc'|trans }}</dt>
+                                <dd>{% if product.upc %}{{ product.upc }}{% endif %}</dd>
+                            <dt>{{ 'product.form.cm_code'|trans }}</dt>
+                                <dd>{% if product.cmcode %}{{ product.cmcode }}{% endif %}</dd>
                             <dt>{{ 'product.form.height'|trans }}</dt>
                                 <dd>{% if product.height %}{{ product.height }}{% endif %}</dd>
                             <dt>{{ 'product.form.width'|trans }}</dt>
@@ -51,14 +61,38 @@
                                 <dd>{% if product.length %}{{ product.length }}{% endif %}</dd>
                             <dt>{{ 'product.form.weight'|trans }}</dt>
                                 <dd>{% if product.weight %}{{ product.weight }}{% endif %}</dd>
-                            <dt>{{ 'product.form.cost'|trans }}</dt>
-                                <dd>{% if product.cost %}{{ product.cost }}{% endif %}</dd>
-                            <dt>{{ 'product.form.price'|trans }}</dt>
-                                <dd>{% if product.price %}{{ product.price }}{% endif %}</dd>
-                            <dt>{{ 'product.form.image'|trans }}</dt>
-                                <dd>{% if product.image %}{{ product.image }}{% endif %}</dd>
-                            <dt>{{ 'product.form.cm_code'|trans }}</dt>
-                                <dd>{% if product.cmcode %}{{ product.cmcode }}{% endif %}</dd>
+                            <dt>{{ 'product.form.brand'|trans }}</dt>
+                                <dd>{% if product.brand %}{{ product.brand }}{% endif %}</dd>
+                            <dt>{{ 'product.form.origin'|trans }}</dt>
+                                <dd>{% if product.origin %}{{ product.origin }}{% endif %}</dd>
+                            <dt>{{ 'product.form.resistance'|trans }}</dt>
+                                <dd>{% if product.resistance %}{{ product.resistance }}{% endif %}</dd>
+                            <dt>{{ 'product.form.warranty'|trans }}</dt>
+                                <dd>{% if product.warranty %}{{ product.warranty }}{% endif %}</dd>
+                            <dt>{{ 'product.form.certification'|trans }}</dt>
+                                <dd>{% if product.certification %}{{ product.certification }}{% endif %}</dd>
+                            <dt>{{ 'product.form.consumer_name'|trans }}</dt>
+                                <dd>{% if product.consumername %}{{ product.consumername }}{% endif %}</dd>
+                            <dt>{{ 'product.form.consumer_age'|trans }}</dt>
+                                <dd>{% if product.consumerage %}{{ product.consumerage }}{% endif %}</dd>
+                            <dt>{{ 'product.form.consumer_capacity'|trans }}</dt>
+                                <dd>{% if product.consumercapacity %}{{ product.consumercapacity }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_main'|trans }}</dt>
+                                <dd>{% if product.structuremain %}{{ product.structuremain }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_side'|trans }}</dt>
+                                <dd>{% if product.structureside %}{{ product.structureside }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_instalation'|trans }}</dt>
+                                <dd>{% if product.structureinstalation %}{{ product.structureinstalation }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_assembly'|trans }}</dt>
+                                <dd>{% if product.structureassembly %}{{ product.structureassembly }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_protection'|trans }}</dt>
+                                <dd>{% if product.structureprotection %}{{ product.structureprotection }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_termination'|trans }}</dt>
+                                <dd>{% if product.structuretermination %}{{ product.structuretermination }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_color'|trans }}</dt>
+                                <dd>{% if product.structurecolor %}{{ product.structurecolor }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_size'|trans }}</dt>
+                                <dd>{% if product.structuresize %}{{ product.structuresize }}{% endif %}</dd>
                             <dt>{{ 'product.form.created_at'|trans }}</dt>
                                 <dd>{% if product.createdat %}{{ product.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ product.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'product.form.updated_at'|trans }}</dt>

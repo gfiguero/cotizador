@@ -1,0 +1,207 @@
+{% extends 'KoreAgentBundle:Export:layout.html.twig' %}
+
+{% trans_default_domain 'KoreAgentBundle' %}
+
+{% block header %}
+    <div class="row" id="page-header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="navbar-header">
+                                <h3>{{ group.name }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-right">{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y") }}</h4>
+                        </div>
+                    </div>
+{#}
+                    <div class="navbar-header">
+                        <h1>{{ group.name }}</h1>
+                        <h1>{{ budget.name }}</h1>
+                        <h4 class="text-right">{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y") }}</h4>
+                        <div class="navbar-brand">
+                            <img alt="Brand" src="...">
+                        </div>
+                    </div>
+{#}
+                </div>
+            </nav>
+            <h1 class="page-header text-center">{{ budget.name }}</h1>
+        </div>
+    </div>
+    <!-- /#page-header -->
+
+{% endblock %}
+
+{% block property %}
+    <div class="row" id="page-client-seller">
+        {% if budget.client %}
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ 'budget.show.client'|trans }}</h2>
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        {% if budget.client.name %}<dt>{{ 'client.form.name'|trans }}</dt>
+                            <dd>{{ budget.client.name }}</dd>{% endif %}
+                        {% if budget.client.contactname %}<dt>{{ 'client.form.contactname'|trans }}</dt>
+                            <dd>{{ budget.client.contactname }}</dd>{% endif %}
+                        {% if budget.client.phone %}<dt>{{ 'client.form.phone'|trans }}</dt>
+                            <dd>{{ budget.client.phone }}</dd>{% endif %}
+                        {% if budget.client.email %}<dt>{{ 'client.form.email'|trans }}</dt>
+                            <dd>{{ budget.client.email }}</dd>{% endif %}
+                        {% if budget.client.address %}<dt>{{ 'client.form.address'|trans }}</dt>
+                            <dd>{{ budget.client.address }}</dd>{% endif %}
+                    </dl>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if budget.seller %}
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ 'budget.show.seller'|trans }}</h2>
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'seller.form.name'|trans }}</dt>
+                            <dd>{% if budget.seller.name %}{{ budget.seller.name }}{% endif %}</dd>
+                        <dt>{{ 'seller.form.phone'|trans }}</dt>
+                            <dd>{% if budget.seller.phone %}{{ budget.seller.phone }}{% endif %}</dd>
+                        <dt>{{ 'seller.form.email'|trans }}</dt>
+                            <dd>{% if budget.seller.email %}{{ budget.seller.email }}{% endif %}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+    <!-- /#page-client-seller -->
+
+{% endblock %}
+
+{% block items %}
+    {% if items is not empty %}
+    <div class="row" id="page-items">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ 'budget.show.items'|trans }}</h2>
+                </div>
+                <table class="table table-middle table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="100">{{'product.form.image'|trans }}</th>
+                            <th>{{ '#' }}</th>
+                            <th>{{ 'product.form.description'|trans }}</th>
+                            <th>{{ 'product.form.dimensions'|trans }}</th>
+                            <th width="90">{{ 'item.form.totalprice'|trans }}</th>
+                            <th width="90">{{ 'item.form.totaldiscountprice'|trans }}</th>
+                            <th width="90">{{ 'item.form.totalnetprice'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for k, item in items %}
+                        <tr>
+                            <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
+                            <td class="text-right">{{ item.quantity }}</td>
+                            <td>{{ item.product.description|raw|truncate(200, true) }}</td>
+                            <td style="white-space: nowrap;">
+                                {% if item.product.height %}{{ 'product.form.height'|trans }}:&nbsp;{{ item.product.height|number_format(0, ',', '.') }}<br>{% endif %}
+                                {% if item.product.width %}{{ 'product.form.width'|trans }}:&nbsp;{{ item.product.width|number_format(0, ',', '.') }}<br>{% endif %}
+                                {% if item.product.length %}{{ 'product.form.length'|trans }}:&nbsp;{{ item.product.length|number_format(0, ',', '.') }}<br>{% endif %}
+                                {% if item.product.weight %}{{ 'product.form.weight'|trans }}:&nbsp;{{ item.product.weight|number_format(0, ',', '.') }}<br>{% endif %}
+                            </td>
+
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totalprice|number_format(0, ',', '.') }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totalnetprice|number_format(0, ',', '.') }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-items -->
+    {% endif %}
+
+{% endblock %}
+
+{% block total %}
+    <div class="row" id="page-total">
+        <div class="col-md-8">
+            {% if budget.note %}
+            <div class="panel panel-default">
+                <div class="panel-body">{{ budget.note|raw }}</div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <table class="table table-middle table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>{{ 'budget.form.totalprice'|trans }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totalprice|number_format(0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'budget.form.totaldiscountprice'|trans }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totaldiscountprice|number_format(0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'budget.form.totalnetprice'|trans }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totalnetprice|number_format(0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'budget.form.totaliva'|trans }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totaliva|number_format(0, ',', '.') }}</td>
+                        </tr>
+                        <tr class="active">
+                            <td><strong>{{ 'budget.form.total'|trans }}</strong></td>
+                            <td class="text-right"><strong>{{ icon('dollar fa-fw') }}{{ budget.total|number_format(0, ',', '.') }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-total -->
+
+{% endblock %}
+
+{% block footer %}
+    {% if notes is not empty %}
+    <div class="row" id="page-notas">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ 'budget.show.notes'|trans }}</h2>
+                </div>
+                <table class="table table-middle">
+                    <tbody>
+                        {% for note in notes %}
+                        <tr>
+                            <td><strong style="white-space: nowrap;">{{ note.title }}</strong></td>
+                            <td>{{ note.description|raw }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block stylesheet %}
+    <style type="text/css">thead { display: table-header-group } tfoot { display: table-row-group } .panel, tr { page-break-inside: avoid }</style>
+{% endblock %}

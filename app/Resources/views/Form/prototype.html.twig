@@ -9,7 +9,10 @@
             {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.product) ~ '</td>' %}
             {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.quantity) ~ '</td>' %}
             {% set prototype_html = prototype_html ~ '<td>' ~ form_widget(prototype.discount) ~ '</td>' %}
-            {% set prototype_html = prototype_html ~ '<script type="text/javascript">$("#__id__").multiselect({maxHeight: 400, buttonWidth: "200px"});</script>' %}
+            {% set prototype_html = prototype_html ~ '<script type="text/javascript">' %}
+            {% set prototype_html = prototype_html ~ 'var options = { enableFiltering: true, maxHeight: 600, enableCaseInsensitiveFiltering: true, filterPlaceholder: "Buscar" };' %}
+            {% set prototype_html = prototype_html ~ '$("#__id__").multiselect(options);' %}
+            {% set prototype_html = prototype_html ~ '</script>' %}
 
             {% set attr = attr|merge({'data-prototype': prototype_html }) %}
             {% set attr = attr|merge({'data-prototype-name': prototype_name }) %}

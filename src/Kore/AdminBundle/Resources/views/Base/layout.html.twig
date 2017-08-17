@@ -1,0 +1,17 @@
+{% extends 'KoreAdminBundle:Base:base.html.twig' %}
+{% use 'KoreAdminBundle:Base:header.html.twig' %}
+{% use 'KoreAdminBundle:Base:aside.html.twig' %}
+
+{% block body %}
+    {% block header %}{{ parent() }}{% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-sm-3 col-md-2">
+                {% block aside %}{{ parent() }}{% endblock %}
+            </aside>
+            <div class="col-sm-9 col-md-10">
+                {% block admin %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

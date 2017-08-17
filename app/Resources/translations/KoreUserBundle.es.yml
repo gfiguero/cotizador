@@ -1,6 +1,7 @@
 topmenu:
     register: Registrar
     login: Ingreso
+    profile: Perfil de Usuario
     logout: Salir
     reset: Recuperar Password
     changepassword: Cambiar Password
@@ -76,3 +77,12 @@ resetting:
 
             Atentamente,
             el Equipo de uniSign.
+
+profile:
+    show:
+        title: Perfil de Usuario
+    edit:
+        title: Perfil de Usuario
+        link: Editar Perfil
+        submit: Guardar Cambios
+        cancel: Cancelar

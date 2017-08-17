@@ -12,7 +12,7 @@ security:
                 users:
                     root: { password: %root_password%, roles: 'ROLE_USER' }
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
 
     firewalls:
         dev:
@@ -39,4 +39,4 @@ security:
         - { path: ^/login, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: ^/admin, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: ^/logout, roles: [ROLE_USER] }
-        - { path: ^/agent, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: ^/agent, roles: [ROLE_USER] }

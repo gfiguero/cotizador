@@ -20,11 +20,14 @@ class NoteController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $notes = $em->getRepository('KoreAdminBundle:Note')->findBy(array(), array($sort => $direction));
-        else $notes = $em->getRepository('KoreAdminBundle:Note')->findAll();
+        if($sort) $notes = $em->getRepository('KoreAdminBundle:Note')->findBy(array('group' => $group), array($sort => $direction));
+        else $notes = $em->getRepository('KoreAdminBundle:Note')->findBy(array('group' => $group));
         $paginator = $this->get('knp_paginator');
         $notes = $paginator->paginate($notes, $request->query->getInt('page', 1), 100);
 
@@ -47,12 +50,17 @@ class NoteController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $note = new Note();
         $newForm = $this->createNewForm($note);
         $newForm->handleRequest($request);
 
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
+                $note->setUser($user);
+                $note->setGroup($group);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($note);
                 $em->flush();
@@ -86,6 +94,10 @@ class NoteController extends Controller
      */
     public function showAction(Note $note)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $note->getGroup()) return $this->redirect($this->generateUrl('agent_note_index'));
+
         $editForm = $this->createEditForm($note);
         $deleteForm = $this->createDeleteForm($note);
 
@@ -102,6 +114,10 @@ class NoteController extends Controller
      */
     public function editAction(Request $request, Note $note)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $note->getGroup()) return $this->redirect($this->generateUrl('agent_note_index'));
+
         $editForm = $this->createEditForm($note);
         $deleteForm = $this->createDeleteForm($note);
         $editForm->handleRequest($request);
@@ -143,6 +159,10 @@ class NoteController extends Controller
      */
     public function deleteAction(Request $request, Note $note)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $note->getGroup()) return $this->redirect($this->generateUrl('agent_note_index'));
+
         $deleteForm = $this->createDeleteForm($note);
         $deleteForm->handleRequest($request);
 

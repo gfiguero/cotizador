@@ -4,5 +4,5 @@ twig:
     form:
         resources:
             - :Form:bootstrap.html.twig
-            - :Form:fileinput.html.twig
+            - :Form:vichuploader.html.twig
             - :Form:prototype.html.twig

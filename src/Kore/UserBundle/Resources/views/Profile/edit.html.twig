@@ -5,19 +5,27 @@
 {% block title %}&nbsp;-&nbsp;{{ 'profile.edit.title'|trans }}{% endblock %}
 
 {% block user %}
-    <section id="uiuser">
+    <section id="user">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h1 class="page-header">{{ 'profile.edit.title'|trans }}</h1>
-                    {{ form_start(form, {'style' : 'horizontal', 'label_col' : 4 , 'widget_col' : 8, 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-                        {{ form_widget(form) }}
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <input type="submit" value="{{ 'controlpanel.profile.submit'|trans }}" class="btn btn-default" />
-                            </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">{{ 'profile.edit.title'|trans }}</h1>
                         </div>
-                    {{ form_end(form) }}
+                        <div class="panel-body">
+                            {{ form_start(form, {'style' : 'horizontal'}) }}
+                                {{ form_widget(form) }}
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans }}</button>
+                                        <a type="button" class="btn btn-default" href="{{ path('fos_user_profile_show') }}">{{ 'profile.edit.cancel'|trans }}</a>
+                                    </div>
+                                </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

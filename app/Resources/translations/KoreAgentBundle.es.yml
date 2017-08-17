@@ -1,3 +1,8 @@
+topmenu:
+    profile: Perfil de Usuario
+    logout: Salir
+    changepassword: Cambiar Password
+
 sidemenu:
     seller:
         root: Vendedores
@@ -153,27 +158,53 @@ product:
         message: Los datos borrados no podrán ser recuperados.
         submit: Confirmar borrado
         flash: El producto fué borrado totalmente.
+    section:
+        identification: Itentificación del Producto
+        features: Características del Producto
+        trading: Información Comercial
+        branding: Información de Marketing
+        consumer: Información del Comsumidor
+        structure: Información de Fabricación
     form:
         id: ID
-        name: Nombre
-        description: Descripción
         features: Características
         dimensions: Dimensiones
+        size: Volumen (m3)
+        density: Densidad (Kg/m3)
+        image: Imagen
+        margin: Margen
+        name: Nombre
+        short: Descripción Corta
+        description: Descripción
+        imagefile: Archivo de Imagen
+        provider: Proveedor
         height: Atura (cm)
         weight: Peso (Kg)
         width: Ancho (cm)
-        length: Longitud (cm)
-        size: Volumen (m3)
-        density: Densidad (Kg/m3)
-        cm_code: Código CM
+        length: Largo (cm)
         cost: Costo
         price: Precio
-        margin: Margen
-        image: Imagen
-        imagefile: Archivo de Imagen
-        provider: Proveedor
+        upc: UPC
+        cm_code: Código CM
+        brand: Marca
+        origin: Procedencia
+        resistance: Resistencia
+        warranty: Garantía
+        certification: Certificación
+        consumer_name: Usuario
+        consumer_age: Edad
+        consumer_capacity: Capacidad
+        structure_main: Estructura Principal
+        structure_side: Estructura Secundaria
+        structure_instalation: Instalación
+        structure_assembly: Ensamblaje
+        structure_protection: Protección
+        structure_termination: Terminación
+        structure_color: Color
+        structure_size: Tamaño
         created_at: Registro
         updated_at: Actualización
+
 
 item:
     index:
@@ -207,9 +238,9 @@ item:
         quantity: Cantidad
         discount: Descuento %
         discountprice: Descuento
-        totaldiscountprice: Descuento Total
-        price: Precio Lista
-        totalprice: Total Precio Lista
+        totaldiscountprice: Descuento
+        price: Precio
+        totalprice: Precio Total
         totalnetprice: Total Neto
         totaliva: IVA
         total: Total
@@ -217,6 +248,8 @@ item:
         product: Producto
         created_at: Registro
         updated_at: Actualización
+        placeholder:
+            product: Seleccione Producto
 
 budget:
     index:
@@ -237,8 +270,9 @@ budget:
         seller: Datos de vendedor
         items: Lista de ítems
         total: Totales
-        notas: Notas importantes
+        notes: Notas importantes
         cmpdf: Generar PDF CM
+        export: Exportar a PDF
     edit:
         title: Cotizaciones
         link: Editar datos

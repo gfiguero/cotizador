@@ -4,7 +4,6 @@ namespace Kore\AgentBundle\Controller;
 
 use Kore\AdminBundle\Entity\Budget;
 use Kore\AgentBundle\Form\BudgetType;
-use Kore\AgentBundle\Form\BudgetExportType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,11 +21,14 @@ class BudgetController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array(), array($sort => $direction));
-        else $budgets = $em->getRepository('KoreAdminBundle:Budget')->findAll();
+        if($sort) $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array('group' => $group), array($sort => $direction));
+        else $budgets = $em->getRepository('KoreAdminBundle:Budget')->findBy(array('group' => $group));
         $paginator = $this->get('knp_paginator');
         $budgets = $paginator->paginate($budgets, $request->query->getInt('page', 1), 100);
 
@@ -49,13 +51,26 @@ class BudgetController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
+        $note = $group->getPredefinedNote();
+        $adjudicationDate = new \DateTime('+ 10 days');
+        $expirationDate = new \DateTime('+ 20 days');
+
         $budget = new Budget();
+        $budget->setAdjudicatedAt($adjudicationDate);
+        $budget->setExpiredAt($expirationDate);
+        $budget->setNote($note);
+
         $newForm = $this->createNewForm($budget);
         $newForm->handleRequest($request);
 
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
                 $budget->setReferencePrices();
+                $budget->setUser($user);
+                $budget->setGroup($group);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($budget);
                 $em->flush();
@@ -89,6 +104,10 @@ class BudgetController extends Controller
      */
     public function showAction(Budget $budget)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $budget->getGroup()) return $this->redirect($this->generateUrl('agent_budget_index'));
+
         $editForm = $this->createEditForm($budget);
         $deleteForm = $this->createDeleteForm($budget);
 
@@ -101,14 +120,44 @@ class BudgetController extends Controller
 
     public function exportAction(Budget $budget)
     {
-        return $this->render('KoreAgentBundle:Budget:export.html.twig', array(
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $budget->getGroup()) return $this->redirect($this->generateUrl('agent_budget_index'));
+
+        $items = $budget->getItems();
+        $seller = $budget->getSeller();
+        $client = $budget->getClient();
+        $notes = $budget->getNotes();
+        return $this->render('KoreAgentBundle:Export:budget.html.twig', array(
             'budget' => $budget,
+            'items' => $items,
+            'seller' => $seller,
+            'client' => $client,
+            'group' => $group,
+            'notes' => $notes,
         ));
     }
 
     public function pdfAction(Budget $budget)
     {
-        $html = $this->renderView('KoreAgentBundle:Budget:export.html.twig', array('budget' => $budget));
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $budget->getGroup()) return $this->redirect($this->generateUrl('agent_budget_index'));
+
+        $items = $budget->getItems();
+        $seller = $budget->getSeller();
+        $client = $budget->getClient();
+        $notes = $budget->getNotes();
+
+        $html = $this->renderView('KoreAgentBundle:Export:budget.html.twig', array(
+            'budget' => $budget,
+            'items' => $items,
+            'seller' => $seller,
+            'client' => $client,
+            'group' => $group,
+            'notes' => $notes,
+        ));
+
         return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
     }
 
@@ -118,6 +167,11 @@ class BudgetController extends Controller
      */
     public function editAction(Request $request, Budget $budget)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $budget->getGroup()) {
+            return $this->redirect($this->generateUrl('agent_budget_index'));
+        }
         $editForm = $this->createEditForm($budget);
         $deleteForm = $this->createDeleteForm($budget);
         $editForm->handleRequest($request);
@@ -160,6 +214,11 @@ class BudgetController extends Controller
      */
     public function deleteAction(Request $request, Budget $budget)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $budget->getGroup()) {
+            return $this->redirect($this->generateUrl('agent_budget_index'));
+        }
         $deleteForm = $this->createDeleteForm($budget);
         $deleteForm->handleRequest($request);
 

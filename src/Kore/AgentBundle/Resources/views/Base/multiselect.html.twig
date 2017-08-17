@@ -6,8 +6,11 @@
     <script src="{{ asset('vendor/multiselect/js/bootstrap-multiselect.js') }}"></script>
     <script type="text/javascript">
     var optionsMultiselect = {
-        enableFiltering: false,
+        maxHeight: 600,
+        enableFiltering: true,
         includeSelectAllOption: true,
+        enableCaseInsensitiveFiltering: true,
+        filterPlaceholder: "Buscar",
         selectAllText: 'Seleccionar todo',
         allSelectedText: 'Todo seleccionado',
         nonSelectedText: 'Ningún elemento seleccionado',

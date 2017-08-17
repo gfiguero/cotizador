@@ -1,0 +1,9 @@
+agent_group_show:
+    path:     /show
+    defaults: { _controller: "KoreAgentBundle:Group:show" }
+    methods:  GET
+
+agent_group_edit:
+    path:     /edit
+    defaults: { _controller: "KoreAgentBundle:Group:edit" }
+    methods:  [GET, POST]

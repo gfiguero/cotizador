@@ -27,9 +27,33 @@ Kore\AdminBundle\Entity\Product:
             type: string
             length: 100
             nullable: true
+        short:
+            type: string
+            length: 200
+            nullable: true
         description:
             type: text
             nullable: true
+        image:
+            type: string
+            length: 200
+            nullable: true
+
+        cost:
+            type: integer
+            nullable: true
+        price:
+            type: integer
+            nullable: true
+        upc:
+            type: string
+            length: 30
+            nullable: true
+        cm_code:
+            type: string
+            length: 30
+            nullable: true
+
         height:
             type: integer
             nullable: true
@@ -42,20 +66,75 @@ Kore\AdminBundle\Entity\Product:
         weight:
             type: integer
             nullable: true
-        cost:
-            type: integer
-            nullable: true
-        price:
-            type: integer
-            nullable: true
-        image:
+
+        brand:
             type: string
-            length: 200
-            nullable: true
-        cm_code:
+            length: 100
+            nullable: true            
+        origin:
             type: string
-            length: 30
+            length: 100
             nullable: true
+        resistance:
+            type: string
+            length: 100
+            nullable: true
+        warranty:
+            type: string
+            length: 100
+            nullable: true
+        certification:
+            type: string
+            length: 100
+            nullable: true
+
+        consumer_name:
+            type: string
+            length: 100
+            nullable: true
+        consumer_age:
+            type: string
+            length: 100
+            nullable: true
+        consumer_capacity:
+            type: string
+            length: 100
+            nullable: true
+
+        structure_main:
+            type: string
+            length: 300
+            nullable: true
+        structure_side:
+            type: string
+            length: 300
+            nullable: true
+        structure_instalation:
+            type: string
+            length: 300
+            nullable: true
+        structure_assembly:
+            type: string
+            length: 300
+            nullable: true
+        structure_protection:
+            type: string
+            length: 300
+            nullable: true
+        structure_termination:
+            type: string
+            length: 300
+            nullable: true
+        structure_color:
+            type: string
+            length: 100
+            nullable: true
+        structure_size:
+            type: string
+            length: 100
+            nullable: true
+
+
         created_at:
             type: datetime
             gedmo:

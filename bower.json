@@ -22,6 +22,7 @@
     "jquery-ui": "jqueryui#^1.12.1",
     "metismenu": "^2.7.0",
     "summernote": "^0.8.6",
-    "bootstrap-multiselect": "^0.9.13"
+    "bootstrap-multiselect": "^0.9.13",
+    "bootstrap-fileinput": "^4.4.2"
   }
 }

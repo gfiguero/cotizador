@@ -1443,7 +1443,7 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 80px;
+    width: 100px;
     clear: left;
     text-align: right;
     overflow: hidden;
@@ -1451,7 +1451,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 100px;
+    margin-left: 120px;
   }
 }
 abbr[title],
@@ -1515,37 +1515,6 @@ address {
   margin-bottom: 20px;
   font-style: normal;
   line-height: 1.42857143;
-}
-dl {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-dt,
-dd {
-  line-height: 1.42857143;
-}
-dt {
-  font-weight: bold;
-}
-dd {
-  margin-left: 0;
-}
-@media (min-width: 768px) {
-  .dl-horizontal dt {
-    float: left;
-    width: 180px;
-    clear: left;
-    text-align: right;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .dl-horizontal dd {
-    margin-left: 200px;
-  }
-}
-#page-header .page-header {
-  margin: 10px 0 10px;
 }
 code,
 kbd,
@@ -2505,15 +2474,6 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
-}
-.table-middle > thead > tr > th,
-.table-middle > tbody > tr > th,
-.table-middle > tfoot > tr > th,
-.table-middle > thead > tr > td,
-.table-middle > tbody > tr > td,
-.table-middle > tfoot > tr > td {
-  vertical-align: middle;
-  padding: 5px;
 }
 fieldset {
   padding: 0;
@@ -3835,9 +3795,6 @@ tbody.collapse.in {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
-#page-toolbar .btn-toolbar .btn {
-  margin-bottom: 5px;
-}
 .input-group {
   position: relative;
   display: table;
@@ -4447,6 +4404,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     top: 0;
   }
 }
+.navbar-form .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
 @media (max-width: 767px) {
   .navbar-form .form-group {
     margin-bottom: 5px;
@@ -4711,73 +4672,6 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
-}
-.sidebar-nav {
-  background: #fff;
-}
-.sidebar-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.sidebar-nav .metismenu {
-  background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-.sidebar-nav .metismenu li + li {
-  margin-top: 5px;
-}
-.sidebar-nav .metismenu li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: relative;
-  background: #eee;
-}
-.sidebar-nav .metismenu li:first-child {
-  margin-top: 5px;
-}
-.sidebar-nav .metismenu li:last-child {
-  margin-bottom: 5px;
-}
-.sidebar-nav .metismenu a {
-  position: relative;
-  display: block;
-  padding: 13px 15px;
-  color: #777;
-  outline-width: 0;
-  transition: all 0.3s ease-out;
-}
-.sidebar-nav .metismenu ul a {
-  padding: 10px 15px 10px 30px;
-}
-.sidebar-nav .metismenu ul a ul a {
-  padding: 10px 15px 10px 45px;
-}
-.sidebar-nav .metismenu li.active > a:hover,
-.sidebar-nav .metismenu li.leaf.active a:hover,
-.sidebar-nav .metismenu li.leaf.active a:focus,
-.sidebar-nav .metismenu a:hover,
-.sidebar-nav .metismenu a:focus {
-  color: #f8f9fa;
-  text-decoration: none;
-  background: #286090;
-}
-.sidebar-nav .metismenu li.leaf.active a,
-.sidebar-nav .metismenu a:active {
-  color: #f8f9fa;
-  text-decoration: none;
-  background: #337ab7;
 }
 .breadcrumb {
   padding: 8px 15px;
@@ -6539,8 +6433,6 @@ button.close {
 .clearfix:after,
 .dl-horizontal dd:before,
 .dl-horizontal dd:after,
-.dl-horizontal dd:before,
-.dl-horizontal dd:after,
 .container:before,
 .container:after,
 .container-fluid:before,
@@ -6568,12 +6460,13 @@ button.close {
 .modal-header:before,
 .modal-header:after,
 .modal-footer:before,
-.modal-footer:after {
+.modal-footer:after,
+.dl-horizontal dd:before,
+.dl-horizontal dd:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
-.dl-horizontal dd:after,
 .dl-horizontal dd:after,
 .container:after,
 .container-fluid:after,
@@ -6588,7 +6481,8 @@ button.close {
 .pager:after,
 .panel-body:after,
 .modal-header:after,
-.modal-footer:after {
+.modal-footer:after,
+.dl-horizontal dd:after {
   clear: both;
 }
 .center-block {
@@ -6833,4 +6727,451 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.bootstrap-time {
+  width: 100%;
+}
+.bootstrap-time select {
+  display: inline-block;
+  width: auto;
+}
+.bootstrap-date {
+  width: 100%;
+}
+.bootstrap-date select {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+}
+.bootstrap-datetime .bootstrap-time,
+.bootstrap-datetime .bootstrap-date {
+  display: inline-block;
+  width: auto;
+}
+.form-group .bc-collection {
+  margin-bottom: 0;
+}
+.form-group .bc-collection li + li {
+  margin-top: 10px;
+}
+.form-group .bc-collection li:nth-last-child(1) {
+  margin-bottom: 10px;
+}
+.form-inline .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.form-horizontal .col-lg-1 .col-1,
+.form-horizontal .col-lg-2 .col-1,
+.form-horizontal .col-lg-3 .col-1,
+.form-horizontal .col-lg-4 .col-1,
+.form-horizontal .col-lg-5 .col-1,
+.form-horizontal .col-lg-6 .col-1,
+.form-horizontal .col-lg-7 .col-1,
+.form-horizontal .col-lg-8 .col-1,
+.form-horizontal .col-lg-9 .col-1,
+.form-horizontal .col-lg-10 .col-1,
+.form-horizontal .col-lg-11 .col-1,
+.form-horizontal .col-lg12 .col-1,
+.form-horizontal .col-lg-1 .col-2,
+.form-horizontal .col-lg-2 .col-2,
+.form-horizontal .col-lg-3 .col-2,
+.form-horizontal .col-lg-4 .col-2,
+.form-horizontal .col-lg-5 .col-2,
+.form-horizontal .col-lg-6 .col-2,
+.form-horizontal .col-lg-7 .col-2,
+.form-horizontal .col-lg-8 .col-2,
+.form-horizontal .col-lg-9 .col-2,
+.form-horizontal .col-lg-10 .col-2,
+.form-horizontal .col-lg-11 .col-2,
+.form-horizontal .col-lg12 .col-2,
+.form-horizontal .col-lg-1 .col-3,
+.form-horizontal .col-lg-2 .col-3,
+.form-horizontal .col-lg-3 .col-3,
+.form-horizontal .col-lg-4 .col-3,
+.form-horizontal .col-lg-5 .col-3,
+.form-horizontal .col-lg-6 .col-3,
+.form-horizontal .col-lg-7 .col-3,
+.form-horizontal .col-lg-8 .col-3,
+.form-horizontal .col-lg-9 .col-3,
+.form-horizontal .col-lg-10 .col-3,
+.form-horizontal .col-lg-11 .col-3,
+.form-horizontal .col-lg12 .col-3,
+.form-horizontal .col-lg-1 .col-4,
+.form-horizontal .col-lg-2 .col-4,
+.form-horizontal .col-lg-3 .col-4,
+.form-horizontal .col-lg-4 .col-4,
+.form-horizontal .col-lg-5 .col-4,
+.form-horizontal .col-lg-6 .col-4,
+.form-horizontal .col-lg-7 .col-4,
+.form-horizontal .col-lg-8 .col-4,
+.form-horizontal .col-lg-9 .col-4,
+.form-horizontal .col-lg-10 .col-4,
+.form-horizontal .col-lg-11 .col-4,
+.form-horizontal .col-lg12 .col-4,
+.form-horizontal .col-lg-1 .col-5,
+.form-horizontal .col-lg-2 .col-5,
+.form-horizontal .col-lg-3 .col-5,
+.form-horizontal .col-lg-4 .col-5,
+.form-horizontal .col-lg-5 .col-5,
+.form-horizontal .col-lg-6 .col-5,
+.form-horizontal .col-lg-7 .col-5,
+.form-horizontal .col-lg-8 .col-5,
+.form-horizontal .col-lg-9 .col-5,
+.form-horizontal .col-lg-10 .col-5,
+.form-horizontal .col-lg-11 .col-5,
+.form-horizontal .col-lg12 .col-5,
+.form-horizontal .col-lg-1 .col-6,
+.form-horizontal .col-lg-2 .col-6,
+.form-horizontal .col-lg-3 .col-6,
+.form-horizontal .col-lg-4 .col-6,
+.form-horizontal .col-lg-5 .col-6,
+.form-horizontal .col-lg-6 .col-6,
+.form-horizontal .col-lg-7 .col-6,
+.form-horizontal .col-lg-8 .col-6,
+.form-horizontal .col-lg-9 .col-6,
+.form-horizontal .col-lg-10 .col-6,
+.form-horizontal .col-lg-11 .col-6,
+.form-horizontal .col-lg12 .col-6,
+.form-horizontal .col-lg-1 .col-7,
+.form-horizontal .col-lg-2 .col-7,
+.form-horizontal .col-lg-3 .col-7,
+.form-horizontal .col-lg-4 .col-7,
+.form-horizontal .col-lg-5 .col-7,
+.form-horizontal .col-lg-6 .col-7,
+.form-horizontal .col-lg-7 .col-7,
+.form-horizontal .col-lg-8 .col-7,
+.form-horizontal .col-lg-9 .col-7,
+.form-horizontal .col-lg-10 .col-7,
+.form-horizontal .col-lg-11 .col-7,
+.form-horizontal .col-lg12 .col-7,
+.form-horizontal .col-lg-1 .col-8,
+.form-horizontal .col-lg-2 .col-8,
+.form-horizontal .col-lg-3 .col-8,
+.form-horizontal .col-lg-4 .col-8,
+.form-horizontal .col-lg-5 .col-8,
+.form-horizontal .col-lg-6 .col-8,
+.form-horizontal .col-lg-7 .col-8,
+.form-horizontal .col-lg-8 .col-8,
+.form-horizontal .col-lg-9 .col-8,
+.form-horizontal .col-lg-10 .col-8,
+.form-horizontal .col-lg-11 .col-8,
+.form-horizontal .col-lg12 .col-8,
+.form-horizontal .col-lg-1 .col-9,
+.form-horizontal .col-lg-2 .col-9,
+.form-horizontal .col-lg-3 .col-9,
+.form-horizontal .col-lg-4 .col-9,
+.form-horizontal .col-lg-5 .col-9,
+.form-horizontal .col-lg-6 .col-9,
+.form-horizontal .col-lg-7 .col-9,
+.form-horizontal .col-lg-8 .col-9,
+.form-horizontal .col-lg-9 .col-9,
+.form-horizontal .col-lg-10 .col-9,
+.form-horizontal .col-lg-11 .col-9,
+.form-horizontal .col-lg12 .col-9,
+.form-horizontal .col-lg-1 .col-10,
+.form-horizontal .col-lg-2 .col-10,
+.form-horizontal .col-lg-3 .col-10,
+.form-horizontal .col-lg-4 .col-10,
+.form-horizontal .col-lg-5 .col-10,
+.form-horizontal .col-lg-6 .col-10,
+.form-horizontal .col-lg-7 .col-10,
+.form-horizontal .col-lg-8 .col-10,
+.form-horizontal .col-lg-9 .col-10,
+.form-horizontal .col-lg-10 .col-10,
+.form-horizontal .col-lg-11 .col-10,
+.form-horizontal .col-lg12 .col-10,
+.form-horizontal .col-lg-1 .col-11,
+.form-horizontal .col-lg-2 .col-11,
+.form-horizontal .col-lg-3 .col-11,
+.form-horizontal .col-lg-4 .col-11,
+.form-horizontal .col-lg-5 .col-11,
+.form-horizontal .col-lg-6 .col-11,
+.form-horizontal .col-lg-7 .col-11,
+.form-horizontal .col-lg-8 .col-11,
+.form-horizontal .col-lg-9 .col-11,
+.form-horizontal .col-lg-10 .col-11,
+.form-horizontal .col-lg-11 .col-11,
+.form-horizontal .col-lg12 .col-11,
+.form-horizontal .col-lg-1 .col-12,
+.form-horizontal .col-lg-2 .col-12,
+.form-horizontal .col-lg-3 .col-12,
+.form-horizontal .col-lg-4 .col-12,
+.form-horizontal .col-lg-5 .col-12,
+.form-horizontal .col-lg-6 .col-12,
+.form-horizontal .col-lg-7 .col-12,
+.form-horizontal .col-lg-8 .col-12,
+.form-horizontal .col-lg-9 .col-12,
+.form-horizontal .col-lg-10 .col-12,
+.form-horizontal .col-lg-11 .col-12,
+.form-horizontal .col-lg12 .col-12,
+.form-horizontal .col-lg-1 .col-sm-1,
+.form-horizontal .col-lg-2 .col-sm-1,
+.form-horizontal .col-lg-3 .col-sm-1,
+.form-horizontal .col-lg-4 .col-sm-1,
+.form-horizontal .col-lg-5 .col-sm-1,
+.form-horizontal .col-lg-6 .col-sm-1,
+.form-horizontal .col-lg-7 .col-sm-1,
+.form-horizontal .col-lg-8 .col-sm-1,
+.form-horizontal .col-lg-9 .col-sm-1,
+.form-horizontal .col-lg-10 .col-sm-1,
+.form-horizontal .col-lg-11 .col-sm-1,
+.form-horizontal .col-lg12 .col-sm-1,
+.form-horizontal .col-lg-1 .col-sm-2,
+.form-horizontal .col-lg-2 .col-sm-2,
+.form-horizontal .col-lg-3 .col-sm-2,
+.form-horizontal .col-lg-4 .col-sm-2,
+.form-horizontal .col-lg-5 .col-sm-2,
+.form-horizontal .col-lg-6 .col-sm-2,
+.form-horizontal .col-lg-7 .col-sm-2,
+.form-horizontal .col-lg-8 .col-sm-2,
+.form-horizontal .col-lg-9 .col-sm-2,
+.form-horizontal .col-lg-10 .col-sm-2,
+.form-horizontal .col-lg-11 .col-sm-2,
+.form-horizontal .col-lg12 .col-sm-2,
+.form-horizontal .col-lg-1 .col-sm-3,
+.form-horizontal .col-lg-2 .col-sm-3,
+.form-horizontal .col-lg-3 .col-sm-3,
+.form-horizontal .col-lg-4 .col-sm-3,
+.form-horizontal .col-lg-5 .col-sm-3,
+.form-horizontal .col-lg-6 .col-sm-3,
+.form-horizontal .col-lg-7 .col-sm-3,
+.form-horizontal .col-lg-8 .col-sm-3,
+.form-horizontal .col-lg-9 .col-sm-3,
+.form-horizontal .col-lg-10 .col-sm-3,
+.form-horizontal .col-lg-11 .col-sm-3,
+.form-horizontal .col-lg12 .col-sm-3,
+.form-horizontal .col-lg-1 .col-sm-4,
+.form-horizontal .col-lg-2 .col-sm-4,
+.form-horizontal .col-lg-3 .col-sm-4,
+.form-horizontal .col-lg-4 .col-sm-4,
+.form-horizontal .col-lg-5 .col-sm-4,
+.form-horizontal .col-lg-6 .col-sm-4,
+.form-horizontal .col-lg-7 .col-sm-4,
+.form-horizontal .col-lg-8 .col-sm-4,
+.form-horizontal .col-lg-9 .col-sm-4,
+.form-horizontal .col-lg-10 .col-sm-4,
+.form-horizontal .col-lg-11 .col-sm-4,
+.form-horizontal .col-lg12 .col-sm-4,
+.form-horizontal .col-lg-1 .col-sm-5,
+.form-horizontal .col-lg-2 .col-sm-5,
+.form-horizontal .col-lg-3 .col-sm-5,
+.form-horizontal .col-lg-4 .col-sm-5,
+.form-horizontal .col-lg-5 .col-sm-5,
+.form-horizontal .col-lg-6 .col-sm-5,
+.form-horizontal .col-lg-7 .col-sm-5,
+.form-horizontal .col-lg-8 .col-sm-5,
+.form-horizontal .col-lg-9 .col-sm-5,
+.form-horizontal .col-lg-10 .col-sm-5,
+.form-horizontal .col-lg-11 .col-sm-5,
+.form-horizontal .col-lg12 .col-sm-5,
+.form-horizontal .col-lg-1 .col-sm-6,
+.form-horizontal .col-lg-2 .col-sm-6,
+.form-horizontal .col-lg-3 .col-sm-6,
+.form-horizontal .col-lg-4 .col-sm-6,
+.form-horizontal .col-lg-5 .col-sm-6,
+.form-horizontal .col-lg-6 .col-sm-6,
+.form-horizontal .col-lg-7 .col-sm-6,
+.form-horizontal .col-lg-8 .col-sm-6,
+.form-horizontal .col-lg-9 .col-sm-6,
+.form-horizontal .col-lg-10 .col-sm-6,
+.form-horizontal .col-lg-11 .col-sm-6,
+.form-horizontal .col-lg12 .col-sm-6,
+.form-horizontal .col-lg-1 .col-sm-7,
+.form-horizontal .col-lg-2 .col-sm-7,
+.form-horizontal .col-lg-3 .col-sm-7,
+.form-horizontal .col-lg-4 .col-sm-7,
+.form-horizontal .col-lg-5 .col-sm-7,
+.form-horizontal .col-lg-6 .col-sm-7,
+.form-horizontal .col-lg-7 .col-sm-7,
+.form-horizontal .col-lg-8 .col-sm-7,
+.form-horizontal .col-lg-9 .col-sm-7,
+.form-horizontal .col-lg-10 .col-sm-7,
+.form-horizontal .col-lg-11 .col-sm-7,
+.form-horizontal .col-lg12 .col-sm-7,
+.form-horizontal .col-lg-1 .col-sm-8,
+.form-horizontal .col-lg-2 .col-sm-8,
+.form-horizontal .col-lg-3 .col-sm-8,
+.form-horizontal .col-lg-4 .col-sm-8,
+.form-horizontal .col-lg-5 .col-sm-8,
+.form-horizontal .col-lg-6 .col-sm-8,
+.form-horizontal .col-lg-7 .col-sm-8,
+.form-horizontal .col-lg-8 .col-sm-8,
+.form-horizontal .col-lg-9 .col-sm-8,
+.form-horizontal .col-lg-10 .col-sm-8,
+.form-horizontal .col-lg-11 .col-sm-8,
+.form-horizontal .col-lg12 .col-sm-8,
+.form-horizontal .col-lg-1 .col-sm-9,
+.form-horizontal .col-lg-2 .col-sm-9,
+.form-horizontal .col-lg-3 .col-sm-9,
+.form-horizontal .col-lg-4 .col-sm-9,
+.form-horizontal .col-lg-5 .col-sm-9,
+.form-horizontal .col-lg-6 .col-sm-9,
+.form-horizontal .col-lg-7 .col-sm-9,
+.form-horizontal .col-lg-8 .col-sm-9,
+.form-horizontal .col-lg-9 .col-sm-9,
+.form-horizontal .col-lg-10 .col-sm-9,
+.form-horizontal .col-lg-11 .col-sm-9,
+.form-horizontal .col-lg12 .col-sm-9,
+.form-horizontal .col-lg-1 .col-sm-10,
+.form-horizontal .col-lg-2 .col-sm-10,
+.form-horizontal .col-lg-3 .col-sm-10,
+.form-horizontal .col-lg-4 .col-sm-10,
+.form-horizontal .col-lg-5 .col-sm-10,
+.form-horizontal .col-lg-6 .col-sm-10,
+.form-horizontal .col-lg-7 .col-sm-10,
+.form-horizontal .col-lg-8 .col-sm-10,
+.form-horizontal .col-lg-9 .col-sm-10,
+.form-horizontal .col-lg-10 .col-sm-10,
+.form-horizontal .col-lg-11 .col-sm-10,
+.form-horizontal .col-lg12 .col-sm-10,
+.form-horizontal .col-lg-1 .col-sm-11,
+.form-horizontal .col-lg-2 .col-sm-11,
+.form-horizontal .col-lg-3 .col-sm-11,
+.form-horizontal .col-lg-4 .col-sm-11,
+.form-horizontal .col-lg-5 .col-sm-11,
+.form-horizontal .col-lg-6 .col-sm-11,
+.form-horizontal .col-lg-7 .col-sm-11,
+.form-horizontal .col-lg-8 .col-sm-11,
+.form-horizontal .col-lg-9 .col-sm-11,
+.form-horizontal .col-lg-10 .col-sm-11,
+.form-horizontal .col-lg-11 .col-sm-11,
+.form-horizontal .col-lg12 .col-sm-11,
+.form-horizontal .col-lg-1 .col-sm-12,
+.form-horizontal .col-lg-2 .col-sm-12,
+.form-horizontal .col-lg-3 .col-sm-12,
+.form-horizontal .col-lg-4 .col-sm-12,
+.form-horizontal .col-lg-5 .col-sm-12,
+.form-horizontal .col-lg-6 .col-sm-12,
+.form-horizontal .col-lg-7 .col-sm-12,
+.form-horizontal .col-lg-8 .col-sm-12,
+.form-horizontal .col-lg-9 .col-sm-12,
+.form-horizontal .col-lg-10 .col-sm-12,
+.form-horizontal .col-lg-11 .col-sm-12,
+.form-horizontal .col-lg12 .col-sm-12 {
+  padding-left: 0;
+}
+form .has-error ul.help-block {
+  list-style: none;
+  padding-left: 0;
+}
+form .alert ul {
+  list-style: none;
+  padding-left: 0;
+}
+.table-middle > thead > tr > th,
+.table-middle > tbody > tr > th,
+.table-middle > tfoot > tr > th,
+.table-middle > thead > tr > td,
+.table-middle > tbody > tr > td,
+.table-middle > tfoot > tr > td {
+  vertical-align: middle;
+  padding: 5px;
+}
+dl {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+dt,
+dd {
+  line-height: 1.42857143;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 220px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 240px;
+  }
+}
+#page-header .page-header {
+  margin: 10px 0 10px;
+}
+.dropdown-menu > .disabled.active > a {
+  background-color: #fff;
+}
+.sidebar-nav {
+  background: #fff;
+}
+.sidebar-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sidebar-nav .metismenu {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.sidebar-nav .metismenu li + li {
+  margin-top: 5px;
+}
+.sidebar-nav .metismenu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  background: #eee;
+}
+.sidebar-nav .metismenu li:first-child {
+  margin-top: 5px;
+}
+.sidebar-nav .metismenu li:last-child {
+  margin-bottom: 5px;
+}
+.sidebar-nav .metismenu a {
+  position: relative;
+  display: block;
+  padding: 13px 15px;
+  color: #777;
+  outline-width: 0;
+  transition: all 0.3s ease-out;
+}
+.sidebar-nav .metismenu ul a {
+  padding: 10px 15px 10px 30px;
+}
+.sidebar-nav .metismenu ul a ul a {
+  padding: 10px 15px 10px 45px;
+}
+.sidebar-nav .metismenu li.active > a:hover,
+.sidebar-nav .metismenu li.leaf.active a:hover,
+.sidebar-nav .metismenu li.leaf.active a:focus,
+.sidebar-nav .metismenu a:hover,
+.sidebar-nav .metismenu a:focus {
+  color: #f8f9fa;
+  text-decoration: none;
+  background: #286090;
+}
+.sidebar-nav .metismenu li.leaf.active a,
+.sidebar-nav .metismenu a:active {
+  color: #f8f9fa;
+  text-decoration: none;
+  background: #337ab7;
+}
+#page-header .page-header {
+  margin: 10px 0 10px;
+}
+#page-toolbar .btn-toolbar .btn {
+  margin-bottom: 5px;
 }

@@ -1,6 +1,4 @@
-{% extends 'KoreAdminBundle:Base:base.html.twig' %}
-{% use 'KoreAdminBundle:Base:navbar.html.twig' %}
-{% use 'KoreAdminBundle:Base:sidebar.html.twig' %}
+{% extends 'KoreAdminBundle:Base:layout.html.twig' %}
 {% use 'KoreAdminBundle:Base:icons.html.twig' %}
 {% use 'KoreAdminBundle:Base:flashbag.html.twig' %}
 
@@ -8,7 +6,7 @@
 
 {% block title %}{{ 'commune.new.title'|trans }}{% endblock %}
 
-{% block body %}
+{% block admin %}
     <div id="page-wrapper">
         <div class="row" id="page-header">
             <div class="col-lg-12">

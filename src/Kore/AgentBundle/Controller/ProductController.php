@@ -21,11 +21,14 @@ class ProductController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $products = $em->getRepository('KoreAdminBundle:Product')->findBy(array(), array($sort => $direction));
-        else $products = $em->getRepository('KoreAdminBundle:Product')->findAll();
+        if($sort) $products = $em->getRepository('KoreAdminBundle:Product')->findBy(array('group' => $group), array($sort => $direction));
+        else $products = $em->getRepository('KoreAdminBundle:Product')->findBy(array('group' => $group));
         $paginator = $this->get('knp_paginator');
         $products = $paginator->paginate($products, $request->query->getInt('page', 1), 100);
 
@@ -48,12 +51,17 @@ class ProductController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $product = new Product();
         $newForm = $this->createNewForm($product);
         $newForm->handleRequest($request);
 
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
+                $product->setUser($user);
+                $product->setGroup($group);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($product);
                 $em->flush();
@@ -87,6 +95,10 @@ class ProductController extends Controller
      */
     public function showAction(Product $product)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $product->getGroup()) return $this->redirect($this->generateUrl('agent_product_index'));
+
         $editForm = $this->createEditForm($product);
         $deleteForm = $this->createDeleteForm($product);
 
@@ -103,6 +115,10 @@ class ProductController extends Controller
      */
     public function editAction(Request $request, Product $product)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $product->getGroup()) return $this->redirect($this->generateUrl('agent_product_index'));
+
         $editForm = $this->createEditForm($product);
         $deleteForm = $this->createDeleteForm($product);
         $editForm->handleRequest($request);
@@ -144,6 +160,10 @@ class ProductController extends Controller
      */
     public function deleteAction(Request $request, Product $product)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $product->getGroup()) return $this->redirect($this->generateUrl('agent_product_index'));
+
         $deleteForm = $this->createDeleteForm($product);
         $deleteForm->handleRequest($request);
 

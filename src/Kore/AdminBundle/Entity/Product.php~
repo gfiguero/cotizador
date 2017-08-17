@@ -65,7 +65,7 @@ class Product
      */
     public function getImage()
     {
-        return $this->image;
+        if ($this->image) return $this->image; else return 'default';
     }
 
     /**
@@ -638,5 +638,499 @@ class Product
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * @var string
+     */
+    private $upc;
+
+    /**
+     * @var string
+     */
+    private $brand;
+
+    /**
+     * @var string
+     */
+    private $origin;
+
+    /**
+     * @var string
+     */
+    private $resistance;
+
+    /**
+     * @var string
+     */
+    private $warranty;
+
+    /**
+     * @var string
+     */
+    private $certification;
+
+    /**
+     * @var string
+     */
+    private $consumer_name;
+
+    /**
+     * @var string
+     */
+    private $consumer_age;
+
+    /**
+     * @var string
+     */
+    private $consumer_capacity;
+
+    /**
+     * @var string
+     */
+    private $structure_main;
+
+    /**
+     * @var string
+     */
+    private $structure_side;
+
+    /**
+     * @var string
+     */
+    private $structure_instalation;
+
+    /**
+     * @var string
+     */
+    private $structure_assembly;
+
+    /**
+     * @var string
+     */
+    private $structure_protection;
+
+    /**
+     * @var string
+     */
+    private $structure_termination;
+
+    /**
+     * @var string
+     */
+    private $structure_color;
+
+    /**
+     * @var string
+     */
+    private $structure_size;
+
+
+    /**
+     * Set upc
+     *
+     * @param string $upc
+     *
+     * @return Product
+     */
+    public function setUpc($upc)
+    {
+        $this->upc = $upc;
+
+        return $this;
+    }
+
+    /**
+     * Get upc
+     *
+     * @return string
+     */
+    public function getUpc()
+    {
+        return $this->upc;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param string $brand
+     *
+     * @return Product
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Set origin
+     *
+     * @param string $origin
+     *
+     * @return Product
+     */
+    public function setOrigin($origin)
+    {
+        $this->origin = $origin;
+
+        return $this;
+    }
+
+    /**
+     * Get origin
+     *
+     * @return string
+     */
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
+    /**
+     * Set resistance
+     *
+     * @param string $resistance
+     *
+     * @return Product
+     */
+    public function setResistance($resistance)
+    {
+        $this->resistance = $resistance;
+
+        return $this;
+    }
+
+    /**
+     * Get resistance
+     *
+     * @return string
+     */
+    public function getResistance()
+    {
+        return $this->resistance;
+    }
+
+    /**
+     * Set warranty
+     *
+     * @param string $warranty
+     *
+     * @return Product
+     */
+    public function setWarranty($warranty)
+    {
+        $this->warranty = $warranty;
+
+        return $this;
+    }
+
+    /**
+     * Get warranty
+     *
+     * @return string
+     */
+    public function getWarranty()
+    {
+        return $this->warranty;
+    }
+
+    /**
+     * Set certification
+     *
+     * @param string $certification
+     *
+     * @return Product
+     */
+    public function setCertification($certification)
+    {
+        $this->certification = $certification;
+
+        return $this;
+    }
+
+    /**
+     * Get certification
+     *
+     * @return string
+     */
+    public function getCertification()
+    {
+        return $this->certification;
+    }
+
+    /**
+     * Set consumerName
+     *
+     * @param string $consumerName
+     *
+     * @return Product
+     */
+    public function setConsumerName($consumerName)
+    {
+        $this->consumer_name = $consumerName;
+
+        return $this;
+    }
+
+    /**
+     * Get consumerName
+     *
+     * @return string
+     */
+    public function getConsumerName()
+    {
+        return $this->consumer_name;
+    }
+
+    /**
+     * Set consumerAge
+     *
+     * @param string $consumerAge
+     *
+     * @return Product
+     */
+    public function setConsumerAge($consumerAge)
+    {
+        $this->consumer_age = $consumerAge;
+
+        return $this;
+    }
+
+    /**
+     * Get consumerAge
+     *
+     * @return string
+     */
+    public function getConsumerAge()
+    {
+        return $this->consumer_age;
+    }
+
+    /**
+     * Set consumerCapacity
+     *
+     * @param string $consumerCapacity
+     *
+     * @return Product
+     */
+    public function setConsumerCapacity($consumerCapacity)
+    {
+        $this->consumer_capacity = $consumerCapacity;
+
+        return $this;
+    }
+
+    /**
+     * Get consumerCapacity
+     *
+     * @return string
+     */
+    public function getConsumerCapacity()
+    {
+        return $this->consumer_capacity;
+    }
+
+    /**
+     * Set structureMain
+     *
+     * @param string $structureMain
+     *
+     * @return Product
+     */
+    public function setStructureMain($structureMain)
+    {
+        $this->structure_main = $structureMain;
+
+        return $this;
+    }
+
+    /**
+     * Get structureMain
+     *
+     * @return string
+     */
+    public function getStructureMain()
+    {
+        return $this->structure_main;
+    }
+
+    /**
+     * Set structureSide
+     *
+     * @param string $structureSide
+     *
+     * @return Product
+     */
+    public function setStructureSide($structureSide)
+    {
+        $this->structure_side = $structureSide;
+
+        return $this;
+    }
+
+    /**
+     * Get structureSide
+     *
+     * @return string
+     */
+    public function getStructureSide()
+    {
+        return $this->structure_side;
+    }
+
+    /**
+     * Set structureInstalation
+     *
+     * @param string $structureInstalation
+     *
+     * @return Product
+     */
+    public function setStructureInstalation($structureInstalation)
+    {
+        $this->structure_instalation = $structureInstalation;
+
+        return $this;
+    }
+
+    /**
+     * Get structureInstalation
+     *
+     * @return string
+     */
+    public function getStructureInstalation()
+    {
+        return $this->structure_instalation;
+    }
+
+    /**
+     * Set structureAssembly
+     *
+     * @param string $structureAssembly
+     *
+     * @return Product
+     */
+    public function setStructureAssembly($structureAssembly)
+    {
+        $this->structure_assembly = $structureAssembly;
+
+        return $this;
+    }
+
+    /**
+     * Get structureAssembly
+     *
+     * @return string
+     */
+    public function getStructureAssembly()
+    {
+        return $this->structure_assembly;
+    }
+
+    /**
+     * Set structureProtection
+     *
+     * @param string $structureProtection
+     *
+     * @return Product
+     */
+    public function setStructureProtection($structureProtection)
+    {
+        $this->structure_protection = $structureProtection;
+
+        return $this;
+    }
+
+    /**
+     * Get structureProtection
+     *
+     * @return string
+     */
+    public function getStructureProtection()
+    {
+        return $this->structure_protection;
+    }
+
+    /**
+     * Set structureTermination
+     *
+     * @param string $structureTermination
+     *
+     * @return Product
+     */
+    public function setStructureTermination($structureTermination)
+    {
+        $this->structure_termination = $structureTermination;
+
+        return $this;
+    }
+
+    /**
+     * Get structureTermination
+     *
+     * @return string
+     */
+    public function getStructureTermination()
+    {
+        return $this->structure_termination;
+    }
+
+    /**
+     * Set structureColor
+     *
+     * @param string $structureColor
+     *
+     * @return Product
+     */
+    public function setStructureColor($structureColor)
+    {
+        $this->structure_color = $structureColor;
+
+        return $this;
+    }
+
+    /**
+     * Get structureColor
+     *
+     * @return string
+     */
+    public function getStructureColor()
+    {
+        return $this->structure_color;
+    }
+
+    /**
+     * Set structureSize
+     *
+     * @param string $structureSize
+     *
+     * @return Product
+     */
+    public function setStructureSize($structureSize)
+    {
+        $this->structure_size = $structureSize;
+
+        return $this;
+    }
+
+    /**
+     * Get structureSize
+     *
+     * @return string
+     */
+    public function getStructureSize()
+    {
+        return $this->structure_size;
     }
 }

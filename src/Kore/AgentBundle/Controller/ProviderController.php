@@ -20,11 +20,14 @@ class ProviderController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $providers = $em->getRepository('KoreAdminBundle:Provider')->findBy(array(), array($sort => $direction));
-        else $providers = $em->getRepository('KoreAdminBundle:Provider')->findAll();
+        if($sort) $providers = $em->getRepository('KoreAdminBundle:Provider')->findBy(array('group' => $group), array($sort => $direction));
+        else $providers = $em->getRepository('KoreAdminBundle:Provider')->findBy(array('group' => $group));
         $paginator = $this->get('knp_paginator');
         $providers = $paginator->paginate($providers, $request->query->getInt('page', 1), 100);
 
@@ -47,12 +50,17 @@ class ProviderController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+
         $provider = new Provider();
         $newForm = $this->createNewForm($provider);
         $newForm->handleRequest($request);
 
         if ($newForm->isSubmitted()) {
             if($newForm->isValid()) {
+                $provider->setUser($user);
+                $provider->setGroup($group);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($provider);
                 $em->flush();
@@ -86,6 +94,10 @@ class ProviderController extends Controller
      */
     public function showAction(Provider $provider)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $provider->getGroup()) return $this->redirect($this->generateUrl('agent_provider_index'));
+
         $editForm = $this->createEditForm($provider);
         $deleteForm = $this->createDeleteForm($provider);
 
@@ -102,6 +114,10 @@ class ProviderController extends Controller
      */
     public function editAction(Request $request, Provider $provider)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $provider->getGroup()) return $this->redirect($this->generateUrl('agent_provider_index'));
+
         $editForm = $this->createEditForm($provider);
         $deleteForm = $this->createDeleteForm($provider);
         $editForm->handleRequest($request);
@@ -143,6 +159,10 @@ class ProviderController extends Controller
      */
     public function deleteAction(Request $request, Provider $provider)
     {
+        $user = $this->getUser();
+        $group = $user->getGroup();
+        if ($group != $provider->getGroup()) return $this->redirect($this->generateUrl('agent_provider_index'));
+
         $deleteForm = $this->createDeleteForm($provider);
         $deleteForm->handleRequest($request);
 

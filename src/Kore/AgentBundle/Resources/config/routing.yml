@@ -1,3 +1,15 @@
+kore_agent_issuer:
+    resource: "@KoreAgentBundle/Resources/config/routing/issuer.yml"
+    prefix:   /issuer
+
+kore_agent_group:
+    resource: "@KoreAgentBundle/Resources/config/routing/group.yml"
+    prefix:   /group
+
+kore_agent_user:
+    resource: "@KoreAgentBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
 kore_agent_test:
     resource: "@KoreAgentBundle/Resources/config/routing/test.yml"
     prefix:   /test

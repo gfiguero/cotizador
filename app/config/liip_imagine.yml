@@ -16,3 +16,9 @@ liip_imagine:
             filters:
                 upscale: { min: [400, 400] }
                 thumbnail: { size: [400, 400], mode: outbound }
+        product_edit_preview:
+            quality: 75
+            default_image: default.png
+            filters:
+                upscale: { min: [256, 160] }
+                thumbnail: { size: [256, 160], mode: outbound }
