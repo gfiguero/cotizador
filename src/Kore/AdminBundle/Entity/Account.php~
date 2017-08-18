@@ -499,3 +499,4 @@ class Account
         return $this->users;
     }
 }
+

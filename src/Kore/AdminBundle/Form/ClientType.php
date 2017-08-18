@@ -49,6 +49,11 @@ class ClientType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('comment', null, array(
+                'label' => 'client.form.comment',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('user', null, array(
                 'label' => 'client.form.user',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

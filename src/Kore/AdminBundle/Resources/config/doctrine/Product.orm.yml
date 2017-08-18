@@ -45,7 +45,7 @@ Kore\AdminBundle\Entity\Product:
         price:
             type: integer
             nullable: true
-        upc:
+        code:
             type: string
             length: 30
             nullable: true
@@ -64,6 +64,9 @@ Kore\AdminBundle\Entity\Product:
             type: integer
             nullable: true
         weight:
+            type: integer
+            nullable: true
+        thickness:
             type: integer
             nullable: true
 
@@ -100,6 +103,10 @@ Kore\AdminBundle\Entity\Product:
             type: string
             length: 100
             nullable: true
+        consumer_traffic:
+            type: string
+            length: 100
+            nullable: true
 
         structure_main:
             type: string
@@ -110,6 +117,10 @@ Kore\AdminBundle\Entity\Product:
             length: 300
             nullable: true
         structure_instalation:
+            type: string
+            length: 300
+            nullable: true
+        structure_anchorage:
             type: string
             length: 300
             nullable: true

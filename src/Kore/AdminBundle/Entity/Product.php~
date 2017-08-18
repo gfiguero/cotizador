@@ -1162,4 +1162,149 @@ class Product
     {
         return $this->short;
     }
+    /**
+     * @var \Kore\AdminBundle\Entity\Account
+     */
+    private $account;
+
+
+    /**
+     * Set account
+     *
+     * @param \Kore\AdminBundle\Entity\Account $account
+     *
+     * @return Product
+     */
+    public function setAccount(\Kore\AdminBundle\Entity\Account $account = null)
+    {
+        $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * Get account
+     *
+     * @return \Kore\AdminBundle\Entity\Account
+     */
+    public function getAccount()
+    {
+        return $this->account;
+    }
+    /**
+     * @var integer
+     */
+    private $thickness;
+
+
+    /**
+     * Set thickness
+     *
+     * @param integer $thickness
+     *
+     * @return Product
+     */
+    public function setThickness($thickness)
+    {
+        $this->thickness = $thickness;
+
+        return $this;
+    }
+
+    /**
+     * Get thickness
+     *
+     * @return integer
+     */
+    public function getThickness()
+    {
+        return $this->thickness;
+    }
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var string
+     */
+    private $consumer_traffic;
+
+    /**
+     * @var string
+     */
+    private $structure_anchorage;
+
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Product
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set consumerTraffic
+     *
+     * @param string $consumerTraffic
+     *
+     * @return Product
+     */
+    public function setConsumerTraffic($consumerTraffic)
+    {
+        $this->consumer_traffic = $consumerTraffic;
+
+        return $this;
+    }
+
+    /**
+     * Get consumerTraffic
+     *
+     * @return string
+     */
+    public function getConsumerTraffic()
+    {
+        return $this->consumer_traffic;
+    }
+
+    /**
+     * Set structureAnchorage
+     *
+     * @param string $structureAnchorage
+     *
+     * @return Product
+     */
+    public function setStructureAnchorage($structureAnchorage)
+    {
+        $this->structure_anchorage = $structureAnchorage;
+
+        return $this;
+    }
+
+    /**
+     * Get structureAnchorage
+     *
+     * @return string
+     */
+    public function getStructureAnchorage()
+    {
+        return $this->structure_anchorage;
+    }
 }

@@ -49,8 +49,8 @@
                                 <dd>{% if product.cost %}{{ product.cost }}{% endif %}</dd>
                             <dt>{{ 'product.form.price'|trans }}</dt>
                                 <dd>{% if product.price %}{{ product.price }}{% endif %}</dd>
-                            <dt>{{ 'product.form.upc'|trans }}</dt>
-                                <dd>{% if product.upc %}{{ product.upc }}{% endif %}</dd>
+                            <dt>{{ 'product.form.code'|trans }}</dt>
+                                <dd>{% if product.code %}{{ product.code }}{% endif %}</dd>
                             <dt>{{ 'product.form.cm_code'|trans }}</dt>
                                 <dd>{% if product.cmcode %}{{ product.cmcode }}{% endif %}</dd>
                             <dt>{{ 'product.form.height'|trans }}</dt>
@@ -61,6 +61,8 @@
                                 <dd>{% if product.length %}{{ product.length }}{% endif %}</dd>
                             <dt>{{ 'product.form.weight'|trans }}</dt>
                                 <dd>{% if product.weight %}{{ product.weight }}{% endif %}</dd>
+                            <dt>{{ 'product.form.thickness'|trans }}</dt>
+                                <dd>{% if product.thickness %}{{ product.thickness }}{% endif %}</dd>
                             <dt>{{ 'product.form.brand'|trans }}</dt>
                                 <dd>{% if product.brand %}{{ product.brand }}{% endif %}</dd>
                             <dt>{{ 'product.form.origin'|trans }}</dt>
@@ -77,12 +79,16 @@
                                 <dd>{% if product.consumerage %}{{ product.consumerage }}{% endif %}</dd>
                             <dt>{{ 'product.form.consumer_capacity'|trans }}</dt>
                                 <dd>{% if product.consumercapacity %}{{ product.consumercapacity }}{% endif %}</dd>
+                            <dt>{{ 'product.form.consumer_traffic'|trans }}</dt>
+                                <dd>{% if product.consumertraffic %}{{ product.consumertraffic }}{% endif %}</dd>
                             <dt>{{ 'product.form.structure_main'|trans }}</dt>
                                 <dd>{% if product.structuremain %}{{ product.structuremain }}{% endif %}</dd>
                             <dt>{{ 'product.form.structure_side'|trans }}</dt>
                                 <dd>{% if product.structureside %}{{ product.structureside }}{% endif %}</dd>
                             <dt>{{ 'product.form.structure_instalation'|trans }}</dt>
                                 <dd>{% if product.structureinstalation %}{{ product.structureinstalation }}{% endif %}</dd>
+                            <dt>{{ 'product.form.structure_anchorage'|trans }}</dt>
+                                <dd>{% if product.structureanchorage %}{{ product.structureanchorage }}{% endif %}</dd>
                             <dt>{{ 'product.form.structure_assembly'|trans }}</dt>
                                 <dd>{% if product.structureassembly %}{{ product.structureassembly }}{% endif %}</dd>
                             <dt>{{ 'product.form.structure_protection'|trans }}</dt>

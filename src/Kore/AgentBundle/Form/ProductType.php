@@ -36,7 +36,6 @@ class ProductType extends AbstractType
                 'translation_domain' => 'KoreAgentBundle',
                 'required' => false,
             ))
-
             ->add('height', null, array(
                 'label' => 'product.form.height',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
@@ -57,7 +56,11 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
-
+            ->add('thickness', null, array(
+                'label' => 'product.form.thickness',
+                'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
             ->add('cost', null, array(
                 'label' => 'product.form.cost',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
@@ -68,8 +71,8 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
-            ->add('upc', null, array(
-                'label' => 'product.form.upc',
+            ->add('code', null, array(
+                'label' => 'product.form.code',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
@@ -78,13 +81,11 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
-
             ->add('provider', null, array(
                 'label' => 'product.form.provider',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
-
             ->add('brand', null, array(
                 'label' => 'product.form.brand',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
@@ -110,7 +111,6 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
-
             ->add('consumer_name', null, array(
                 'label' => 'product.form.consumer_name',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
@@ -126,7 +126,6 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
-
             ->add('structure_main', null, array(
                 'label' => 'product.form.structure_main',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
@@ -139,6 +138,11 @@ class ProductType extends AbstractType
             ))
             ->add('structure_instalation', null, array(
                 'label' => 'product.form.structure_instalation',
+                'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('structure_anchorage', null, array(
+                'label' => 'product.form.structure_anchorage',
                 'attr'  => array( 'label_col' => 3, 'widget_col' => 9 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))

@@ -49,6 +49,11 @@ class ProviderType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('comment', null, array(
+                'label' => 'provider.form.comment',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('user', null, array(
                 'label' => 'provider.form.user',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

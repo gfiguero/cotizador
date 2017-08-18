@@ -305,4 +305,33 @@ class Note
     {
         return $this->group;
     }
+    /**
+     * @var \Kore\AdminBundle\Entity\Account
+     */
+    private $account;
+
+
+    /**
+     * Set account
+     *
+     * @param \Kore\AdminBundle\Entity\Account $account
+     *
+     * @return Note
+     */
+    public function setAccount(\Kore\AdminBundle\Entity\Account $account = null)
+    {
+        $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * Get account
+     *
+     * @return \Kore\AdminBundle\Entity\Account
+     */
+    public function getAccount()
+    {
+        return $this->account;
+    }
 }

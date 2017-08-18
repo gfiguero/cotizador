@@ -89,7 +89,10 @@ client:
         contactname: Nombre Contacto
         email: Email
         phone: Teléfono
-        address: Dirección
+        address_street: Calle
+        address_number: Número
+        commune: Comuna
+        comment: Comentario
         created_at: Registro
         updated_at: Actualización
 
@@ -127,7 +130,10 @@ provider:
         contactname: Nombre Contacto
         email: Email
         phone: Teléfono
-        address: Dirección
+        address_street: Calle
+        address_number: Número
+        commune: Comuna
+        comment: Comentario
         created_at: Registro
         updated_at: Actualización
 
@@ -169,8 +175,8 @@ product:
         id: ID
         features: Características
         dimensions: Dimensiones
-        size: Volumen (m3)
-        density: Densidad (Kg/m3)
+        size: Volumen [m3]
+        density: Densidad [Kg/m3]
         image: Imagen
         margin: Margen
         name: Nombre
@@ -178,13 +184,14 @@ product:
         description: Descripción
         imagefile: Archivo de Imagen
         provider: Proveedor
-        height: Atura (cm)
-        weight: Peso (Kg)
-        width: Ancho (cm)
-        length: Largo (cm)
+        height: Atura [cm]
+        weight: Peso [Kg]
+        width: Ancho [cm]
+        length: Largo [cm]
+        thickness: Espesor [mm]
         cost: Costo
         price: Precio
-        upc: UPC
+        code: Código
         cm_code: Código CM
         brand: Marca
         origin: Procedencia
@@ -197,7 +204,8 @@ product:
         structure_main: Estructura Principal
         structure_side: Estructura Secundaria
         structure_instalation: Instalación
-        structure_assembly: Ensamblaje
+        structure_anchorage: Anclaje
+        structure_assembly: Ensamblado
         structure_protection: Protección
         structure_termination: Terminación
         structure_color: Color

@@ -78,8 +78,9 @@ class Group extends BaseGroup
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($roles = array())
     {
+        parent::__construct($roles);
         $this->issuers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sellers = new \Doctrine\Common\Collections\ArrayCollection();

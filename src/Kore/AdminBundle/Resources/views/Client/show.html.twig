@@ -51,6 +51,8 @@
                                 <dd>{% if client.addressstreet %}{{ client.addressstreet }}{% endif %}</dd>
                             <dt>{{ 'client.form.address_number'|trans }}</dt>
                                 <dd>{% if client.addressnumber %}{{ client.addressnumber }}{% endif %}</dd>
+                            <dt>{{ 'client.form.comment'|trans }}</dt>
+                                <dd>{% if client.comment %}{{ client.comment }}{% endif %}</dd>
                             <dt>{{ 'client.form.created_at'|trans }}</dt>
                                 <dd>{% if client.createdat %}{{ client.createdat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y - HH:mm") }}&nbsp;({{ client.createdat|ago }}){% endif %}</dd>
                             <dt>{{ 'client.form.updated_at'|trans }}</dt>

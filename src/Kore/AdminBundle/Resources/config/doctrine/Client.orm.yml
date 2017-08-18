@@ -50,6 +50,9 @@ Kore\AdminBundle\Entity\Client:
             type: string
             length: 10
             nullable: true
+        comment:
+            type: text
+            nullable: true
         created_at:
             type: datetime
             gedmo:

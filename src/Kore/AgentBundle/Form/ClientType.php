@@ -18,34 +18,44 @@ class ClientType extends AbstractType
                 'label' => 'client.form.name',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
+            ))
             ->add('rut', null, array(
                 'label' => 'client.form.rut',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
+            ))
             ->add('contactname', null, array(
                 'label' => 'client.form.contactname',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
+            ))
             ->add('phone', null, array(
                 'label' => 'client.form.phone',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
+            ))
             ->add('email', null, array(
                 'label' => 'client.form.email',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
-            ->add('address', null, array(
-                'label' => 'client.form.address',
+            ))
+            ->add('address_street', null, array(
+                'label' => 'client.form.address_street',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('address_number', null, array(
+                'label' => 'client.form.address_number',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
             ->add('commune', null, array(
                 'label' => 'client.form.commune',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('comment', null, array(
+                'label' => 'client.form.comment',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))

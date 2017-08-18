@@ -3,3 +3,9 @@ find . -type f -print0 | xargs -0 sed -i 's/Admin/Agent/g'
 find . -type f -print0 | xargs -0 sed -i 's/group/account/g'
 find . -type f -print0 | xargs -0 sed -i 's/getGroup/getAccount/g'
 find . -type f -print0 | xargs -0 sed -i 's/setGroup/setAccount/g'
+
+find . -type f -print0 | xargs -0 sed -i 's/{% block title %}{{/{% block title %}\&nbsp;-\&nbsp;{{/g'
+
+
+
+{% block title %}{% block title %}{{nbsp;-{% block title %}{{nbsp;

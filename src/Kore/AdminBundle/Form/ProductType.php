@@ -44,8 +44,8 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
-            ->add('upc', null, array(
-                'label' => 'product.form.upc',
+            ->add('code', null, array(
+                'label' => 'product.form.code',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
@@ -71,6 +71,11 @@ class ProductType extends AbstractType
             )) 
             ->add('weight', null, array(
                 'label' => 'product.form.weight',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('thickness', null, array(
+                'label' => 'product.form.thickness',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
@@ -114,6 +119,11 @@ class ProductType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('consumer_traffic', null, array(
+                'label' => 'product.form.consumer_traffic',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('structure_main', null, array(
                 'label' => 'product.form.structure_main',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
@@ -126,6 +136,11 @@ class ProductType extends AbstractType
             )) 
             ->add('structure_instalation', null, array(
                 'label' => 'product.form.structure_instalation',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
+            ->add('structure_anchorage', null, array(
+                'label' => 'product.form.structure_anchorage',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 

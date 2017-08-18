@@ -508,4 +508,33 @@ class Provider
     {
         return $this->account;
     }
+    /**
+     * @var string
+     */
+    private $comment;
+
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     *
+     * @return Provider
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 }

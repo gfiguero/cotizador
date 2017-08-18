@@ -49,13 +49,14 @@
                             {{ form_row(newForm.height) }}
                             {{ form_row(newForm.width) }}
                             {{ form_row(newForm.length) }}
+                            {{ form_row(newForm.thickness) }}
                             {{ form_row(newForm.weight) }}
                             <div class="form-group"><div class="col-lg-offset-3 col-lg-9">
                                 <h2>{{ 'product.section.trading'|trans }}</h2>
                             </div></div>
                             {{ form_row(newForm.cost) }}
                             {{ form_row(newForm.price) }}
-                            {{ form_row(newForm.upc) }}
+                            {{ form_row(newForm.code) }}
                             {{ form_row(newForm.cm_code) }}
                             <div class="form-group"><div class="col-lg-offset-3 col-lg-9">
                                 <h2>{{ 'product.section.branding'|trans }}</h2>
@@ -77,6 +78,7 @@
                             {{ form_row(newForm.structure_main) }}
                             {{ form_row(newForm.structure_side) }}
                             {{ form_row(newForm.structure_instalation) }}
+                            {{ form_row(newForm.structure_anchorage) }}
                             {{ form_row(newForm.structure_assembly) }}
                             {{ form_row(newForm.structure_protection) }}
                             {{ form_row(newForm.structure_termination) }}
