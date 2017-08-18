@@ -54,7 +54,7 @@ class BudgetController extends Controller
         $user = $this->getUser();
         $account = $user->getAccount();
 
-        $note = $account->getPredefinedNote();
+        $note = $account->getBudgetNote();
         $adjudicationDate = new \DateTime('+ 10 days');
         $expirationDate = new \DateTime('+ 20 days');
 
@@ -93,7 +93,7 @@ class BudgetController extends Controller
      */
     private function createNewForm(Budget $budget)
     {
-        return $this->createForm(new BudgetType(), $budget, array(
+        return $this->createForm(BudgetType::class, $budget, array(
             'action' => $this->generateUrl('agent_budget_new'),
         ));
     }
@@ -127,6 +127,7 @@ class BudgetController extends Controller
         $items = $budget->getItems();
         $seller = $budget->getSeller();
         $client = $budget->getClient();
+        $issuer = $budget->getIssuer();
         $notes = $budget->getNotes();
         return $this->render('KoreAgentBundle:Export:budget.html.twig', array(
             'budget' => $budget,
@@ -134,6 +135,7 @@ class BudgetController extends Controller
             'seller' => $seller,
             'client' => $client,
             'account' => $account,
+            'issuer' => $issuer,
             'notes' => $notes,
         ));
     }
@@ -148,6 +150,7 @@ class BudgetController extends Controller
         $seller = $budget->getSeller();
         $client = $budget->getClient();
         $notes = $budget->getNotes();
+        $issuer = $budget->getIssuer();
 
         $html = $this->renderView('KoreAgentBundle:Export:budget.html.twig', array(
             'budget' => $budget,
@@ -155,6 +158,7 @@ class BudgetController extends Controller
             'seller' => $seller,
             'client' => $client,
             'account' => $account,
+            'issuer' => $issuer,
             'notes' => $notes,
         ));
 
@@ -203,7 +207,7 @@ class BudgetController extends Controller
      */
     private function createEditForm(Budget $budget)
     {
-        return $this->createForm(new BudgetType(), $budget, array(
+        return $this->createForm(BudgetType::class, $budget, array(
             'action' => $this->generateUrl('agent_budget_edit', array('id' => $budget->getId())),
         ));
     }

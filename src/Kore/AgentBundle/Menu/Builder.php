@@ -19,7 +19,8 @@ class Builder implements ContainerAwareInterface
         $topmenu->setChildrenAttribute('class', 'nav navbar-nav navbar-right');
         $topmenu->setChildrenAttribute('id', 'top-menu');
 
-        if ($checker->isGranted('ROLE_USER')) {
+
+        if ($checker->isGranted('ROLE_LEADER')) {
 
             $topmenu->addChild('topmenu.account');
             $topmenu['topmenu.account']->setUri('#');
@@ -29,7 +30,17 @@ class Builder implements ContainerAwareInterface
             $topmenu['topmenu.account']->setChildrenAttributes(array('class' => 'dropdown-menu'));
 
             $topmenu['topmenu.account']->addChild('topmenu.settings', array('route' => 'agent_account_edit'));
-            $topmenu['topmenu.account']['topmenu.settings']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'user fa-fw'));
+            $topmenu['topmenu.account']['topmenu.settings']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'gears fa-fw'));
+
+            $topmenu['topmenu.account']->addChild('topmenu.issuer', array('route' => 'agent_issuer_index'));
+            $topmenu['topmenu.account']['topmenu.issuer']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'flag fa-fw'));
+
+            $topmenu['topmenu.account']->addChild('topmenu.user', array('route' => 'agent_user_index'));
+            $topmenu['topmenu.account']['topmenu.user']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'users fa-fw'));
+
+        }
+
+        if ($checker->isGranted('ROLE_USER')) {
 
             $topmenu->addChild('topmenu.user');
             $topmenu['topmenu.user']->setUri('#');
@@ -38,7 +49,7 @@ class Builder implements ContainerAwareInterface
             $topmenu['topmenu.user']->setExtras(array('dropdown' => true, 'translation_domain' => 'KoreAgentBundle'));
             $topmenu['topmenu.user']->setChildrenAttributes(array('class' => 'dropdown-menu'));
 
-            $topmenu['topmenu.user']->addChild('topmenu.profile', array('route' => 'agent_user_edit'));
+            $topmenu['topmenu.user']->addChild('topmenu.profile', array('route' => 'fos_user_profile_show'));
             $topmenu['topmenu.user']['topmenu.profile']->setExtras(array('translation_domain' => 'KoreAgentBundle', 'icon' => 'user fa-fw'));
 
             $topmenu['topmenu.user']->addChild('topmenu.changepassword', array('route' => 'agent_user_change_password'));

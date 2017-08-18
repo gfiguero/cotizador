@@ -52,6 +52,11 @@ class ProfileType extends AbstractType
                 'translation_domain' => 'KoreUserBundle',
                 'attr' => array('label_col' => 4, 'widget_col' => 8),
             ))
+            ->add('name', null, array(
+                'label' => 'security.form.name',
+                'translation_domain' => 'KoreUserBundle',
+                'attr' => array('label_col' => 4, 'widget_col' => 8),
+            ))
         ;
     }
 

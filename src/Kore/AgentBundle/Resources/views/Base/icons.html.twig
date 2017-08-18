@@ -7,5 +7,7 @@
     {% elseif '_budget_' in app.request.attributes.get( '_route' ) %}{{ icon('check-square-o fa-fw') }}
     {% elseif '_provider_' in app.request.attributes.get( '_route' ) %}{{ icon('truck fa-fw') }}
     {% elseif '_note_' in app.request.attributes.get( '_route' ) %}{{ icon('sticky-note fa-fw') }}
+    {% elseif '_issuer_' in app.request.attributes.get( '_route' ) %}{{ icon('flag fa-fw') }}
+    {% elseif '_account_' in app.request.attributes.get( '_route' ) %}{{ icon('gears fa-fw') }}
     {% endif %}
 {% endblock %}

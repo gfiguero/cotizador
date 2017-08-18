@@ -18,12 +18,27 @@ class IssuerType extends AbstractType
                 'label' => 'issuer.form.name',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
+            ))
             ->add('rut', null, array(
                 'label' => 'issuer.form.rut',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
-            )) 
+            ))
+            ->add('address_street', null, array(
+                'label' => 'issuer.form.address_street',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('address_number', null, array(
+                'label' => 'issuer.form.address_number',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
+            ->add('commune', null, array(
+                'label' => 'issuer.form.commune',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
         ;
     }
     

@@ -4,3 +4,9 @@ services:
         arguments: ["@security.token_storage"]
         tags:
             - { name: form.type, alias: kore_agentbundle_item }
+
+    kore_agent.form.budget:
+        class: Kore\AgentBundle\Form\BudgetType
+        arguments: ["@security.token_storage"]
+        tags:
+            - { name: form.type, alias: kore_agentbundle_budget }

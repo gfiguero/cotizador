@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="navbar-header">
-                                <h3>{{ group.name }}</h3>
+                                <h3>{{ issuer.name }}</h3>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -112,7 +112,7 @@
                         <tr>
                             <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
                             <td class="text-right">{{ item.quantity }}</td>
-                            <td>{{ item.product.description|raw|truncate(200, true) }}</td>
+                            <td>{{ item.product.short|raw }}</td>
                             <td style="white-space: nowrap;">
                                 {% if item.product.height %}{{ 'product.form.height'|trans }}:&nbsp;{{ item.product.height|number_format(0, ',', '.') }}<br>{% endif %}
                                 {% if item.product.width %}{{ 'product.form.width'|trans }}:&nbsp;{{ item.product.width|number_format(0, ',', '.') }}<br>{% endif %}

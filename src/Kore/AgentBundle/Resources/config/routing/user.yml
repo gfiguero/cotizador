@@ -1,10 +1,15 @@
+agent_user_index:
+    path:     /index
+    defaults: { _controller: "KoreAgentBundle:User:index" }
+    methods:  GET
+
 agent_user_show:
-    path:     /show
+    path:     /{id}/show
     defaults: { _controller: "KoreAgentBundle:User:show" }
     methods:  GET
 
 agent_user_edit:
-    path:     /edit
+    path:     /{id}/edit
     defaults: { _controller: "KoreAgentBundle:User:edit" }
     methods:  [GET, POST]
 
@@ -12,3 +17,13 @@ agent_user_change_password:
     path:     /changepassword
     defaults: { _controller: "KoreAgentBundle:User:changepassword" }
     methods:  [GET, POST]
+
+agent_user_register:
+    path:     /register
+    defaults: { _controller: "KoreAgentBundle:User:register" }
+    methods:  [GET, POST]
+
+agent_user_check_email:
+    path:     /check-email
+    defaults: { _controller: "KoreAgentBundle:User:checkEmail" }
+    methods:  GET

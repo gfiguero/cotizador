@@ -44,6 +44,11 @@ class ClientType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
+            ->add('commune', null, array(
+                'label' => 'client.form.commune',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+            ))
         ;
     }
     

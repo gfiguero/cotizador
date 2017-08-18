@@ -15,7 +15,7 @@ sidemenu:
     item:
         root: Ítems
     budget:
-        root: Cotizaciones
+        root: Presupuestos
     note:
         root: Notas
 
@@ -237,7 +237,7 @@ item:
         id: ID
         quantity: Cantidad
         discount: Descuento %
-        discountprice: Descuento
+        discountprice: Descuento U.
         totaldiscountprice: Descuento
         price: Precio
         totalprice: Precio Total
@@ -253,19 +253,19 @@ item:
 
 budget:
     index:
-        title: Cotizaciones
-        list: Lista de cotizaciones
-        link: Lista de cotizaciones
+        title: Presupuestos
+        list: Lista de presupuestos
+        link: Lista de presupuestos
     new:
-        title: Cotizaciones
-        link: Nueva cotización
-        form: Formulario de registro de cotización
-        submit: Registrar cotización
-        flash: Nueva cotización registrado satisfactoriamente.
+        title: Presupuestos
+        link: Nuevo presupuesto
+        form: Formulario de registro de presupuesto
+        submit: Registrar presupuesto
+        flash: Nuevo presupuesto registrado satisfactoriamente.
     show:
         title: Cotización N° %id%
         link: Mostrar datos
-        data: Datos de cotización
+        data: Datos de presupuesto
         client: Datos de cliente
         seller: Datos de vendedor
         items: Lista de ítems
@@ -274,22 +274,26 @@ budget:
         cmpdf: Generar PDF CM
         export: Exportar a PDF
     edit:
-        title: Cotizaciones
+        title: Presupuestos
         link: Editar datos
-        form: Formulario de edición de cotización
+        form: Formulario de edición de presupuesto
         submit: Guardar cambios
-        flash: Los cambios en la cotización fueron registrados satisfactoriamente.
+        flash: Los cambios en el presupuesto fueron registrados satisfactoriamente.
     delete:
-        link: Borrar cotización
-        title: Borrado de cotización
+        link: Borrar presupuesto
+        title: Borrado de presupuesto
         message: Los datos borrados no podrán ser recuperados.
         submit: Confirmar borrado
-        flash: La cotización fué borrado totalmente.
+        flash: El presupuesto fué borrado totalmente.
     form:
         id: ID
+        name: Título
         code: Código
         client: Cliente
         seller: Vendedor
+        issuer: Emisor
+        adjudicatedAt: Fecha de Revisión
+        expiredAt: Fecha de Descarte
         items: Ítems
         notes: Notas reutilizables
         note: Nota única
