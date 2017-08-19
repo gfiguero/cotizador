@@ -106,8 +106,8 @@
                             <th>{{ 'product.form.description'|trans }}</th>
                             <th>{{ 'product.form.dimensions'|trans }}</th>
                             <th width="90">{{ 'item.form.quantity'|trans }}</th>
-                            <th width="90">{{ 'item.form.totalprice'|trans }}</th>
-                            <th width="90">{{ 'item.form.totaldiscountprice'|trans }}</th>
+                            <th width="90">{{ 'product.form.netprice'|trans }}</th>
+                            <th width="90">{{ 'item.form.discountprice'|trans }}</th>
                             <th width="90">{{ 'item.form.totalnetprice'|trans }}</th>
                         </tr>
                     </thead>
@@ -124,8 +124,8 @@
                             </td>
 
                             <td class="text-right">{{ item.quantity }}</td>
-                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totalprice|number_format(0, ',', '.') }}</td>
-                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.product.netprice|number_format(0, ',', '.') }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.discountprice|number_format(0, ',', '.') }}</td>
                             <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totalnetprice|number_format(0, ',', '.') }}</td>
                         </tr>
                     {% endfor %}
@@ -154,7 +154,7 @@
                     <tbody>
                         <tr>
                             <td>{{ 'budget.form.totalfullprice'|trans }}</td>
-                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totalprice|number_format(0, ',', '.') }}</td>
+                            <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totalfullprice|number_format(0, ',', '.') }}</td>
                         </tr>
                         <tr>
                             <td>{{ 'budget.form.totaldiscountprice'|trans }}</td>
