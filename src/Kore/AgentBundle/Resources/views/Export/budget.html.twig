@@ -9,10 +9,10 @@
         </div>
         <div class="col-md-5">
             <div class="issuer-header">
-                <div class="issuer-name">{{ issuer.name }}</div>
-                <div class="issuer-rut">{{ issuer.rut }}</div>
-                <div class="issuer-address">{{ issuer.address }}</div>
-                <div class="issuer-address">{{ issuer.region }}</div>
+                <div class="issuer-name">{% if issuer.name %}{{ issuer.name }}{% else %}</div>
+                <div class="issuer-rut">{% if issuer.rut %}{{ issuer.rut }}{% else %}</div>
+                <div class="issuer-address">{% if issuer.address %}{{ issuer.address }}{% else %}</div>
+                <div class="issuer-address">{% if issuer.region %}{{ issuer.region }}{% else %}</div>
             </div>
         </div>
         <div class="col-md-5">
