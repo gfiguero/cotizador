@@ -278,7 +278,7 @@ class Item
      */
     public function getTotalDiscountPrice()
     {
-        return $this->getQuantity() * $this->getDiscountPrice();
+        return $this->getQuantity() * ($this->getPrice() * ($this->getDiscount() / 100));
     }
 
     /**
@@ -288,7 +288,7 @@ class Item
      */
     public function getNetPrice()
     {
-        return round($this->getProduct()->getNetPrice() - $this->getDiscountPrice(), 0);
+        return round(($this->getProduct()->getPrice() / 1.19) - ($this->getPrice() * ($this->getDiscount() / 100)));
     }
 
     /**
@@ -298,7 +298,7 @@ class Item
      */
     public function getTotalNetPrice()
     {
-        return round($this->getQuantity() * $this->getNetPrice());
+        return round($this->getQuantity() * (($this->getProduct()->getPrice() / 1.19) - ($this->getPrice() * ($this->getDiscount() / 100))));
     }
 
     /**
@@ -308,7 +308,7 @@ class Item
      */
     public function getIva()
     {
-        return round($this->getNetPrice() * 0.19);
+        return round((($this->getProduct()->getPrice() / 1.19) - ($this->getPrice() * ($this->getDiscount() / 100))) * 0.19);
     }
 
     /**
@@ -318,7 +318,7 @@ class Item
      */
     public function getTotalIva()
     {
-        return round($this->getQuantity() * $this->getIva());
+        return round($this->getQuantity() * ((($this->getProduct()->getPrice() / 1.19) - ($this->getPrice() * ($this->getDiscount() / 100))) * 0.19));
     }
 
     /**
@@ -328,7 +328,7 @@ class Item
      */
     public function getTotalFullPrice()
     {
-        return round($this->getQuantity() * $this->getProduct()->getNetPrice());
+        return round($this->getQuantity() * ($this->getProduct()->getPrice() / 1.19));
     }
 
     /**
@@ -338,7 +338,7 @@ class Item
      */
     public function getTotalPrice()
     {
-        return round($this->getTotalNetPrice() * 1.19);
+        return round(($this->getQuantity() * (($this->getProduct()->getPrice() / 1.19) - ($this->getPrice() * ($this->getDiscount() / 100)))) * 1.19);
     }
 
     public function setReferencePrice()
