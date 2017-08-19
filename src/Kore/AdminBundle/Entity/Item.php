@@ -338,7 +338,7 @@ class Item
      */
     public function getTotalPrice()
     {
-        return round($this->getTotalNetPrice() + $this->getTotalIva());
+        return round($this->getTotalNetPrice() * 1.19);
     }
 
     public function setReferencePrice()
