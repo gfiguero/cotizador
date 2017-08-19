@@ -2,9 +2,16 @@
 
 namespace Kore\AdminBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 /**
  * Issuer
+ * @ORM\Entity
+ * @Vich\Uploadable
  */
+
 class Issuer
 {
     /**
@@ -16,6 +23,17 @@ class Issuer
      * @var string
      */
     private $name;
+
+    /**
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="issuer_image", fileNameProperty="image")
+     * @var File
+     */
+    private $imagefile;
 
     /**
      * @var string
@@ -363,6 +381,29 @@ class Issuer
     {
         return $this->commune;
     }
+
+    /**
+     * Get address
+     */
+    public function getAddress()
+    {
+        $street = $this->address_street;
+        $number = $this->address_number;
+        $commune = $this->commune->getName();
+        return $street . ' ' . $number . ', ' . $commune;
+    }
+
+    /**
+     * Get region
+     */
+    public function getRegion()
+    {
+        if ($this->commune) {
+            return $this->commune->getProvince()->getRegion()->getName();
+        }
+        return '';
+    }
+
     /**
      * @var \Kore\AdminBundle\Entity\Account
      */
@@ -392,4 +433,53 @@ class Issuer
     {
         return $this->account;
     }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Issuer
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        if ($this->image) return $this->image; else return 'default';
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     *
+     * @return Issuer
+     */
+    public function setImagefile(File $image = null)
+    {
+        $this->imagefile = $image;
+
+        if ($image) {
+            $this->updated_at = new \DateTime();
+        }
+        
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImagefile()
+    {
+        return $this->imagefile;
+    }
+
 }

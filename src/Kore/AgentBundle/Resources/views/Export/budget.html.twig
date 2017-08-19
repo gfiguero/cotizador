@@ -4,19 +4,24 @@
 
 {% block header %}
     <div class="row" id="page-header">
-        <div class="container-fluid">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="navbar-header">
-                                <h3>{{ issuer.name }}</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h4 class="text-right">{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y") }}</h4>
-                        </div>
-                    </div>
+        <div class="col-md-2">
+            <img class="img img-responsive" src="{{ vich_uploader_asset(issuer, "imagefile")|imagine_filter("issuer_export_medium") }}">
+        </div>
+        <div class="col-md-5">
+            <div class="issuer-header">
+                <div class="issuer-name">{{ issuer.name }}</div>
+                <div class="issuer-rut">{{ issuer.rut }}</div>
+                <div class="issuer-address">{{ issuer.address }}</div>
+                <div class="issuer-address">{{ issuer.region }}</div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="budget-header">
+                <div class="budget-name">{{ budget.name }}</div>
+                <div class="budget-date">{{ budget.updatedat|localizeddate('full', 'full', 'es_ES', 'America/Santiago', "d 'de' LLLL 'de' y") }}</div>
+            </div>
+        </div>
+    </div>
 {#}
                     <div class="navbar-header">
                         <h1>{{ group.name }}</h1>
@@ -26,12 +31,11 @@
                             <img alt="Brand" src="...">
                         </div>
                     </div>
-{#}
                 </div>
             </nav>
-            <h1 class="page-header text-center">{{ budget.name }}</h1>
         </div>
     </div>
+{#}
     <!-- /#page-header -->
 
 {% endblock %}
@@ -39,7 +43,7 @@
 {% block property %}
     <div class="row" id="page-client-seller">
         {% if budget.client %}
-        <div class="col-lg-6">
+        <div class="col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">{{ 'budget.show.client'|trans }}</h2>
@@ -63,7 +67,7 @@
         {% endif %}
 
         {% if budget.seller %}
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">{{ 'budget.show.seller'|trans }}</h2>
@@ -99,9 +103,9 @@
                     <thead>
                         <tr>
                             <th width="100">{{'product.form.image'|trans }}</th>
-                            <th>{{ '#' }}</th>
                             <th>{{ 'product.form.description'|trans }}</th>
                             <th>{{ 'product.form.dimensions'|trans }}</th>
+                            <th width="90">{{ 'item.form.quantity'|trans }}</th>
                             <th width="90">{{ 'item.form.totalprice'|trans }}</th>
                             <th width="90">{{ 'item.form.totaldiscountprice'|trans }}</th>
                             <th width="90">{{ 'item.form.totalnetprice'|trans }}</th>
@@ -110,8 +114,7 @@
                     <tbody>
                     {% for k, item in items %}
                         <tr>
-                            <td><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
-                            <td class="text-right">{{ item.quantity }}</td>
+                            <td class="product-image"><img class="img-responsive" src="{{ vich_uploader_asset(item.product, 'imagefile', 'Kore\\AdminBundle\\Entity\\Product')|imagine_filter('product_export_small') }}" /></td>
                             <td>{{ item.product.short|raw }}</td>
                             <td style="white-space: nowrap;">
                                 {% if item.product.height %}{{ 'product.form.height'|trans }}:&nbsp;{{ item.product.height|number_format(0, ',', '.') }}<br>{% endif %}
@@ -120,6 +123,7 @@
                                 {% if item.product.weight %}{{ 'product.form.weight'|trans }}:&nbsp;{{ item.product.weight|number_format(0, ',', '.') }}<br>{% endif %}
                             </td>
 
+                            <td class="text-right">{{ item.quantity }}</td>
                             <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totalprice|number_format(0, ',', '.') }}</td>
                             <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
                             <td class="text-right">{{ icon('dollar fa-fw') }}{{ item.totalnetprice|number_format(0, ',', '.') }}</td>
@@ -149,7 +153,7 @@
                 <table class="table table-middle table-bordered">
                     <tbody>
                         <tr>
-                            <td>{{ 'budget.form.totalprice'|trans }}</td>
+                            <td>{{ 'budget.form.totalfullprice'|trans }}</td>
                             <td class="text-right">{{ icon('dollar fa-fw') }}{{ budget.totalprice|number_format(0, ',', '.') }}</td>
                         </tr>
                         <tr>
@@ -204,4 +208,58 @@
 
 {% block stylesheet %}
     <style type="text/css">thead { display: table-header-group } tfoot { display: table-row-group } .panel, tr { page-break-inside: avoid }</style>
+    <style type="text/css">
+        #page-header {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .issuer-header::after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            right: -3px;
+            top: 0;
+            bottom: 0;
+            border: 2px solid #eee;
+        }
+        .issuer-name {
+            margin: 5px 0;
+            font-size: 30px;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+        }
+        .issuer-rut {
+            margin: 0;
+            color: #777;
+            font-size: 16px;
+            font-style: italic;
+            text-align: right;
+        }
+        .issuer-address {
+            margin: 0;
+            text-align: right;
+        }
+        .budget-name {
+            margin: 5px 0;
+            font-size: 30px;
+        }
+        .budget-date {
+            margin: 0;
+            color: #777;
+            font-size: 16px;
+            font-style: italic;
+        }
+        .panel-heading .panel-title {
+            color: #555;
+            text-align: right;
+            font-weight: bold;
+            font-size: 18px;
+            font-style: italic;
+        }
+        .table .product-image {
+            padding: 0;
+        }
+    </style>
 {% endblock %}

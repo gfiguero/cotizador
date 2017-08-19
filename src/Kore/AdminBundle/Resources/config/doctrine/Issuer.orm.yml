@@ -26,6 +26,10 @@ Kore\AdminBundle\Entity\Issuer:
             type: string
             length: 100
             nullable: true
+        image:
+            type: string
+            length: 100
+            nullable: true
         rut:
             type: string
             length: 30

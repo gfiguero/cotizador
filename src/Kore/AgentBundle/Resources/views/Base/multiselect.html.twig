@@ -6,7 +6,8 @@
     <script src="{{ asset('vendor/multiselect/js/bootstrap-multiselect.js') }}"></script>
     <script type="text/javascript">
     var optionsMultiselect = {
-        maxHeight: 600,
+        maxHeight: 500,
+        dropUp: true,
         enableFiltering: true,
         includeSelectAllOption: true,
         enableCaseInsensitiveFiltering: true,
@@ -15,6 +16,21 @@
         allSelectedText: 'Todo seleccionado',
         nonSelectedText: 'Ningún elemento seleccionado',
         nSelectedText: 'Elementos seleccionados'
+    };
+    $('.multiselect').multiselect(optionsMultiselect);
+    </script>
+{% endblock %}
+
+{% block multiselectjs_issuer %}
+    <script src="{{ asset('vendor/multiselect/js/bootstrap-multiselect.js') }}"></script>
+    <script type="text/javascript">
+    var optionsMultiselect = {
+        enableFiltering: true,
+        enableCaseInsensitiveFiltering: true,
+        filterPlaceholder: "Buscar",
+        buttonWidth: '100%',
+        maxHeight: 200,
+        dropUp: true
     };
     $('.multiselect').multiselect(optionsMultiselect);
     </script>

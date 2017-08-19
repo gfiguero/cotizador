@@ -13,3 +13,7 @@ vich_uploader:
             uri_prefix: uploads/product
             upload_destination: %kernel.root_dir%/../web/uploads/product
             namer: vich_uploader.namer_origname
+        issuer_image:
+            uri_prefix: uploads/issuer
+            upload_destination: %kernel.root_dir%/../web/uploads/issuer
+            namer: vich_uploader.namer_origname

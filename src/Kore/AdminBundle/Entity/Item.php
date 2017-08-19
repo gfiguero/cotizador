@@ -262,16 +262,6 @@ class Item
     }
 
     /**
-     * Get totalPrice
-     *
-     * @return integer
-     */
-    public function getTotalPrice()
-    {
-        return $this->getQuantity() * $this->getPrice();
-    }
-
-    /**
      * Get discountPrice
      *
      * @return integer
@@ -298,7 +288,7 @@ class Item
      */
     public function getNetPrice()
     {
-        return $this->getPrice() - $this->getDiscountPrice();
+        return round($this->getProduct()->getNetPrice() - $this->getDiscountPrice(), 0);
     }
 
     /**
@@ -308,7 +298,17 @@ class Item
      */
     public function getTotalNetPrice()
     {
-        return $this->getQuantity() * $this->getNetPrice();
+        return round($this->getQuantity() * $this->getNetPrice());
+    }
+
+    /**
+     * Get iva
+     *
+     * @return integer
+     */
+    public function getIva()
+    {
+        return round($this->getNetPrice() * 0.19);
     }
 
     /**
@@ -318,17 +318,27 @@ class Item
      */
     public function getTotalIva()
     {
-        return round( 0.19 * $this->getTotalNetPrice() );
+        return round($this->getQuantity() * $this->getIva());
     }
 
     /**
-     * Get total
+     * Get totalFullPrice
      *
      * @return integer
      */
-    public function getTotal()
+    public function getTotalFullPrice()
     {
-        return round( 1.19 * $this->getTotalNetPrice() );
+        return round($this->getQuantity() * $this->getProduct()->getNetPrice());
+    }
+
+    /**
+     * Get totalPrice
+     *
+     * @return integer
+     */
+    public function getTotalPrice()
+    {
+        return round($this->getTotalNetPrice() + $this->getTotalIva());
     }
 
     public function setReferencePrice()

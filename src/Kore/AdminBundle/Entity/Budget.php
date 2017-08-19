@@ -221,17 +221,17 @@ class Budget
     }
 
     /**
-     * Get totalPrice
+     * Get totalFullPrice
      *
      * @return integer
      */
-    public function getTotalPrice()
+    public function getTotalFullPrice()
     {
-        $totalPrice = 0;
+        $totalFullPrice = 0;
         foreach ($this->items as $item) {
-            $totalPrice += $item->getTotalPrice();
+            $totalFullPrice += $item->getTotalFullPrice();
         }
-        return $totalPrice;
+        return $totalFullPrice;
     }
 
     /**
@@ -263,11 +263,43 @@ class Budget
     }
 
     /**
+     * Get totalNewNetPrice
+     *
+     * @return integer
+     */
+    public function getTotalNewNetPrice()
+    {
+        $totalNewNetPrice = 0;
+        foreach ($this->items as $item) {
+            $totalNewNetPrice += $item->getTotalNewNetPrice();
+        }
+        return $totalNewNetPrice;
+    }
+
+    /**
      * Get totalIva
      */
     public function getTotalIva()
     {
-        return 0.19 * $this->getTotalNetPrice();
+        $totalIva = 0;
+        foreach ($this->items as $item) {
+            $totalIva += $item->getTotalIva();
+        }
+        return $totalIva;
+    }
+
+    /**
+     * Get totalPrice
+     *
+     * @return integer
+     */
+    public function getTotalPrice()
+    {
+        $totalPrice = 0;
+        foreach ($this->items as $item) {
+            $totalPrice += $item->getTotalPrice();
+        }
+        return $totalPrice;
     }
 
     /**
@@ -275,7 +307,7 @@ class Budget
      */
     public function getTotal()
     {
-        return 1.19 * $this->getTotalNetPrice();
+        return $this->getTotalPrice();
     }
 
     public function setReferencePrices()

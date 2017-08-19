@@ -276,14 +276,34 @@ class Product
     }
 
     /**
+     * Get netPrice
+     *
+     * @return integer
+     */
+    public function getNetPrice()
+    {
+        return round($this->getPrice() / 1.19, 0);
+    }
+
+    /**
+     * Get iva
+     *
+     * @return integer
+     */
+    public function getIva()
+    {
+        return round($this->getNetPrice() * 0.19, 0);
+    }
+
+    /**
      * Get margin
      *
      * @return float
      */
     public function getMargin()
     {
-        if ($this->getCost() and $this->getPrice()) {
-            return (float) ( 1 - ( $this->getCost() / $this->getPrice() ));
+        if ($this->getCost() and $this->getNetPrice()) {
+            return (float) ( 1 - ( $this->getCost() / $this->getNetPrice() ));
         }
         return null;
     }

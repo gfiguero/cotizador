@@ -19,6 +19,11 @@ class IssuerType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAdminBundle',
             )) 
+            ->add('image', null, array(
+                'label' => 'issuer.form.image',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAdminBundle',
+            )) 
             ->add('rut', null, array(
                 'label' => 'issuer.form.rut',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

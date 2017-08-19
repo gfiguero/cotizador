@@ -1,6 +1,8 @@
 {% extends 'KoreAgentBundle:Base:layout.html.twig' %}
 {% use 'KoreAgentBundle:Base:icons.html.twig' %}
 {% use 'KoreAgentBundle:Base:flashbag.html.twig' %}
+{% use 'KoreAgentBundle:Base:multiselect.html.twig' %}
+{% use 'KoreAgentBundle:Base:fileinput.html.twig' %}
 
 {% trans_default_domain 'KoreAgentBundle' %}
 
@@ -49,7 +51,14 @@
 
 {% endblock %}
 
+{% block stylesheet %}
+    {% block fileinputcss %}{{ parent() }}{% endblock %}
+    {% block multiselectcss %}{{ parent() }}{% endblock %}
+{% endblock %}
+
 {% block javascript %}
-<script src="{{ asset('bundles/koreagent/js/jquery.rut.min.js') }}"></script>
-<script type="text/javascript">$('#kore_agentbundle_issuer_rut').Rut();</script>
+    <script src="{{ asset('bundles/koreagent/js/jquery.rut.min.js') }}"></script>
+    <script type="text/javascript">$('#kore_agentbundle_issuer_rut').Rut();</script>
+    {% block fileinputjs_issuer_new %}{{ parent() }}{% endblock %}
+    {% block multiselectjs_issuer %}{{ parent() }}{% endblock %}
 {% endblock %}

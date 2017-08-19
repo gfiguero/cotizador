@@ -55,6 +55,46 @@ seller:
         created_at: Registro
         updated_at: Actualización
 
+issuer:
+    index:
+        title: Emisores
+        list: Lista de emisores
+        link: Lista de emisores
+    new:
+        title: Emisores
+        link: Nuevo emisor
+        form: Formulario de registro de emisor
+        submit: Registrar emisor
+        flash: Nuevo emisor registrado satisfactoriamente.
+    show:
+        title: Emisores
+        link: Mostrar datos
+        data: Datos de emisor
+    edit:
+        title: Emisores
+        link: Editar datos
+        form: Formulario de edición de emisor
+        submit: Guardar cambios
+        flash: Los cambios en el emisor fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar emisor
+        title: Borrado de emisor
+        message: Los datos borrados no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El emisor fué borrado totalmente.
+    form:
+        id: ID
+        rut: Rut
+        name: Nombre
+        image: Logo de Empresa
+        email: Email
+        phone: Teléfono
+        address_street: Calle
+        address_number: Número
+        commune: Comuna
+        created_at: Registro
+        updated_at: Actualización
+
 client:
     index:
         title: Clientes
@@ -191,6 +231,8 @@ product:
         thickness: Espesor [mm]
         cost: Costo
         price: Precio
+        netprice: Neto
+        newnetprice: Neto
         code: Código
         cm_code: Código CM
         brand: Marca
@@ -248,6 +290,7 @@ item:
         discountprice: Descuento U.
         totaldiscountprice: Descuento
         price: Precio
+        netprice: Neto
         totalprice: Precio Total
         totalnetprice: Total Neto
         totaliva: IVA
@@ -274,9 +317,9 @@ budget:
         title: Cotización N° %id%
         link: Mostrar datos
         data: Datos de presupuesto
-        client: Datos de cliente
-        seller: Datos de vendedor
-        items: Lista de ítems
+        client: Cliente
+        seller: Ejecutivo
+        items: Productos
         total: Totales
         notes: Notas importantes
         cmpdf: Generar PDF CM
@@ -306,7 +349,7 @@ budget:
         notes: Notas reutilizables
         note: Nota única
         additem: Agregar Ítem
-        totalprice: Total Precio Lista
+        totalfullprice: Precio Normal
         totaldiscountprice: Total Descuentos
         totalnetprice: Total Neto
         totaliva: IVA

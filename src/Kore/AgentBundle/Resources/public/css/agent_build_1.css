@@ -1443,7 +1443,7 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 100px;
+    width: 80px;
     clear: left;
     text-align: right;
     overflow: hidden;
@@ -1451,7 +1451,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 120px;
+    margin-left: 100px;
   }
 }
 abbr[title],
@@ -7085,7 +7085,7 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 220px;
+    width: 180px;
     clear: left;
     text-align: right;
     overflow: hidden;
@@ -7093,7 +7093,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 240px;
+    margin-left: 200px;
   }
 }
 #page-header .page-header {

@@ -55,8 +55,8 @@
                     </div>
                     <div class="panel-body">
                         <dl class="dl-horizontal">
-                            <dt>{{ 'budget.form.totalprice'|trans }}</dt>
-                                <dd>{% if budget.totalprice %}{{ icon('dollar') }}&nbsp;{{ budget.totalprice|number_format(0, ',', '.') }}{% endif %}</dd>
+                            <dt>{{ 'budget.form.totalfullprice'|trans }}</dt>
+                                <dd>{% if budget.totalprice %}{{ icon('dollar') }}&nbsp;{{ budget.totalfullprice|number_format(0, ',', '.') }}{% endif %}</dd>
                             <dt>{{ 'budget.form.totaldiscountprice'|trans }}</dt>
                                 <dd>{% if budget.totaldiscountprice %}{{ icon('dollar') }}&nbsp;{{ budget.totaldiscountprice|number_format(0, ',', '.') }}{% endif %}</dd>
                             <dt>{{ 'budget.form.totalnetprice'|trans }}</dt>
@@ -133,14 +133,20 @@
                             <thead>
                                 <tr>
                                     <th>{{'item.form.product'|trans }}</th>
-                                    <th>{{'product.form.cost'|trans }}</th>
                                     <th>{{'product.form.price'|trans }}</th>
+                                    <th>{{'product.form.cost'|trans }}</th>
+                                    <th>{{'product.form.netprice'|trans }}</th>
                                     <th>{{'product.form.margin'|trans }}</th>
-                                    <th>{{'item.form.quantity'|trans }}</th>
                                     <th>{{'item.form.discount'|trans }}</th>
                                     <th>{{'item.form.discountprice'|trans }}</th>
+                                    <th>{{'item.form.netprice'|trans }}</th>
+{#}
                                     <th>{{'item.form.totaldiscountprice'|trans }}</th>
+                                    <th>{{'item.form.totalnetprice'|trans }}</th>
+                                    <th>{{'item.form.totaliva'|trans }}</th>
                                     <th>{{'item.form.price'|trans }}</th>
+{#}
+                                    <th>{{'item.form.quantity'|trans }}</th>
                                     <th>{{'item.form.totalnetprice'|trans }}</th>
                                     <th>{{'item.form.totaliva'|trans }}</th>
                                     <th>{{'item.form.total'|trans }}</th>
@@ -149,17 +155,23 @@
                             {% for item in budget.items %}
                                 <tr>
                                     <td>{{ item.product }}</td>
-                                    <td class="text-right">{{ item.product.cost|number_format(0, ',', '.') }}</td>
                                     <td class="text-right">{{ item.product.price|number_format(0, ',', '.') }}</td>
+                                    <td class="text-right">{{ item.product.cost|number_format(0, ',', '.') }}</td>
+                                    <td class="text-right">{{ item.product.netprice|number_format(0, ',', '.') }}</td>
                                     <td class="text-right">{{ (100 * item.product.margin)|number_format(0, ',', '.') ~ '%' }}</td>
-                                    <td class="text-right">{{ item.quantity }}</td>
-                                    <td class="danger text-right">{{ item.discount ~ '%' }}</td>
-                                    <td class="danger text-right">{{ item.discountprice|number_format(0, ',', '.') }}</td>
-                                    <td class="danger text-right">{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
+                                    <td class="info text-right">{{ item.discount ~ '%' }}</td>
+                                    <td class="info text-right">{{ item.discountprice|number_format(0, ',', '.') }}</td>
                                     <td class="info text-right">{{ item.netprice|number_format(0, ',', '.') }}</td>
+{#}
+                                    <td class="danger text-right">{{ item.totaldiscountprice|number_format(0, ',', '.') }}</td>
                                     <td class="info text-right">{{ item.totalnetprice|number_format(0, ',', '.') }}</td>
+                                    <td class="info text-right">{{ item.netprice|number_format(0, ',', '.') }}</td>
                                     <td class="warning text-right">{{ item.totaliva|number_format(0, ',', '.') }}</td>
-                                    <td class="success text-right">{{ item.total|number_format(0, ',', '.') }}</td>
+{#}
+                                    <td class="text-right">{{ item.quantity }}</td>
+                                    <td class="text-right">{{ item.totalnetprice|number_format(0, ',', '.') }}</td>
+                                    <td class="text-right">{{ item.totaliva|number_format(0, ',', '.') }}</td>
+                                    <td class="success text-right">{{ item.totalprice|number_format(0, ',', '.') }}</td>
                                 </tr>
                             {% endfor %}
                         </table>

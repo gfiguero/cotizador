@@ -19,6 +19,12 @@ class IssuerType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
             ))
+            ->add('imagefile', 'file', array(
+                'label' => 'issuer.form.image',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8, 'class' => 'fileinput' ),
+                'required' => false,
+                'translation_domain' => 'KoreAgentBundle',
+            ))
             ->add('rut', null, array(
                 'label' => 'issuer.form.rut',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
@@ -36,8 +42,9 @@ class IssuerType extends AbstractType
             ))
             ->add('commune', null, array(
                 'label' => 'issuer.form.commune',
-                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8, 'class' => 'multiselect' ),
                 'translation_domain' => 'KoreAgentBundle',
+                'required' => true,
             ))
         ;
     }
